@@ -55,7 +55,7 @@ struct ReaderContainerView: View {
             } else if let error = viewModel.error {
                 // Error view — scrollable, shows debug logs
                 VStack(spacing: 0) {
-                    HStack {
+                    HStack(spacing: 12) {
                         Button { dismiss() } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title2.weight(.medium))

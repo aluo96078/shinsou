@@ -160,13 +160,18 @@ extension WebtoonViewController: UICollectionViewDelegate {
 extension WebtoonViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ cv: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let requests = indexPaths.compactMap { indexPath -> ImageRequest? in
-            guard let urlStr = pages[indexPath.item].imageUrl, let url = URL(string: urlStr) else { return nil }
+            guard let urlStr = pages[indexPath.item].imageUrl else { return nil }
+            let (cleanUrl, fragmentHeaders) = ReaderPageViewController.extractFragmentHeaders(from: urlStr)
+            guard let url = URL(string: cleanUrl) else { return nil }
             var urlRequest = URLRequest(url: url)
             for (key, value) in sourceHeaders {
                 urlRequest.setValue(value, forHTTPHeaderField: key)
             }
             if let referer = refererUrl {
                 urlRequest.setValue(referer, forHTTPHeaderField: "Referer")
+            }
+            for (key, value) in fragmentHeaders {
+                urlRequest.setValue(value, forHTTPHeaderField: key)
             }
             return ImageRequest(urlRequest: urlRequest)
         }
@@ -266,8 +271,9 @@ class WebtoonPageCell: UICollectionViewCell {
                 }
 
                 let urlString = imageUrlString ?? page.url
-                guard let url = URL(string: urlString)
-                        ?? URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString) else { return }
+                let (cleanUrlString, fragmentHeaders) = ReaderPageViewController.extractFragmentHeaders(from: urlString)
+                guard let url = URL(string: cleanUrlString)
+                        ?? URL(string: cleanUrlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? cleanUrlString) else { return }
 
                 var urlRequest = URLRequest(url: url)
                 for (key, value) in sourceHeaders {
@@ -276,6 +282,9 @@ class WebtoonPageCell: UICollectionViewCell {
                 if let referer = refererUrl {
                     urlRequest.setValue(referer, forHTTPHeaderField: "Referer")
                     urlRequest.setValue(referer, forHTTPHeaderField: "Origin")
+                }
+                for (key, value) in fragmentHeaders {
+                    urlRequest.setValue(value, forHTTPHeaderField: key)
                 }
                 let request = ImageRequest(urlRequest: urlRequest)
                 let image = try await ImagePipeline.shared.image(for: request)

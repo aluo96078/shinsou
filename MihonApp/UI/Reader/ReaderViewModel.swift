@@ -459,6 +459,10 @@ final class ReaderViewModel: ObservableObject {
 
     /// Resolves the referer URL to use for image requests.
     private func resolveReferer(source: any Source, chapterUrl: String) -> String? {
+        // JS plugin sources — use baseUrl (which matches the plugin's Referer header)
+        if let jsProxy = source as? JSSourceProxy, !jsProxy.baseUrl.isEmpty {
+            return jsProxy.baseUrl
+        }
         // Try to extract base URL from the source
         if let catalogue = source as? StubCatalogueSource, let base = catalogue.baseUrl {
             return base

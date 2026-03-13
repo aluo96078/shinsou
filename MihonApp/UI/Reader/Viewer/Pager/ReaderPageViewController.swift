@@ -101,8 +101,13 @@ class ReaderPageViewController: UIViewController {
                 }
 
                 let urlString = imageUrlString ?? page.url
-                guard let url = URL(string: urlString)
-                        ?? URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString) else {
+
+                // Extract per-page headers encoded in the URL fragment
+                // Format: "https://...#Header-Name=value&Another=value2"
+                let (cleanUrlString, fragmentHeaders) = Self.extractFragmentHeaders(from: urlString)
+
+                guard let url = URL(string: cleanUrlString)
+                        ?? URL(string: cleanUrlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? cleanUrlString) else {
                     throw URLError(.badURL)
                 }
 
@@ -119,6 +124,10 @@ class ReaderPageViewController: UIViewController {
                 if let referer = self?.refererUrl {
                     urlRequest.setValue(referer, forHTTPHeaderField: "Referer")
                     urlRequest.setValue(referer, forHTTPHeaderField: "Origin")
+                }
+                // Apply per-page headers from URL fragment
+                for (key, value) in fragmentHeaders {
+                    urlRequest.setValue(value, forHTTPHeaderField: key)
                 }
                 var request = ImageRequest(urlRequest: urlRequest)
                 if ignoreCache {
@@ -162,6 +171,26 @@ class ReaderPageViewController: UIViewController {
         } catch {
             return nil
         }
+    }
+
+    /// Extract per-page HTTP headers encoded in the URL fragment.
+    /// Plugins can encode headers as: `https://cdn.example.com/img.jpg#X-Token=abc&X-Other=def`
+    /// Returns the clean URL (without fragment) and a dictionary of extracted headers.
+    static func extractFragmentHeaders(from urlString: String) -> (String, [String: String]) {
+        guard let hashIndex = urlString.firstIndex(of: "#") else {
+            return (urlString, [:])
+        }
+        let cleanUrl = String(urlString[urlString.startIndex..<hashIndex])
+        let fragment = String(urlString[urlString.index(after: hashIndex)...])
+        var headers: [String: String] = [:]
+        for pair in fragment.split(separator: "&") {
+            let parts = pair.split(separator: "=", maxSplits: 1)
+            guard parts.count == 2 else { continue }
+            let key = String(parts[0]).removingPercentEncoding ?? String(parts[0])
+            let value = String(parts[1]).removingPercentEncoding ?? String(parts[1])
+            headers[key] = value
+        }
+        return (cleanUrl, headers)
     }
 
     /// Fast regex extraction of image src from E-Hentai viewer page HTML.
