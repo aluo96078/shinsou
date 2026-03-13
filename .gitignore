@@ -1,0 +1,23 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserdata
+*.xcworkspace/xcuserdata/
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/*/checkouts/
+Package.resolved
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# CocoaPods (if any)
+Pods/
+
+# Secrets
+*.env

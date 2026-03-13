@@ -1,0 +1,65 @@
+/* Tabs */
+"tab_library" = "Bibliothek";
+"tab_updates" = "Updates";
+"tab_history" = "Verlauf";
+"tab_browse" = "Entdecken";
+"tab_more" = "Mehr";
+
+/* Common Actions */
+"action_ok" = "OK";
+"action_cancel" = "Abbrechen";
+"action_delete" = "Löschen";
+"action_edit" = "Bearbeiten";
+"action_search" = "Suchen";
+"action_filter" = "Filtern";
+"action_sort" = "Sortieren";
+"action_download" = "Herunterladen";
+"action_share" = "Teilen";
+
+/* Library */
+"library_empty" = "Deine Bibliothek ist leer";
+
+/* Reader Modes */
+"reader_mode_pager_ltr" = "Links nach rechts";
+"reader_mode_pager_rtl" = "Rechts nach links";
+"reader_mode_pager_vertical" = "Vertikal";
+"reader_mode_webtoon" = "Webtoon";
+"reader_mode_continuous_vertical" = "Kontinuierlich vertikal";
+
+/* Settings */
+"settings_appearance" = "Erscheinungsbild";
+"settings_library" = "Bibliothek";
+"settings_reader" = "Leseprogramm";
+"settings_downloads" = "Downloads";
+"settings_browse" = "Entdecken";
+"settings_tracking" = "Tracking";
+"settings_security" = "Sicherheit";
+"settings_data" = "Daten & Speicher";
+"settings_advanced" = "Erweitert";
+"settings_about" = "Über";
+"settings_general" = "Allgemein";
+"settings_backup" = "Sichern & Wiederherstellen";
+"settings_title" = "Einstellungen";
+
+/* More */
+"more_title" = "Mehr";
+"more_incognito_mode" = "Inkognito-Modus";
+"more_incognito_desc" = "Aufzeichnung des Leseverlaufs pausieren";
+"more_incognito_active" = "Inkognito-Modus ist aktiv";
+"more_download_only" = "Nur-Download-Modus";
+"more_download_only_desc" = "Im Leseprogramm nur heruntergeladene Kapitel anzeigen";
+"more_download_only_active" = "Nur-Download-Modus ist aktiv";
+"more_download_queue" = "Download-Warteschlange";
+"more_statistics" = "Statistiken";
+"more_section_content" = "Inhalt";
+"more_section_app" = "App";
+
+/* General Settings */
+"general_language" = "Sprache";
+"general_display" = "Anzeige";
+"general_date_format" = "Datumsformat";
+"general_navigation" = "Navigation";
+"general_default_screen" = "Standardbildschirm";
+"general_behaviour" = "Verhalten";
+"general_confirm_close" = "Vor dem Schließen bestätigen";
+"general_confirm_close_desc" = "Einen Bestätigungsdialog anzeigen, bevor die App beendet wird.";

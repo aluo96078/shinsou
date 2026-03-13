@@ -1,0 +1,4 @@
+module MihonCore {
+header "MihonCore-Swift.h"
+export *
+}

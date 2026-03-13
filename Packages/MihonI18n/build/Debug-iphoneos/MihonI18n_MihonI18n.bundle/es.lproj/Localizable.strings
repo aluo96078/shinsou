@@ -1,0 +1,65 @@
+/* Tabs */
+"tab_library" = "Biblioteca";
+"tab_updates" = "Actualizaciones";
+"tab_history" = "Historial";
+"tab_browse" = "Explorar";
+"tab_more" = "Más";
+
+/* Common Actions */
+"action_ok" = "OK";
+"action_cancel" = "Cancelar";
+"action_delete" = "Eliminar";
+"action_edit" = "Editar";
+"action_search" = "Buscar";
+"action_filter" = "Filtrar";
+"action_sort" = "Ordenar";
+"action_download" = "Descargar";
+"action_share" = "Compartir";
+
+/* Library */
+"library_empty" = "Tu biblioteca está vacía";
+
+/* Reader Modes */
+"reader_mode_pager_ltr" = "De izquierda a derecha";
+"reader_mode_pager_rtl" = "De derecha a izquierda";
+"reader_mode_pager_vertical" = "Vertical";
+"reader_mode_webtoon" = "Webtoon";
+"reader_mode_continuous_vertical" = "Vertical continuo";
+
+/* Settings */
+"settings_appearance" = "Apariencia";
+"settings_library" = "Biblioteca";
+"settings_reader" = "Lector";
+"settings_downloads" = "Descargas";
+"settings_browse" = "Explorar";
+"settings_tracking" = "Seguimiento";
+"settings_security" = "Seguridad";
+"settings_data" = "Datos y almacenamiento";
+"settings_advanced" = "Avanzado";
+"settings_about" = "Acerca de";
+"settings_general" = "General";
+"settings_backup" = "Copia de seguridad y restauración";
+"settings_title" = "Ajustes";
+
+/* More */
+"more_title" = "Más";
+"more_incognito_mode" = "Modo incógnito";
+"more_incognito_desc" = "Pausar el registro del historial de lectura";
+"more_incognito_active" = "El modo incógnito está activo";
+"more_download_only" = "Modo solo descarga";
+"more_download_only_desc" = "Mostrar solo capítulos descargados en el lector";
+"more_download_only_active" = "El modo solo descarga está activo";
+"more_download_queue" = "Cola de descargas";
+"more_statistics" = "Estadísticas";
+"more_section_content" = "Contenido";
+"more_section_app" = "Aplicación";
+
+/* General Settings */
+"general_language" = "Idioma";
+"general_display" = "Pantalla";
+"general_date_format" = "Formato de fecha";
+"general_navigation" = "Navegación";
+"general_default_screen" = "Pantalla predeterminada";
+"general_behaviour" = "Comportamiento";
+"general_confirm_close" = "Confirmar antes de cerrar";
+"general_confirm_close_desc" = "Mostrar un diálogo de confirmación antes de salir de la aplicación.";

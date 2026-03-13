@@ -1,0 +1,179 @@
+{
+  "" : {
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MihonData-primary.dia",
+    "emit-module-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MihonData-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MihonData-primary-emit-module.dia",
+    "pch" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MihonData-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MihonData-primary.swiftdeps"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/DatabaseManager.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseManager~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Migrations/DatabaseMigrations.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/DatabaseMigrations~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/CategoryRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/ChapterRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/ExtensionRepoRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/HistoryRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/MangaCategoryRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaCategoryRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/MangaRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Database/Tables/TrackRecord.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRecord~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Preference/PreferenceStore.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/PreferenceStore~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/CategoryRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/CategoryRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/ChapterRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ChapterRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/ExtensionRepoRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/ExtensionRepoRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/HistoryRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/HistoryRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/MangaRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/MangaRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/TrackRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/TrackRepositoryImpl~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/Sources/MihonData/Repository/UpdatesRepositoryImpl.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.dia",
+    "index-unit-output-path" : "/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonData/build/MihonData.build/Debug-iphoneos/MihonData.build/Objects-normal/arm64/UpdatesRepositoryImpl~partial.swiftmodule"
+  }
+}

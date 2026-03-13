@@ -1,0 +1,372 @@
+/* Tabs */
+"tab_library" = "Library";
+"tab_updates" = "Updates";
+"tab_history" = "History";
+"tab_browse" = "Browse";
+"tab_more" = "More";
+
+/* Common Actions */
+"action_ok" = "OK";
+"action_cancel" = "Cancel";
+"action_delete" = "Delete";
+"action_edit" = "Edit";
+"action_search" = "Search";
+"action_filter" = "Filter";
+"action_sort" = "Sort";
+"action_download" = "Download";
+"action_share" = "Share";
+
+/* Library */
+"library_empty" = "Your library is empty";
+
+/* Reader Modes */
+"reader_mode_pager_ltr" = "Left to Right";
+"reader_mode_pager_rtl" = "Right to Left";
+"reader_mode_pager_vertical" = "Vertical";
+"reader_mode_webtoon" = "Webtoon";
+"reader_mode_continuous_vertical" = "Continuous Vertical";
+
+/* Settings */
+"settings_general" = "General";
+"settings_appearance" = "Appearance";
+"settings_library" = "Library";
+"settings_reader" = "Reader";
+"settings_downloads" = "Downloads";
+"settings_browse" = "Browse";
+"settings_tracking" = "Tracking";
+"settings_security" = "Security";
+"settings_data" = "Data & Storage";
+"settings_advanced" = "Advanced";
+"settings_about" = "About";
+"settings_backup" = "Backup & Restore";
+"settings_title" = "Settings";
+
+/* More Screen */
+"more_title" = "More";
+"more_incognito_mode" = "Incognito Mode";
+"more_incognito_desc" = "Pause reading history recording";
+"more_incognito_active" = "Incognito Mode is active";
+"more_download_only" = "Download Only Mode";
+"more_download_only_desc" = "Only show downloaded chapters in reader";
+"more_download_only_active" = "Download Only Mode is active";
+"more_download_queue" = "Download Queue";
+"more_statistics" = "Statistics";
+"more_section_content" = "Content";
+"more_section_app" = "App";
+
+/* General Settings */
+"general_language" = "Language";
+"general_display" = "Display";
+"general_date_format" = "Date Format";
+"general_navigation" = "Navigation";
+"general_default_screen" = "Default Screen";
+"general_behaviour" = "Behaviour";
+"general_confirm_close" = "Confirm Before Closing";
+"general_confirm_close_desc" = "Show a confirmation dialog before exiting the app.";
+
+/* Library Screen */
+"library_settings" = "Library Settings";
+"library_filter" = "Filter";
+"library_sort" = "Sort";
+"library_display" = "Display";
+"library_downloaded" = "Downloaded";
+"library_unread" = "Unread";
+"library_started" = "Started";
+"library_bookmarked" = "Bookmarked";
+"library_completed" = "Completed";
+"library_tracking" = "Tracking";
+"library_reshuffle" = "Reshuffle";
+"library_display_mode" = "Display Mode";
+"library_compact_grid" = "Compact Grid";
+"library_comfortable_grid" = "Comfortable Grid";
+"library_cover_only_grid" = "Cover Only Grid";
+"library_list" = "List";
+"library_badges" = "Badges";
+"library_unread_count" = "Unread count";
+"library_download_count" = "Download count";
+"library_local_source" = "Local source";
+"library_category_tabs" = "Category Tabs";
+"library_show_category_tabs" = "Show category tabs";
+"library_show_manga_count" = "Show manga count";
+"library_manage_categories" = "Manage Categories";
+"library_category_name" = "Category name";
+"library_new_category" = "New Category";
+"library_enter_category_name" = "Enter a name for the new category.";
+"library_rename_category" = "Rename Category";
+"library_new_name" = "New name";
+"library_no_categories" = "No categories yet";
+"library_no_categories_desc" = "Tap + to create your first category.";
+"library_resume_reading" = "Resume Reading";
+"library_read_from_start" = "Read from Start";
+"library_move_to_category" = "Move to Category";
+"library_remove_from_library" = "Remove from Library";
+"library_mark_all_read" = "Mark All as Read";
+"library_mark_all_unread" = "Mark All as Unread";
+
+/* History Screen */
+"history_title" = "History";
+"history_no_history" = "No reading history";
+"history_search" = "Search history";
+"history_clear_all" = "Clear all history";
+"history_remove" = "Remove";
+
+/* Browse & Extensions */
+"browse_sources" = "Sources";
+"browse_extensions" = "Extensions";
+"browse_migration" = "Migration";
+"browse_global_search" = "Global Search";
+"browse_popular" = "Popular";
+"browse_latest" = "Latest";
+"browse_no_results" = "No results found";
+"browse_search_all" = "Search all sources";
+"browse_search_across" = "Search across all sources";
+"browse_preferences" = "Preferences";
+"browse_enable_all" = "Enable All";
+"browse_show_all_reset" = "Show All (reset)";
+"browse_filter_languages" = "Filter Languages";
+"browse_languages" = "Languages";
+"browse_installed" = "Installed";
+"browse_available" = "Available";
+"browse_no_extensions" = "No extensions available";
+"browse_repositories" = "Repositories";
+"browse_add_repository" = "Add Repository";
+"browse_repository_url" = "Repository URL";
+"browse_uninstall" = "Uninstall";
+"browse_clear_cookies" = "Clear Cookies";
+"browse_clear" = "Clear";
+"browse_uninstall_confirm" = "This will remove all sources provided by this extension. Library entries will not be deleted.";
+"browse_cookies_confirm" = "All stored cookies for this source will be deleted.";
+"browse_uninstall_failed" = "Uninstall Failed";
+"browse_unknown_error" = "An unknown error occurred.";
+"browse_check_updates" = "Check for Extension Updates";
+"browse_check_updates_desc" = "Automatically check for available extension updates on launch.";
+"browse_show_nsfw" = "Show NSFW Sources";
+"browse_show_nsfw_desc" = "Include adult content sources in the extensions catalogue.";
+"browse_nsfw_warning" = "Enabling this shows sources that may contain content not suitable for minors.";
+"browse_no_custom_repos" = "No custom repositories added.";
+"browse_repo_footer" = "Custom repositories allow you to install extensions that are not part of the official catalogue. Only add repositories from sources you trust.";
+"browse_invalid_url" = "Please enter a valid URL starting with http:// or https://";
+"browse_repo_exists" = "This repository has already been added.";
+"browse_has_update" = "Update available";
+"browse_install_action" = "Install";
+"browse_update_action" = "Update";
+
+/* Manga Detail */
+"manga_in_library" = "In library";
+"manga_add_to_library" = "Add to library";
+"manga_tracking" = "Tracking";
+"manga_webview" = "WebView";
+"manga_notes" = "Notes";
+"manga_edit_notes" = "Edit notes";
+"manga_mark_duplicates_read" = "Mark all duplicates read";
+"manga_read" = "Read";
+"manga_unread" = "Unread";
+"manga_bookmark" = "Bookmark";
+"manga_save_to_photos" = "Save to Photos";
+"manga_set_custom_cover" = "Set as Custom Cover";
+"manga_cover_image" = "Cover Image";
+"manga_cover_not_loaded" = "Cover image is not yet loaded.";
+"manga_cover_saved" = "Cover saved to Photos.";
+"manga_photos_denied" = "Photos access denied. Please enable in Settings.";
+"manga_custom_cover_saved" = "Custom cover saved.";
+"manga_encode_failed" = "Failed to encode image.";
+"manga_status_ongoing" = "Ongoing";
+"manga_status_completed" = "Completed";
+"manga_status_licensed" = "Licensed";
+"manga_status_publishing_finished" = "Publishing Finished";
+"manga_status_cancelled" = "Cancelled";
+"manga_status_on_hiatus" = "On Hiatus";
+"manga_status_unknown" = "Unknown";
+"manga_filter_scanlator" = "Filter by Scanlator";
+"manga_show_all_scanlators" = "Show all scanlators";
+"manga_skip_read" = "Skip already read chapters";
+"manga_skip_filtered" = "Skip filtered chapters";
+"manga_skip_duplicate" = "Skip duplicate chapters";
+"manga_sort_descending" = "Descending (newest first)";
+"manga_sort_ascending" = "Ascending (oldest first)";
+"manga_reader_skip" = "Reader Skip Settings";
+"manga_reader_skip_footer" = "These settings apply when navigating chapters in the reader.";
+"manga_duplicate_hint" = "Duplicate chapter available from another scanlator";
+
+/* Migration */
+"migration_searching" = "Searching sources…";
+"migration_no_results" = "No results found.";
+"migration_complete" = "Migration Complete";
+"migration_complete_msg" = "Manga successfully migrated to the new source.";
+"migration_failed" = "Migration Failed";
+"migration_confirm" = "Migrate to this manga?";
+"migration_migrate" = "Migrate";
+
+/* Tracking */
+"track_title" = "Tracking";
+"track_add" = "Add tracking";
+"track_status" = "Status";
+"track_score" = "Score";
+"track_chapter" = "Chapter";
+"track_started" = "Started";
+"track_finished" = "Finished";
+"track_searching" = "Searching…";
+"track_no_results" = "No results";
+"track_try_different" = "Try a different search term.";
+"track_login" = "Log in";
+"track_login_button" = "Log In";
+"track_logout_button" = "Log Out";
+"track_authenticating" = "Authenticating…";
+"track_services" = "Services";
+"track_services_footer" = "Log in to a tracking service to sync your reading progress automatically.";
+"track_connected" = "Connected";
+"track_not_connected" = "Not connected";
+"track_sync_behaviour" = "Sync Behaviour";
+"track_auto_sync" = "Auto-Sync After Chapter Read";
+"track_auto_sync_desc" = "Push a progress update to all connected trackers as soon as you finish a chapter.";
+"track_update_progress" = "Update Progress After Reading";
+"track_update_progress_desc" = "Increment the chapter count on the tracker when you complete a chapter.";
+
+/* Reader */
+"reader_title" = "Reader Settings";
+"reader_reading_mode" = "Reading Mode";
+"reader_mode" = "Mode";
+"reader_display" = "Display";
+"reader_show_page_number" = "Show page number";
+"reader_keep_screen_on" = "Keep screen on";
+"reader_fullscreen" = "Fullscreen";
+"reader_controls" = "Controls";
+"reader_volume_keys" = "Volume keys page turn";
+"reader_color_filter" = "Color Filter";
+"reader_brightness" = "Brightness";
+"reader_split_tall" = "Split tall images";
+"reader_split_tall_desc" = "Automatically split webtoon-style strips into page-sized pieces.";
+"reader_image_processing" = "Image Processing";
+"reader_side_padding" = "Side padding";
+"reader_webtoon" = "Webtoon";
+"reader_webtoon_footer" = "Adds horizontal margins to images in webtoon / continuous-vertical mode.";
+"reader_retry" = "Retry";
+
+/* Downloads */
+"downloads_title" = "Downloads";
+"downloads_no_downloads" = "No downloads";
+"downloads_pause_all" = "Pause all";
+"downloads_resume_all" = "Resume all";
+"downloads_clear_completed" = "Clear completed";
+"downloads_cancel_all" = "Cancel all";
+"downloads_queued" = "Queued";
+"downloads_downloaded" = "Downloaded";
+"downloads_location" = "Download Location";
+"downloads_location_footer" = "Downloads are stored inside the app's Documents folder by default.";
+"downloads_storage" = "Storage";
+"downloads_auto_download" = "Auto-Download New Chapters";
+"downloads_auto_download_desc" = "Automatically download new chapters found during a global update.";
+"downloads_delete_after_read" = "Delete Chapter After Reading";
+"downloads_delete_after_read_desc" = "Remove the downloaded files once you finish reading a chapter.";
+"downloads_remove_after_marked" = "Remove After Marked as Read";
+"downloads_remove_after_marked_desc" = "Also delete downloaded chapters when you mark them as read manually.";
+"downloads_automation" = "Automation";
+"downloads_wifi_only" = "Download on Wi-Fi Only";
+"downloads_wifi_only_desc" = "Pause downloads when the device switches to cellular data.";
+"downloads_network" = "Network";
+"downloads_parallel" = "Parallel Downloads";
+"downloads_performance" = "Performance";
+"downloads_performance_footer" = "Higher values speed up multi-chapter downloads but increase memory and battery usage.";
+
+/* Security */
+"security_title" = "Security";
+"security_require_auth" = "Require Authentication";
+"security_app_lock" = "App Lock";
+"security_app_lock_footer" = "When enabled, the app will ask for authentication after returning from the background.";
+"security_secure_screen" = "Secure Screen";
+"security_secure_screen_desc" = "Blur or hide the app preview in the App Switcher and prevent screenshots.";
+"security_incognito" = "Incognito Mode";
+"security_incognito_desc" = "Pause reading history recording. Downloaded chapters are not affected.";
+"security_privacy" = "Privacy";
+"security_auth_unavailable" = "Authentication Unavailable";
+"security_auth_unavailable_msg" = "Face ID / Touch ID is not set up on this device. Please configure biometrics or a passcode in Settings before enabling App Lock.";
+"security_lock_immediately" = "Immediately";
+"security_lock_10s" = "After 10 seconds";
+"security_lock_30s" = "After 30 seconds";
+"security_lock_1m" = "After 1 minute";
+"security_lock_5m" = "After 5 minutes";
+"security_lock_10m" = "After 10 minutes";
+
+/* Advanced */
+"advanced_title" = "Advanced";
+"advanced_storage" = "Storage";
+"advanced_clear_image_cache" = "Clear Image Cache";
+"advanced_clear_image_cache_footer" = "Removes cached cover images and reader page images. Disk space will be reclaimed immediately.";
+"advanced_clear_database" = "Clear Database";
+"advanced_clear_database_footer" = "Removes all cached source data (chapters, page lists) from the local database. Your library entries and reading history are preserved.";
+"advanced_reset_settings" = "Reset All Settings";
+"advanced_reset_settings_footer" = "Restores all preferences to their factory defaults. This does not affect your library, reading history, or downloads.";
+"advanced_network" = "Network";
+"advanced_doh" = "DNS over HTTPS";
+"advanced_doh_desc" = "Encrypt DNS queries to improve privacy and bypass DNS-based blocking.";
+"advanced_doh_footer" = "Enabling this may affect performance on networks with custom DNS configurations.";
+"advanced_diagnostics" = "Diagnostics";
+"advanced_crash_logs" = "Dump Crash Logs";
+"advanced_crash_logs_footer" = "Exports crash logs to the Files app for sharing with developers.";
+"advanced_about" = "About";
+"advanced_app_version" = "App Version";
+"advanced_copy_version" = "Copy Version";
+"advanced_clear_cache_confirm" = "Clear Image Cache?";
+"advanced_clear_cache_msg" = "This will free up disk space. Images will be re-downloaded as needed.";
+"advanced_clear_cache_button" = "Clear Cache";
+"advanced_clear_db_confirm" = "Clear Database?";
+"advanced_clear_db_msg" = "Cached chapter and page data will be removed. Your library and history remain intact.";
+
+/* About */
+"about_title" = "About";
+"about_connect" = "Connect";
+"about_website" = "Website";
+"about_github" = "GitHub";
+"about_github_desc" = "View source code";
+"about_discord" = "Discord";
+"about_discord_desc" = "Join the community";
+"about_help" = "Help";
+"about_docs" = "Documentation";
+"about_report_issue" = "Report an Issue";
+"about_legal" = "Legal";
+"about_licenses" = "Open Source Licenses";
+"about_privacy" = "Privacy Policy";
+"about_footer" = "Made with ❤️ by the Mihon community";
+
+/* Backup */
+"backup_title" = "Backup & Restore";
+"backup_create" = "Create Backup";
+"backup_restore" = "Restore Backup";
+"backup_no_backups" = "No backups yet";
+"backup_no_backups_desc" = "Tap \"Create Backup\" to create your first backup.";
+
+/* Common */
+"common_done" = "Done";
+"common_cancel" = "Cancel";
+"common_save" = "Save";
+"common_add" = "Add";
+"common_remove" = "Remove";
+"common_error" = "Error";
+"common_ok" = "OK";
+"common_select_all" = "Select All";
+"common_deselect_all" = "Deselect All";
+"common_change" = "Change";
+"common_retry" = "Retry";
+
+/* Onboarding */
+"onboarding_welcome" = "Welcome to Mihon";
+"onboarding_welcome_desc" = "Your ultimate manga reading companion. Discover, collect, and read manga from hundreds of sources — all in one place.";
+"onboarding_sources_title" = "Browse & Install Sources";
+"onboarding_sources_desc" = "Browse hundreds of manga sources from around the world. Install extensions to add new sources and keep them updated with one tap.";
+"onboarding_sources_1" = "Install extensions for any source";
+"onboarding_sources_2" = "Download chapters for offline reading";
+"onboarding_sources_3" = "Search across all sources at once";
+"onboarding_library_title" = "Organise Your Library";
+"onboarding_library_desc" = "Keep track of all the manga you love. Organise with categories, sync reading progress with trackers, and filter by status.";
+"onboarding_library_1" = "Create categories to stay organised";
+"onboarding_library_2" = "Track progress on AniList, MAL & more";
+"onboarding_library_3" = "Filter by status, read count, and genre";
+"onboarding_ready" = "You're All Set!";
+"onboarding_ready_desc" = "Optionally allow notifications so Mihon can let you know when new chapters arrive and downloads complete.";
+"onboarding_notifications" = "Notifications";
+"onboarding_allow" = "Allow";
+"onboarding_skip" = "Skip";
+"onboarding_start" = "Start Reading";
+"onboarding_notif_enabled" = "Enabled — you'll be notified of new chapters";
+"onboarding_notif_denied" = "Denied — enable in Settings > Mihon";
+"onboarding_notif_desc" = "Get notified when new chapters arrive";

@@ -1,0 +1,59 @@
+{
+  "" : {
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MihonUI-primary.dia",
+    "emit-module-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MihonUI-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MihonUI-primary-emit-module.dia",
+    "pch" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MihonUI-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MihonUI-primary.swiftdeps"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/Sources/MihonUI/Components/BadgeView.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.dia",
+    "index-unit-output-path" : "/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/BadgeView~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/Sources/MihonUI/Components/LoadingView.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.dia",
+    "index-unit-output-path" : "/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/LoadingView~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/Sources/MihonUI/Components/MangaGridItem.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.dia",
+    "index-unit-output-path" : "/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/MangaGridItem~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/Sources/MihonUI/Modifier/AdaptiveLayout.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.dia",
+    "index-unit-output-path" : "/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/AdaptiveLayout~partial.swiftmodule"
+  },
+  "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/Sources/MihonUI/Theme/ColorTokens.swift" : {
+    "const-values" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.swiftconstvalues",
+    "dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.d",
+    "diagnostics" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.dia",
+    "index-unit-output-path" : "/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.o",
+    "llvm-bc" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.bc",
+    "object" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.o",
+    "swift-dependencies" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens.swiftdeps",
+    "swiftmodule" : "/Users/aluoexpiry/project/mihon_ios/Packages/MihonUI/build/MihonUI.build/Debug-iphoneos/MihonUI.build/Objects-normal/arm64/ColorTokens~partial.swiftmodule"
+  }
+}
