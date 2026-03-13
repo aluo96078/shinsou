@@ -85,7 +85,7 @@ Shinsou 支援透過 JavaScript 插件擴充漫畫來源。插件透過 `JSBridg
 
 詳細文件請參考 [docs/mihon-extension-system.md](docs/mihon-extension-system.md)。
 
-社群插件倉庫：[shinsou_plugin](https://github.com/aluoexpiry/mihon-ios-plugins)
+社群插件倉庫：[shinsou_plugin](https://github.com/aluo96078/shinsou_plugin)
 
 ## 專案配置
 

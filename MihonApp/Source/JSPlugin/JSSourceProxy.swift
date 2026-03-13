@@ -19,6 +19,9 @@ final class JSSourceProxy: CatalogueSource {
     /// HTTP headers this source requires (User-Agent, Cookie, Referer, etc.)
     var sourceHeaders: [String: String] { bridge.defaultHeaders }
 
+    /// Recent plugin log messages from the last JS call.
+    var recentPluginLogs: [String] { bridge.pluginLogs }
+
     private let context: JSContext
     private let bridge: JSBridge
 
@@ -32,8 +35,9 @@ final class JSSourceProxy: CatalogueSource {
 
         // Inject console.log / console.error / console.warn
         let pluginName = manifest.name
+        let bridgeRef = self.bridge
         let consoleLog: @convention(block) (String) -> Void = { msg in
-            print("[JS:\(pluginName)] \(msg)")
+            bridgeRef.log(msg)
         }
         ctx.setObject(consoleLog, forKeyedSubscript: "console_log" as NSString)
         ctx.evaluateScript("var console = { log: console_log, error: console_log, warn: console_log, info: console_log };")
@@ -314,6 +318,7 @@ final class JSSourceProxy: CatalogueSource {
                     return
                 }
 
+                self.bridge.clearPluginLogs()
                 self.bridge.domReleaseAll()
 
                 guard let sourceObj = self.context.objectForKeyedSubscript("source"),

@@ -194,8 +194,19 @@ final class ReaderViewModel: ObservableObject {
             let fetchedPages = try await source.getPageList(chapter: schapter)
 
             if fetchedPages.isEmpty {
-                let debugInfo = DebugLogger.shared.recentText
-                self.error = "此章節沒有可用的頁面\n\n來源：\(source.name)\nURL：\(chapter.url)\n\n--- 除錯日誌 ---\n\(debugInfo)"
+                // Check plugin logs for specific messages (e.g. paid chapter warnings)
+                var pluginLogText = ""
+                if let jsProxy = source as? JSSourceProxy {
+                    pluginLogText = jsProxy.recentPluginLogs.joined(separator: "\n")
+                }
+
+                // If plugin provided a warning (e.g. paid chapter), show it prominently
+                if !pluginLogText.isEmpty {
+                    self.error = pluginLogText + "\n\n來源：\(source.name)\nURL：\(chapter.url)"
+                } else {
+                    let debugInfo = DebugLogger.shared.recentText
+                    self.error = "此章節沒有可用的頁面\n\n來源：\(source.name)\nURL：\(chapter.url)\n\n--- 除錯日誌 ---\n\(debugInfo)"
+                }
                 isLoading = false
                 return
             }

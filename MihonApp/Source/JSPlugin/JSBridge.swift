@@ -58,6 +58,14 @@ import MihonSourceAPI
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
     ]
 
+    /// Plugin log messages accumulated during JS execution (thread-safe with JS calls).
+    private(set) var pluginLogs: [String] = []
+
+    /// Clear accumulated plugin logs (call before each JS invocation).
+    func clearPluginLogs() {
+        pluginLogs.removeAll()
+    }
+
     init(context: JSContext) {
         self.context = context
         super.init()
@@ -342,6 +350,7 @@ import MihonSourceAPI
 
     func log(_ message: String) {
         print("[JSPlugin] \(message)")
+        pluginLogs.append(message)
     }
 
     // MARK: - Preferences
