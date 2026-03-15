@@ -1,4 +1,0 @@
-module MihonI18n {
-header "MihonI18n-Swift.h"
-export *
-}

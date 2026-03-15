@@ -1,6 +1,6 @@
-name: MihonIOS
+name: ShinsouIOS
 options:
-  bundleIdPrefix: dev.mihon.ios
+  bundleIdPrefix: dev.shinsou.ios
   deploymentTarget:
     iOS: "16.0"
   xcodeVersion: "16.3"
@@ -14,52 +14,53 @@ settings:
     CODE_SIGN_STYLE: Automatic
 
 packages:
-  MihonDomain:
-    path: Packages/MihonDomain
-  MihonData:
-    path: Packages/MihonData
-  MihonCore:
-    path: Packages/MihonCore
-  MihonSourceAPI:
-    path: Packages/MihonSourceAPI
-  MihonSourceLocal:
-    path: Packages/MihonSourceLocal
-  MihonUI:
-    path: Packages/MihonUI
-  MihonI18n:
-    path: Packages/MihonI18n
+  ShinsouDomain:
+    path: Packages/ShinsouDomain
+  ShinsouData:
+    path: Packages/ShinsouData
+  ShinsouCore:
+    path: Packages/ShinsouCore
+  ShinsouSourceAPI:
+    path: Packages/ShinsouSourceAPI
+  ShinsouSourceLocal:
+    path: Packages/ShinsouSourceLocal
+  ShinsouUI:
+    path: Packages/ShinsouUI
+  ShinsouI18n:
+    path: Packages/ShinsouI18n
   SwiftSoup:
     url: https://github.com/scinfu/SwiftSoup.git
     from: "2.7.0"
 
 targets:
-  MihonApp:
+  ShinsouApp:
     type: application
     platform: iOS
     sources:
-      - path: MihonApp
+      - path: ShinsouApp
         excludes:
           - "**/.build/**"
           - "**/.swiftpm/**"
     dependencies:
-      - package: MihonDomain
-      - package: MihonData
-      - package: MihonCore
-      - package: MihonSourceAPI
-      - package: MihonSourceLocal
-      - package: MihonUI
-      - package: MihonI18n
+      - package: ShinsouDomain
+      - package: ShinsouData
+      - package: ShinsouCore
+      - package: ShinsouSourceAPI
+      - package: ShinsouSourceLocal
+      - package: ShinsouUI
+      - package: ShinsouI18n
       - sdk: AuthenticationServices.framework
       - sdk: LocalAuthentication.framework
       - sdk: AVFoundation.framework
       - sdk: MediaPlayer.framework
       - sdk: CryptoKit.framework
+      - sdk: CloudKit.framework
       - package: SwiftSoup
     settings:
       base:
         INFOPLIST_GENERATION_MODE: GeneratedByXcode
-        PRODUCT_BUNDLE_IDENTIFIER: dev.mihon.ios
-        PRODUCT_NAME: Mihon
+        PRODUCT_BUNDLE_IDENTIFIER: dev.shinsou.ios
+        PRODUCT_NAME: Shinsou
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -70,38 +71,38 @@ targets:
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
-        INFOPLIST_KEY_CFBundleDisplayName: Mihon
-        INFOPLIST_KEY_NSFaceIDUsageDescription: "Unlock Mihon with Face ID"
+        INFOPLIST_KEY_CFBundleDisplayName: Shinsou
+        INFOPLIST_KEY_NSFaceIDUsageDescription: "Unlock Shinsou with Face ID"
         INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Save manga covers to your photo library"
         SWIFT_EMIT_LOC_STRINGS: YES
     scheme:
       testTargets: []
       gatherCoverageData: false
 
-  MihonWidgetExtension:
+  ShinsouWidgetExtension:
     type: app-extension
     platform: iOS
     sources:
-      - path: MihonWidgetExtension
+      - path: ShinsouWidgetExtension
     dependencies:
-      - package: MihonDomain
+      - package: ShinsouDomain
     entitlements:
-      path: MihonWidgetExtension/MihonWidgetExtension.entitlements
+      path: ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements
     settings:
       base:
         INFOPLIST_GENERATION_MODE: GeneratedByXcode
-        PRODUCT_BUNDLE_IDENTIFIER: dev.mihon.ios.widget
-        PRODUCT_NAME: MihonWidgetExtension
+        PRODUCT_BUNDLE_IDENTIFIER: dev.shinsou.ios.widget
+        PRODUCT_NAME: ShinsouWidgetExtension
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: Mihon Widget
+        INFOPLIST_KEY_CFBundleDisplayName: Shinsou Widget
         SWIFT_EMIT_LOC_STRINGS: YES
 
 schemes:
-  MihonApp:
+  ShinsouApp:
     build:
       targets:
-        MihonApp: all
+        ShinsouApp: all
     run:
       config: Debug

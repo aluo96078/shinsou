@@ -1,4 +1,0 @@
-module MihonSourceAPI {
-header "MihonSourceAPI-Swift.h"
-export *
-}

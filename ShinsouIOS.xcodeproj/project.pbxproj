@@ -1,0 +1,1643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		008652140BA60A9BB37F2604 /* ExtensionRepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB8FA498677C1CDF067627 /* ExtensionRepoService.swift */; };
+		00B3E4B2AB4AC4CD8B08E9DB /* ShinsouSourceLocal in Frameworks */ = {isa = PBXBuildFile; productRef = 823951AF7D9694A578EE736E /* ShinsouSourceLocal */; };
+		010EBFCEC79A59655F6E41FA /* MALOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0915951EC854CE832FB75 /* MALOAuth.swift */; };
+		02CD07E7B3CBCF8A5CC80EC1 /* WidgetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A5543F7AF3524D4B9DFCA /* WidgetModels.swift */; };
+		04310F27AF4914850CEA85C8 /* GlobalSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0115D93C60B0EC9F799333 /* GlobalSearchScreen.swift */; };
+		049845ECB0EF109F4FAC1FD0 /* CookieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A665DC7C89A75CF3F236F /* CookieManager.swift */; };
+		061A23252DC5994C46AE0311 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75570A104F76689A7CE47A58 /* DebugLogger.swift */; };
+		0813195A41D1CCC4A6E6503B /* BackupCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63E4C58AE2F2223D7819832 /* BackupCreator.swift */; };
+		09540BAB53F0E3A88DF2DC9D /* BrowseSourceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DE889E488A34EE34DB32A9 /* BrowseSourceScreen.swift */; };
+		11D1C65063C2942CCDDA1BB3 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B902B380175093CD0F5BB7 /* OnboardingScreen.swift */; };
+		14028A4F74386D5A49A1B6D9 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A318F9ED4B0168D2C1AE0458 /* ExtensionManager.swift */; };
+		1460CBC45AA6FFA735A08423 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE449EC5352822F3A44912C9 /* NotificationManager.swift */; };
+		1632BCDF5A21874C5F8F6B01 /* SettingsAdvancedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B835CE7E4CF61184923021 /* SettingsAdvancedScreen.swift */; };
+		196C1CEFE110A881198AE399 /* BackupRestorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7B3D969C66A0587232D6C /* BackupRestorer.swift */; };
+		19B8003AC392627E05CCACAC /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976A0B0B4E72F1ED19A725BB /* ColorFilter.swift */; };
+		1A0167D40CD3C9C917AEC00B /* MigrationSourcesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6548F7BD5726A64008FCB44 /* MigrationSourcesScreen.swift */; };
+		1A2C8F1B13B9529AC17313EC /* CloudKitConflictResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A6B8239E39B1183876B8C /* CloudKitConflictResolver.swift */; };
+		1A45D3A9D13A7A591EF49466 /* UpcomingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6BF37C5D595699FD29F5AB /* UpcomingScreen.swift */; };
+		1D05BB4FE74B88C776B16EF5 /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66C0F716F160906766AC381 /* SettingsKeys.swift */; };
+		1D8BFD0F55600F32012FF863 /* SmartSearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E0975A3BB422E2376B40C /* SmartSearchEngine.swift */; };
+		1DCD3BB2A23DD0B16BB6304D /* SettingsBackupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E04C113689E9260CC70E10 /* SettingsBackupScreen.swift */; };
+		20C0DD2B0B50B4939E83658B /* BackupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CB18DACDD1C555183FC135 /* BackupModels.swift */; };
+		212E5F09121EBFA2F58AD2FF /* ShinsouDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 8632A4E32FB3A9477C1BA1E9 /* ShinsouDomain */; };
+		220B17F85EE1F649C2CE283E /* AutoBackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBAC08C320F05AC267E0E74 /* AutoBackupManager.swift */; };
+		2356046A52240685CEA5AB0D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CCF47CE3B4DE3998F0C418 /* NetworkHelper.swift */; };
+		24E32F9F7DB5CBCC6285B947 /* CategoryPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8667A808B2BEBFF76594BE /* CategoryPickerSheet.swift */; };
+		2851E5FAA92AA2F168CC317E /* ReaderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA741C8539B02936BE36959 /* ReaderPageViewController.swift */; };
+		2954A4F9DBA3D5A053F85778 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887D10D2F3A378F5BCDF84D /* DeepLinkHandler.swift */; };
+		29D25B07943E7A2ABFE6A9AF /* JSDomLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A04012954FE1EBBB0E4B5D /* JSDomLib.swift */; };
+		2AF2E7D4A611B54B70AEC0CC /* MyAnimeListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA15927B183A0D414F489B /* MyAnimeListApi.swift */; };
+		2B3E40160BAE0F742DD3BD71 /* PluginVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E9872BB926EC7B7ABF41B /* PluginVerifier.swift */; };
+		2C4B3B2BFB55B589B31BBEB2 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B0FC7A591AED6C2C60C60 /* DownloadManager.swift */; };
+		2C52BA8082D098EE4281B485 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D536A7A313819EA86CC647 /* LocalAuthentication.framework */; };
+		309F488265FC6354301E0524 /* RecentUpdatesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE04E7A5B74235DFD5AD8B1 /* RecentUpdatesWidget.swift */; };
+		3159473DC558FC8EFAC07875 /* ChapterTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C3F01A14B5EC58D9AE69A /* ChapterTransitionView.swift */; };
+		3191931611DEDC42FD37813C /* SecureScreenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DEF223EA6E083D0EE7AD3 /* SecureScreenModifier.swift */; };
+		327F8911AF87489CDE48BD6B /* AniListTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FE6E0AAB25EBE26016688 /* AniListTracker.swift */; };
+		33D431CC515F3F39F95A065C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E5E99CD863E190B4BFFA5 /* CloudKit.framework */; };
+		33E35209255B19681325E7C6 /* ScanlatorFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DB70B4FC2DC3459464197 /* ScanlatorFilterSheet.swift */; };
+		3C25D358AE1BEB1F4E4F1041 /* SourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7255B8D787BFD5D7AD4B7199 /* SourceManager.swift */; };
+		3CB732326A128C3ADDD7D2B0 /* ExtensionListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF12D0EF8F2AF91A4CC9CE7 /* ExtensionListScreen.swift */; };
+		3EB3EC0DC0B9F5C1242994F5 /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF48721E426E1EC32E1680 /* LibraryListView.swift */; };
+		429562B4E14C4C98D565CE5F /* LZString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF34D7C1FBA49345BD12B05 /* LZString.swift */; };
+		435FE6DA5B832F0DA8707BFB /* BackupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB016F2112E6E7E38D210A2 /* BackupScreen.swift */; };
+		4649403394A67F711F1088DA /* AmoledDarkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55FB156B4EE4F45E5E855E /* AmoledDarkModifier.swift */; };
+		465781AE8B045CF9B2136C1D /* CryptoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55D4E27E26F96248AE798CD /* CryptoKit.framework */; };
+		4991BFF03085CBC13C73C7C1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188973B33E73F19B0F7AD406 /* SettingsScreen.swift */; };
+		4A4C84D9FB3F4A7D9AA231CE /* SettingsTrackingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF3EE9BADD6DCAE9475BFD /* SettingsTrackingScreen.swift */; };
+		4F35DFEB8F6182456BC6DA3B /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2E542B20F66C62D4B7A29D /* AuthenticationServices.framework */; };
+		52E2815067D2DD8D6DED475B /* SyncTransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBABF72D6B1DF0017D934EA /* SyncTransactionObserver.swift */; };
+		52F0FD22FD486C373CD5D229 /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9444CD15F76A865E8B19F581 /* JSBridge.swift */; };
+		52FA882C368DD626FC9A2BDB /* CloudKitRecordMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19C377D6093988FFF5DA52 /* CloudKitRecordMapper.swift */; };
+		5364D07A6D9BC0D633C22B13 /* MangaGenresSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599743D79E5ACDEDCBC25D0 /* MangaGenresSection.swift */; };
+		576AE9EDEE521B61190C7CA1 /* CloudflareWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFAC9B96B569D12199B752 /* CloudflareWebView.swift */; };
+		5A160D15EC6DCFE35353B226 /* ALOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EB7F44F3DAF9A0C0E39DBC /* ALOAuth.swift */; };
+		5A5C52497EC1F9BF917EEBE2 /* ShinsouData in Frameworks */ = {isa = PBXBuildFile; productRef = 575122FBD33073B3509425EA /* ShinsouData */; };
+		5B530E16DC2C2A236251A235 /* AppLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356EF585993042C6E26558A /* AppLockView.swift */; };
+		5B86826EEDB1B779EFCE6403 /* SettingsSecurityScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970DA94FB39A97B42D190FC /* SettingsSecurityScreen.swift */; };
+		5BAFB84C9B125D1733A583E1 /* PagerReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A445994088AF5D08029AD9 /* PagerReaderView.swift */; };
+		5C33A80997893A72F9624589 /* PluginLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572FAACBC090FC01F3546A9 /* PluginLoader.swift */; };
+		5CB8F4E173321274959D2DF7 /* MainView+iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB26B93A2985711D2015DE /* MainView+iPad.swift */; };
+		5D6754A8083EB3F171C06769 /* MangaDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B0AF343AE3FDF98A94554 /* MangaDetailScreen.swift */; };
+		5E4FA83C79AF031670E7E0F4 /* DirectoryPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3505B5D3D1C863EEA6EE0 /* DirectoryPageLoader.swift */; };
+		6207CD05F1A56B40D8B046AA /* MangaDetailIPadLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF2D08B67C33160E2BB142D /* MangaDetailIPadLayout.swift */; };
+		623752D9195876B9A528D84D /* ShinsouUI in Frameworks */ = {isa = PBXBuildFile; productRef = E5CA80688B16B5BFC50EF0CB /* ShinsouUI */; };
+		630CDBBD5235664BABFEE49A /* SettingsAppearanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD02ED7BBA90ABB8EB45D601 /* SettingsAppearanceScreen.swift */; };
+		634C4F389A9AEB735A341D2A /* LibraryGridView+iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589856489D3D0489850B6F4F /* LibraryGridView+iPad.swift */; };
+		6516B22FE6CDFEADD52BE4D8 /* TimelineProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5667C778309A44AE38B07 /* TimelineProviders.swift */; };
+		6524F8F491CCC91CDC9E559B /* DownloadPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032083C7796698ED5E259022 /* DownloadPageLoader.swift */; };
+		665FE261DC3793B2DC10BCDF /* GetExtensionRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306402352B3798607B534D0D /* GetExtensionRepos.swift */; };
+		671578DAA8A089202B76F647 /* MangaDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA756989BC546B2EAA6AD1 /* MangaDescriptionSection.swift */; };
+		67C06A06EC50C5EE7ED39FD7 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1E75255F4DACECB0E42F7 /* Tracker.swift */; };
+		6B1DD09BA2637245D1093475 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61D17BD75F01118326282C4 /* MediaPlayer.framework */; };
+		6D42D03FFA2ADA25B2C4B3A1 /* TrackSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEE2CFA4763CFB01778D128 /* TrackSheetViewModel.swift */; };
+		6E7230773509C3578E5BA68C /* MangaInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363347FF4DEB76AF6A72F7EF /* MangaInfoHeader.swift */; };
+		77C204500FC40383B3B4FBEA /* ICloudDriveBackupSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868BA81AC4D019B76494A81 /* ICloudDriveBackupSync.swift */; };
+		77F482F6BAE342C71DBE63EF /* UserAgentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8001A2FCA469D99EEF1FDE1 /* UserAgentProvider.swift */; };
+		78FD000B81BDF83CA3F9EA75 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BFC02B883AAFF3E933F9F /* DIContainer.swift */; };
+		7969DD90722FFCBA8CFAEBD5 /* DeleteExtensionRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE2F0A2ADB8E15F302FFCAA /* DeleteExtensionRepo.swift */; };
+		7A9F6C2CBF99D013A090A15E /* SettingsLibraryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706D500B801DDF1240104AF9 /* SettingsLibraryScreen.swift */; };
+		7B5EF64797282AC34D749B1E /* ArchivePageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5241C75880EF2B4AEC35339 /* ArchivePageLoader.swift */; };
+		7BC3B948AAAF78BC3CC9BE93 /* SourceFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1B0C53075770F6BE8375C /* SourceFilterSheet.swift */; };
+		7C305E3BBF2937D045F51A6F /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F48F8902FD819AE277603 /* WidgetViews.swift */; };
+		7D41BAD4157C11FA6AFB9B38 /* ViewerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94370374FED3363447EAF4 /* ViewerNavigation.swift */; };
+		7E595153ABEA884B282F77E4 /* SettingsBrowseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B12EAD79BB12F0D22809A /* SettingsBrowseScreen.swift */; };
+		7F01518ECE03B6DBD848FD6B /* CloudKitZoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CDB9956AFF923FA46942E /* CloudKitZoneManager.swift */; };
+		7FCFD5B703F0F4FDBDBE0AEE /* CreateExtensionRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2315F522ECFC56FB23AEC3 /* CreateExtensionRepo.swift */; };
+		8073E4FB2E20CE4D7AFD0912 /* MigrationMangaListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923246017CC1074106171140 /* MigrationMangaListScreen.swift */; };
+		81A2B2191CBDDE6DD81FBA97 /* StatisticsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0EA8ADE5A945FB4FC7A5A /* StatisticsScreen.swift */; };
+		82DC89AB3DF49C4CDA639120 /* IncognitoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3EDFF8E2CE7055A5BA7499 /* IncognitoManager.swift */; };
+		8529BCA7D502657F17A98A8C /* DownloadQueueScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C788CBD6D118EE4193DCF14A /* DownloadQueueScreen.swift */; };
+		88D9E0C35E5D5DFC74D71158 /* SettingsGeneralScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE2B581A0E4220C4F5D945 /* SettingsGeneralScreen.swift */; };
+		8CE2CB652269A7BD67E4649B /* CloudKitChangeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580EC2407F7786324181E3B /* CloudKitChangeTracker.swift */; };
+		8D0BD8074DC00A3C5DA23492 /* AppLockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE02A55B6D78E45B3AA90F9 /* AppLockManager.swift */; };
+		8DBDFC833228C1BB9BFC3255 /* RateLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBBD28536A07B4F23150774 /* RateLimiter.swift */; };
+		8DF91685EEB82F9E9F6A9A7D /* LibraryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B08D8232B195302E5CDD7 /* LibraryWidget.swift */; };
+		8E5C377E03C7505F962ABF69 /* WebtoonReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199628B09AB81A2CF13FE3B2 /* WebtoonReaderView.swift */; };
+		95C398FA63B263E9F6939C36 /* StubCatalogueSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEF390A39213E9F35194C8 /* StubCatalogueSource.swift */; };
+		9A6D40F000C4EDCDAB54ACF8 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A34F3D5D8440F2658E4AE57 /* LibraryViewModel.swift */; };
+		9B45FF0603ED8A5C254814C8 /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD2A05D96C45F04D1E96EC /* HistoryScreen.swift */; };
+		9CEB7B19382525CBE8D8CE55 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B37D8FD1C3A793A1186B42C9 /* SwiftSoup */; };
+		A055EFDF51A803835A44685F /* DualPageReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463840C75554E5023AA3CF9 /* DualPageReaderView.swift */; };
+		A0D4DBB74E8F3A7A5C3D2476 /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3C92F39156F27B339976D /* SyncStatus.swift */; };
+		A82ECF42AA0664E2AB6C13D5 /* SourcePreferencesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECA20515EB744D7BD271443 /* SourcePreferencesScreen.swift */; };
+		A9AA636A68318D9879D7D1B4 /* UpdatesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CE39F0AB0DB11650AB44 /* UpdatesScreen.swift */; };
+		B085AF30478B30B095A762DC /* SourcesListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756ED1F409208F3B17EC42B7 /* SourcesListScreen.swift */; };
+		B3FC80E0291989A9C98A868E /* ChapterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81FA535450BEB645703A90 /* ChapterRow.swift */; };
+		B486A1147D95BF4B9DE50907 /* LibraryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6030F69FA756CF2C63DDBC9 /* LibraryScreen.swift */; };
+		B56246E88C02D30FE653D3D6 /* MyAnimeListTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D49FC34D33EA866086B002 /* MyAnimeListTracker.swift */; };
+		B6687D052DDF271B6DE44EB6 /* ShinsouI18n in Frameworks */ = {isa = PBXBuildFile; productRef = 935EA43D822CA244393AFC20 /* ShinsouI18n */; };
+		B99BFE47330374B035215629 /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA82A18349C918A97BDDB2 /* AboutScreen.swift */; };
+		BA0BD19711F0D5C2648A65F4 /* SettingsReaderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046003D8668C70DE22A9197 /* SettingsReaderScreen.swift */; };
+		BAA225F1C93BC083B54BE481 /* ExtensionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5492AE6D8E02FEB0BCAAC7C /* ExtensionDetailScreen.swift */; };
+		BF8891CD2704DF5913EBD622 /* ReaderSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07BFBB1275A7FD63528E477 /* ReaderSettingsSheet.swift */; };
+		C04DFB6209EE7BAB2E416DA5 /* SyncSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A790316ED1D62EA40E0F87F6 /* SyncSettingsScreen.swift */; };
+		C1363452B687660215AA0DF1 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337700D98C1F0CBDD246104 /* ReaderViewModel.swift */; };
+		C22FFE259C482A273C1CD3CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEB9AB6A1D780BDD19E3ED8 /* MainView.swift */; };
+		C2A9162E710876E2C866A43B /* LibrarySettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB283540313BBDC03C9FD311 /* LibrarySettingsSheet.swift */; };
+		C6F1D0E72A06EAD3CCE31F93 /* ShinsouDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4B99F00BA7A1E4F2641822 /* ShinsouDomain */; };
+		C9D0E6904F11F1A421D0475D /* PageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9EC7BA474C1D1DB7C1FEC /* PageLoader.swift */; };
+		CA412A58FC55D67C6FBA3E85 /* TrackSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8CE6D754CAB0CAD32DC24 /* TrackSearchSheet.swift */; };
+		CA851CEFC5D88337BF83E1C1 /* TrackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B1601BC966FB29DA4CE51 /* TrackSheet.swift */; };
+		CC4F0E2D4E9EEF6EF8C389BB /* HttpPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3555DF6CEED645F7FFD99F3 /* HttpPageLoader.swift */; };
+		CDA87477E0C52D2F7B887DAF /* ReaderContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A59A5BFEDAA01C465858CD /* ReaderContainerView.swift */; };
+		CEE08747CB98DB33AC69758C /* LibraryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22D8BD455A6226C7CB370D /* LibraryGridView.swift */; };
+		CEFFEDAC2CED340D32292D14 /* ShinsouApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1384273A73FCA9A04B3745 /* ShinsouApp.swift */; };
+		CFDF4FDBA707684C65CD23F6 /* ShinsouWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6694A80355AB93A57DEF858 /* ShinsouWidgetBundle.swift */; };
+		D1D096A7AEEBDE152A7F0CA4 /* ShinsouSourceAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E9FC29539751957FFA64233F /* ShinsouSourceAPI */; };
+		D4D629670E2DF13A4C429D7A /* TrackerLoginSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C1923D26E7DFDFB22E76F /* TrackerLoginSheet.swift */; };
+		D6195F76A7E3F59C934DC9F3 /* ICloudDriveMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92C8CD7C7672B06A9365AA7 /* ICloudDriveMonitor.swift */; };
+		D68413D566D890BF7AF70305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B66BF4537881CF449C7F143 /* Assets.xcassets */; };
+		D7D6F090E3E05BCF28067F71 /* MangaDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB5980CDE335451CA5E97D /* MangaDetailViewModel.swift */; };
+		D7DECBEE40D4C79B94659A8D /* BrowseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ED159C3AF22E7365D4BB0E /* BrowseScreen.swift */; };
+		DAC8249144094A1B8D393EBD /* CloudKitSyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F80528664D292FE75F24D9 /* CloudKitSyncEngine.swift */; };
+		DD9C01487F24EC3AC98D4871 /* DownloadCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D950C86B7AC8D0B3D49A57A /* DownloadCache.swift */; };
+		DEE8561A51FA47BBB308D157 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F52693EB7AE9BC5D8EFAD16 /* SyncManager.swift */; };
+		DF8606A7DD5682832B618846 /* ParsedHttpSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5837C5D86BAE1E1116F6DC /* ParsedHttpSource.swift */; };
+		E694726060A8AE470E28910F /* MoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD501EC83317F648A82E50B /* MoreScreen.swift */; };
+		E83F1A9EB4795DBC0902345B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7CBF7C02CC12C95D2CAC1 /* AVFoundation.framework */; };
+		E9962A50CCB56758E0EE9123 /* ChapterFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9949EE96A45C7FDDF4EA78AE /* ChapterFilterSheet.swift */; };
+		EA522A93C44C17E3283BC45F /* CategoryManagementSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA31731A84683A36D011369 /* CategoryManagementSheet.swift */; };
+		EC98163CF707156FD76ED487 /* MigrationSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B48F9260D0FA8FAB4FE3D7 /* MigrationSearchScreen.swift */; };
+		F11212CF521A45F2707D63E4 /* SettingsDownloadsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019EDDD141E29B1959AF6E7 /* SettingsDownloadsScreen.swift */; };
+		F125E134D263DD9E9987E7DF /* MigrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035951FC28999CC19B8EDA93 /* MigrationViewModel.swift */; };
+		F17059477A4B51FDE03EE43A /* SyncSettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D0A5D183970E188D7220A /* SyncSettingsKeys.swift */; };
+		F1740ECB69E1BAE25F76FC2F /* ImageSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62078C683C1AB7B4D595865D /* ImageSplitter.swift */; };
+		F27F791D1750FF0D89F468E2 /* LargeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9DDCDBCF51918D2B8F4B6 /* LargeImageView.swift */; };
+		F4D6A6E348CFE65E64C45065 /* MangaNotesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692AB3615B4ACF58DB9C02B /* MangaNotesSheet.swift */; };
+		F4F8AF70531C1A5C3AA189BA /* VolumeButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D18B7458E7559E89F54521 /* VolumeButtonHandler.swift */; };
+		F78F4A4767ED1FCFCBB5B5A6 /* PrivacyPolicyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CABB516B7A864CF074B5AE /* PrivacyPolicyScreen.swift */; };
+		FA88155CFAC10DC4B4CDBCC9 /* AniListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD4842EB8ADB435935D0C1 /* AniListApi.swift */; };
+		FC562AABF3BB0AE937122E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7E9CA5299C3DA5FAB2F4A /* AppDelegate.swift */; };
+		FCCDB23F72D3E5227E4D841B /* JSSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80C43EABF4819871EB87E69 /* JSSourceProxy.swift */; };
+		FE2B89F4F8D338252B0B83AF /* TrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D0B25CF95D3D770EA0293 /* TrackerManager.swift */; };
+		FE99C0F065541562693B6C3A /* ShinsouCore in Frameworks */ = {isa = PBXBuildFile; productRef = 94D568F2A71E0FCAA1BC0372 /* ShinsouCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		032083C7796698ED5E259022 /* DownloadPageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPageLoader.swift; sourceTree = "<group>"; };
+		035951FC28999CC19B8EDA93 /* MigrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationViewModel.swift; sourceTree = "<group>"; };
+		0572FAACBC090FC01F3546A9 /* PluginLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginLoader.swift; sourceTree = "<group>"; };
+		0AC6CE39F0AB0DB11650AB44 /* UpdatesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesScreen.swift; sourceTree = "<group>"; };
+		0B66BF4537881CF449C7F143 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BBD4842EB8ADB435935D0C1 /* AniListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListApi.swift; sourceTree = "<group>"; };
+		1046003D8668C70DE22A9197 /* SettingsReaderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReaderScreen.swift; sourceTree = "<group>"; };
+		117FE6E0AAB25EBE26016688 /* AniListTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListTracker.swift; sourceTree = "<group>"; };
+		15C0915951EC854CE832FB75 /* MALOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALOAuth.swift; sourceTree = "<group>"; };
+		15E9CF62611BDD2D7B917D83 /* ShinsouCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouCore; path = Packages/ShinsouCore; sourceTree = SOURCE_ROOT; };
+		188973B33E73F19B0F7AD406 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		18C8CE6D754CAB0CAD32DC24 /* TrackSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSearchSheet.swift; sourceTree = "<group>"; };
+		199628B09AB81A2CF13FE3B2 /* WebtoonReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebtoonReaderView.swift; sourceTree = "<group>"; };
+		1A5837C5D86BAE1E1116F6DC /* ParsedHttpSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedHttpSource.swift; sourceTree = "<group>"; };
+		1E6B0AF343AE3FDF98A94554 /* MangaDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailScreen.swift; sourceTree = "<group>"; };
+		1F2E542B20F66C62D4B7A29D /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		223CDB9956AFF923FA46942E /* CloudKitZoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitZoneManager.swift; sourceTree = "<group>"; };
+		22CE2B581A0E4220C4F5D945 /* SettingsGeneralScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralScreen.swift; sourceTree = "<group>"; };
+		2356EF585993042C6E26558A /* AppLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockView.swift; sourceTree = "<group>"; };
+		2AA741C8539B02936BE36959 /* ReaderPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderPageViewController.swift; sourceTree = "<group>"; };
+		2CE04E7A5B74235DFD5AD8B1 /* RecentUpdatesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUpdatesWidget.swift; sourceTree = "<group>"; };
+		2F7A6B8239E39B1183876B8C /* CloudKitConflictResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitConflictResolver.swift; sourceTree = "<group>"; };
+		306402352B3798607B534D0D /* GetExtensionRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExtensionRepos.swift; sourceTree = "<group>"; };
+		342AC9E28C19C130AC6F649F /* ShinsouSourceLocal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouSourceLocal; path = Packages/ShinsouSourceLocal; sourceTree = SOURCE_ROOT; };
+		34DE889E488A34EE34DB32A9 /* BrowseSourceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSourceScreen.swift; sourceTree = "<group>"; };
+		35ED159C3AF22E7365D4BB0E /* BrowseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseScreen.swift; sourceTree = "<group>"; };
+		363347FF4DEB76AF6A72F7EF /* MangaInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaInfoHeader.swift; sourceTree = "<group>"; };
+		3833CCBF064B97833D4C356A /* ShinsouWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShinsouWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		38A445994088AF5D08029AD9 /* PagerReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerReaderView.swift; sourceTree = "<group>"; };
+		38A9DDCDBCF51918D2B8F4B6 /* LargeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageView.swift; sourceTree = "<group>"; };
+		3970DA94FB39A97B42D190FC /* SettingsSecurityScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityScreen.swift; sourceTree = "<group>"; };
+		3DC1B0C53075770F6BE8375C /* SourceFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFilterSheet.swift; sourceTree = "<group>"; };
+		3DF12D0EF8F2AF91A4CC9CE7 /* ExtensionListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionListScreen.swift; sourceTree = "<group>"; };
+		3FDA15927B183A0D414F489B /* MyAnimeListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListApi.swift; sourceTree = "<group>"; };
+		4098E113D3B4AA4DECBEFFC1 /* ShinsouDomain */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouDomain; path = Packages/ShinsouDomain; sourceTree = SOURCE_ROOT; };
+		40B48F9260D0FA8FAB4FE3D7 /* MigrationSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationSearchScreen.swift; sourceTree = "<group>"; };
+		40DB173FD035D5FDD5D05FBA /* ShinsouWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShinsouWidgetExtension.entitlements; sourceTree = "<group>"; };
+		45FE1E2341E44A80A93B94FA /* ShinsouApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShinsouApp.entitlements; sourceTree = "<group>"; };
+		469C1923D26E7DFDFB22E76F /* TrackerLoginSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLoginSheet.swift; sourceTree = "<group>"; };
+		496E0975A3BB422E2376B40C /* SmartSearchEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSearchEngine.swift; sourceTree = "<group>"; };
+		4A34F3D5D8440F2658E4AE57 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		4D19C377D6093988FFF5DA52 /* CloudKitRecordMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecordMapper.swift; sourceTree = "<group>"; };
+		4DF34D7C1FBA49345BD12B05 /* LZString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZString.swift; sourceTree = "<group>"; };
+		4FE02A55B6D78E45B3AA90F9 /* AppLockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockManager.swift; sourceTree = "<group>"; };
+		5019EDDD141E29B1959AF6E7 /* SettingsDownloadsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDownloadsScreen.swift; sourceTree = "<group>"; };
+		53F80528664D292FE75F24D9 /* CloudKitSyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncEngine.swift; sourceTree = "<group>"; };
+		5599743D79E5ACDEDCBC25D0 /* MangaGenresSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaGenresSection.swift; sourceTree = "<group>"; };
+		559B08D8232B195302E5CDD7 /* LibraryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryWidget.swift; sourceTree = "<group>"; };
+		55E04C113689E9260CC70E10 /* SettingsBackupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBackupScreen.swift; sourceTree = "<group>"; };
+		582B12EAD79BB12F0D22809A /* SettingsBrowseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBrowseScreen.swift; sourceTree = "<group>"; };
+		589856489D3D0489850B6F4F /* LibraryGridView+iPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryGridView+iPad.swift"; sourceTree = "<group>"; };
+		5C4F48F8902FD819AE277603 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		5D5BFC02B883AAFF3E933F9F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		5DBBD28536A07B4F23150774 /* RateLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimiter.swift; sourceTree = "<group>"; };
+		5E1384273A73FCA9A04B3745 /* ShinsouApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinsouApp.swift; sourceTree = "<group>"; };
+		5F3EDFF8E2CE7055A5BA7499 /* IncognitoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncognitoManager.swift; sourceTree = "<group>"; };
+		62078C683C1AB7B4D595865D /* ImageSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSplitter.swift; sourceTree = "<group>"; };
+		62D536A7A313819EA86CC647 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		65CABB516B7A864CF074B5AE /* PrivacyPolicyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyScreen.swift; sourceTree = "<group>"; };
+		6B6BF37C5D595699FD29F5AB /* UpcomingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingScreen.swift; sourceTree = "<group>"; };
+		6BBAC08C320F05AC267E0E74 /* AutoBackupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBackupManager.swift; sourceTree = "<group>"; };
+		6BD501EC83317F648A82E50B /* MoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreScreen.swift; sourceTree = "<group>"; };
+		6BE2F0A2ADB8E15F302FFCAA /* DeleteExtensionRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteExtensionRepo.swift; sourceTree = "<group>"; };
+		706D500B801DDF1240104AF9 /* SettingsLibraryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLibraryScreen.swift; sourceTree = "<group>"; };
+		721D0B25CF95D3D770EA0293 /* TrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerManager.swift; sourceTree = "<group>"; };
+		7255B8D787BFD5D7AD4B7199 /* SourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceManager.swift; sourceTree = "<group>"; };
+		72EB26B93A2985711D2015DE /* MainView+iPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+iPad.swift"; sourceTree = "<group>"; };
+		75570A104F76689A7CE47A58 /* DebugLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogger.swift; sourceTree = "<group>"; };
+		756ED1F409208F3B17EC42B7 /* SourcesListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesListScreen.swift; sourceTree = "<group>"; };
+		75B902B380175093CD0F5BB7 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		77A04012954FE1EBBB0E4B5D /* JSDomLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSDomLib.swift; sourceTree = "<group>"; };
+		77C7B3D969C66A0587232D6C /* BackupRestorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestorer.swift; sourceTree = "<group>"; };
+		78EA82A18349C918A97BDDB2 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
+		7B8DEF223EA6E083D0EE7AD3 /* SecureScreenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureScreenModifier.swift; sourceTree = "<group>"; };
+		7D8E9872BB926EC7B7ABF41B /* PluginVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginVerifier.swift; sourceTree = "<group>"; };
+		7DEB9AB6A1D780BDD19E3ED8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		84B7CBF7C02CC12C95D2CAC1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8A0115D93C60B0EC9F799333 /* GlobalSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSearchScreen.swift; sourceTree = "<group>"; };
+		8D950C86B7AC8D0B3D49A57A /* DownloadCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCache.swift; sourceTree = "<group>"; };
+		8EF2D08B67C33160E2BB142D /* MangaDetailIPadLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailIPadLayout.swift; sourceTree = "<group>"; };
+		8F4C6AFDAF665B5746C366FA /* ShinsouI18n */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouI18n; path = Packages/ShinsouI18n; sourceTree = SOURCE_ROOT; };
+		8F52693EB7AE9BC5D8EFAD16 /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		918846E0BAFCBDB86FDEC350 /* ShinsouApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ShinsouApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		923246017CC1074106171140 /* MigrationMangaListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationMangaListScreen.swift; sourceTree = "<group>"; };
+		9337700D98C1F0CBDD246104 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		93CCF47CE3B4DE3998F0C418 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		9444CD15F76A865E8B19F581 /* JSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
+		976A0B0B4E72F1ED19A725BB /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
+		9868BA81AC4D019B76494A81 /* ICloudDriveBackupSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudDriveBackupSync.swift; sourceTree = "<group>"; };
+		9949EE96A45C7FDDF4EA78AE /* ChapterFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterFilterSheet.swift; sourceTree = "<group>"; };
+		9A55FB156B4EE4F45E5E855E /* AmoledDarkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmoledDarkModifier.swift; sourceTree = "<group>"; };
+		9B8667A808B2BEBFF76594BE /* CategoryPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerSheet.swift; sourceTree = "<group>"; };
+		9BA31731A84683A36D011369 /* CategoryManagementSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementSheet.swift; sourceTree = "<group>"; };
+		9CBABF72D6B1DF0017D934EA /* SyncTransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTransactionObserver.swift; sourceTree = "<group>"; };
+		A1D9EC7BA474C1D1DB7C1FEC /* PageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoader.swift; sourceTree = "<group>"; };
+		A318F9ED4B0168D2C1AE0458 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		A3555DF6CEED645F7FFD99F3 /* HttpPageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpPageLoader.swift; sourceTree = "<group>"; };
+		A3D1E75255F4DACECB0E42F7 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		A463840C75554E5023AA3CF9 /* DualPageReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualPageReaderView.swift; sourceTree = "<group>"; };
+		A56D0A5D183970E188D7220A /* SyncSettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSettingsKeys.swift; sourceTree = "<group>"; };
+		A692AB3615B4ACF58DB9C02B /* MangaNotesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaNotesSheet.swift; sourceTree = "<group>"; };
+		A77B1601BC966FB29DA4CE51 /* TrackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSheet.swift; sourceTree = "<group>"; };
+		A790316ED1D62EA40E0F87F6 /* SyncSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSettingsScreen.swift; sourceTree = "<group>"; };
+		A7AB5980CDE335451CA5E97D /* MangaDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailViewModel.swift; sourceTree = "<group>"; };
+		A80C43EABF4819871EB87E69 /* JSSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSSourceProxy.swift; sourceTree = "<group>"; };
+		A887D10D2F3A378F5BCDF84D /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		ACFF48721E426E1EC32E1680 /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
+		B4CFAC9B96B569D12199B752 /* CloudflareWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudflareWebView.swift; sourceTree = "<group>"; };
+		B5492AE6D8E02FEB0BCAAC7C /* ExtensionDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDetailScreen.swift; sourceTree = "<group>"; };
+		B580EC2407F7786324181E3B /* CloudKitChangeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitChangeTracker.swift; sourceTree = "<group>"; };
+		B61D17BD75F01118326282C4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		BAEEF390A39213E9F35194C8 /* StubCatalogueSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCatalogueSource.swift; sourceTree = "<group>"; };
+		BC2315F522ECFC56FB23AEC3 /* CreateExtensionRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExtensionRepo.swift; sourceTree = "<group>"; };
+		BCB5667C778309A44AE38B07 /* TimelineProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProviders.swift; sourceTree = "<group>"; };
+		BECA20515EB744D7BD271443 /* SourcePreferencesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePreferencesScreen.swift; sourceTree = "<group>"; };
+		C3CB8FA498677C1CDF067627 /* ExtensionRepoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRepoService.swift; sourceTree = "<group>"; };
+		C48A5543F7AF3524D4B9DFCA /* WidgetModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModels.swift; sourceTree = "<group>"; };
+		C4CB18DACDD1C555183FC135 /* BackupModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupModels.swift; sourceTree = "<group>"; };
+		C5AF3EE9BADD6DCAE9475BFD /* SettingsTrackingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTrackingScreen.swift; sourceTree = "<group>"; };
+		C5D18B7458E7559E89F54521 /* VolumeButtonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeButtonHandler.swift; sourceTree = "<group>"; };
+		C6030F69FA756CF2C63DDBC9 /* LibraryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreen.swift; sourceTree = "<group>"; };
+		C6548F7BD5726A64008FCB44 /* MigrationSourcesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationSourcesScreen.swift; sourceTree = "<group>"; };
+		C788CBD6D118EE4193DCF14A /* DownloadQueueScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadQueueScreen.swift; sourceTree = "<group>"; };
+		C8A59A5BFEDAA01C465858CD /* ReaderContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderContainerView.swift; sourceTree = "<group>"; };
+		C8B835CE7E4CF61184923021 /* SettingsAdvancedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAdvancedScreen.swift; sourceTree = "<group>"; };
+		CCEE2CFA4763CFB01778D128 /* TrackSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSheetViewModel.swift; sourceTree = "<group>"; };
+		CD29512D20E26D087C6419F3 /* ShinsouUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouUI; path = Packages/ShinsouUI; sourceTree = SOURCE_ROOT; };
+		CE2A665DC7C89A75CF3F236F /* CookieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieManager.swift; sourceTree = "<group>"; };
+		D2CA756989BC546B2EAA6AD1 /* MangaDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDescriptionSection.swift; sourceTree = "<group>"; };
+		D5F0EA8ADE5A945FB4FC7A5A /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
+		D63E4C58AE2F2223D7819832 /* BackupCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCreator.swift; sourceTree = "<group>"; };
+		D6694A80355AB93A57DEF858 /* ShinsouWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinsouWidgetBundle.swift; sourceTree = "<group>"; };
+		D66C0F716F160906766AC381 /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
+		D692A5BF28C36F48C4BA41AB /* ShinsouSourceAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouSourceAPI; path = Packages/ShinsouSourceAPI; sourceTree = SOURCE_ROOT; };
+		E07BFBB1275A7FD63528E477 /* ReaderSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSettingsSheet.swift; sourceTree = "<group>"; };
+		E1EB7F44F3DAF9A0C0E39DBC /* ALOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALOAuth.swift; sourceTree = "<group>"; };
+		E2AD2A05D96C45F04D1E96EC /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
+		E5241C75880EF2B4AEC35339 /* ArchivePageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivePageLoader.swift; sourceTree = "<group>"; };
+		E55D4E27E26F96248AE798CD /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
+		EA4DB70B4FC2DC3459464197 /* ScanlatorFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanlatorFilterSheet.swift; sourceTree = "<group>"; };
+		EB94370374FED3363447EAF4 /* ViewerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerNavigation.swift; sourceTree = "<group>"; };
+		EC7855BF81C6A8D57F72AE84 /* ShinsouData */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouData; path = Packages/ShinsouData; sourceTree = SOURCE_ROOT; };
+		ED81FA535450BEB645703A90 /* ChapterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterRow.swift; sourceTree = "<group>"; };
+		EFC3C92F39156F27B339976D /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
+		F04B0FC7A591AED6C2C60C60 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		F2B7E9CA5299C3DA5FAB2F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F54E5E99CD863E190B4BFFA5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F7D49FC34D33EA866086B002 /* MyAnimeListTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListTracker.swift; sourceTree = "<group>"; };
+		F8001A2FCA469D99EEF1FDE1 /* UserAgentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentProvider.swift; sourceTree = "<group>"; };
+		F92C8CD7C7672B06A9365AA7 /* ICloudDriveMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudDriveMonitor.swift; sourceTree = "<group>"; };
+		FA5C3F01A14B5EC58D9AE69A /* ChapterTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTransitionView.swift; sourceTree = "<group>"; };
+		FB283540313BBDC03C9FD311 /* LibrarySettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySettingsSheet.swift; sourceTree = "<group>"; };
+		FCA3505B5D3D1C863EEA6EE0 /* DirectoryPageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPageLoader.swift; sourceTree = "<group>"; };
+		FCB016F2112E6E7E38D210A2 /* BackupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupScreen.swift; sourceTree = "<group>"; };
+		FD02ED7BBA90ABB8EB45D601 /* SettingsAppearanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAppearanceScreen.swift; sourceTree = "<group>"; };
+		FE22D8BD455A6226C7CB370D /* LibraryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGridView.swift; sourceTree = "<group>"; };
+		FE449EC5352822F3A44912C9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AEE77226E7885CAD9E8A550 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6F1D0E72A06EAD3CCE31F93 /* ShinsouDomain in Frameworks */,
+				5A5C52497EC1F9BF917EEBE2 /* ShinsouData in Frameworks */,
+				FE99C0F065541562693B6C3A /* ShinsouCore in Frameworks */,
+				D1D096A7AEEBDE152A7F0CA4 /* ShinsouSourceAPI in Frameworks */,
+				00B3E4B2AB4AC4CD8B08E9DB /* ShinsouSourceLocal in Frameworks */,
+				623752D9195876B9A528D84D /* ShinsouUI in Frameworks */,
+				B6687D052DDF271B6DE44EB6 /* ShinsouI18n in Frameworks */,
+				4F35DFEB8F6182456BC6DA3B /* AuthenticationServices.framework in Frameworks */,
+				2C52BA8082D098EE4281B485 /* LocalAuthentication.framework in Frameworks */,
+				E83F1A9EB4795DBC0902345B /* AVFoundation.framework in Frameworks */,
+				6B1DD09BA2637245D1093475 /* MediaPlayer.framework in Frameworks */,
+				465781AE8B045CF9B2136C1D /* CryptoKit.framework in Frameworks */,
+				33D431CC515F3F39F95A065C /* CloudKit.framework in Frameworks */,
+				9CEB7B19382525CBE8D8CE55 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97728632E4385737AEE4EDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				212E5F09121EBFA2F58AD2FF /* ShinsouDomain in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		005331D04D38EAC050B934D5 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				017AA19572466171841E4342 /* ExtensionsTab */,
+				9BA2764D3E4A42A0240D239F /* GlobalSearch */,
+				84C617E97FC870D04E4DDBDC /* MigrationTab */,
+				2682D7928B5D2EFC67D69797 /* SourcesTab */,
+				35ED159C3AF22E7365D4BB0E /* BrowseScreen.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		017AA19572466171841E4342 /* ExtensionsTab */ = {
+			isa = PBXGroup;
+			children = (
+				B5492AE6D8E02FEB0BCAAC7C /* ExtensionDetailScreen.swift */,
+				3DF12D0EF8F2AF91A4CC9CE7 /* ExtensionListScreen.swift */,
+			);
+			path = ExtensionsTab;
+			sourceTree = "<group>";
+		};
+		0519DEBB28BC87D8803C7838 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A790316ED1D62EA40E0F87F6 /* SyncSettingsScreen.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0A714001DE347717B45CA1AC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F2B7E9CA5299C3DA5FAB2F4A /* AppDelegate.swift */,
+				5D5BFC02B883AAFF3E933F9F /* DIContainer.swift */,
+				5E1384273A73FCA9A04B3745 /* ShinsouApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0F52C1C298801F7C705E3801 /* Kavita */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Kavita;
+			sourceTree = "<group>";
+		};
+		13725CC7F8083AB26DC8DD98 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		15FC6559D3533B0DEC526620 /* Pager */ = {
+			isa = PBXGroup;
+			children = (
+				A463840C75554E5023AA3CF9 /* DualPageReaderView.swift */,
+				38A445994088AF5D08029AD9 /* PagerReaderView.swift */,
+				2AA741C8539B02936BE36959 /* ReaderPageViewController.swift */,
+			);
+			path = Pager;
+			sourceTree = "<group>";
+		};
+		16B3698B3AA039963CDD20A5 /* ShinsouWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				559B08D8232B195302E5CDD7 /* LibraryWidget.swift */,
+				2CE04E7A5B74235DFD5AD8B1 /* RecentUpdatesWidget.swift */,
+				D6694A80355AB93A57DEF858 /* ShinsouWidgetBundle.swift */,
+				40DB173FD035D5FDD5D05FBA /* ShinsouWidgetExtension.entitlements */,
+				BCB5667C778309A44AE38B07 /* TimelineProviders.swift */,
+				C48A5543F7AF3524D4B9DFCA /* WidgetModels.swift */,
+				5C4F48F8902FD819AE277603 /* WidgetViews.swift */,
+			);
+			path = ShinsouWidgetExtension;
+			sourceTree = "<group>";
+		};
+		173AFFB3346D79879F27A5AE /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				469C1923D26E7DFDFB22E76F /* TrackerLoginSheet.swift */,
+				18C8CE6D754CAB0CAD32DC24 /* TrackSearchSheet.swift */,
+				A77B1601BC966FB29DA4CE51 /* TrackSheet.swift */,
+				CCEE2CFA4763CFB01778D128 /* TrackSheetViewModel.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		1C0120FC915A8B156F013B4A /* MangaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9949EE96A45C7FDDF4EA78AE /* ChapterFilterSheet.swift */,
+				ED81FA535450BEB645703A90 /* ChapterRow.swift */,
+				D2CA756989BC546B2EAA6AD1 /* MangaDescriptionSection.swift */,
+				8EF2D08B67C33160E2BB142D /* MangaDetailIPadLayout.swift */,
+				1E6B0AF343AE3FDF98A94554 /* MangaDetailScreen.swift */,
+				A7AB5980CDE335451CA5E97D /* MangaDetailViewModel.swift */,
+				5599743D79E5ACDEDCBC25D0 /* MangaGenresSection.swift */,
+				363347FF4DEB76AF6A72F7EF /* MangaInfoHeader.swift */,
+				A692AB3615B4ACF58DB9C02B /* MangaNotesSheet.swift */,
+				EA4DB70B4FC2DC3459464197 /* ScanlatorFilterSheet.swift */,
+			);
+			path = MangaDetail;
+			sourceTree = "<group>";
+		};
+		2682D7928B5D2EFC67D69797 /* SourcesTab */ = {
+			isa = PBXGroup;
+			children = (
+				34DE889E488A34EE34DB32A9 /* BrowseSourceScreen.swift */,
+				3DC1B0C53075770F6BE8375C /* SourceFilterSheet.swift */,
+				BECA20515EB744D7BD271443 /* SourcePreferencesScreen.swift */,
+				756ED1F409208F3B17EC42B7 /* SourcesListScreen.swift */,
+			);
+			path = SourcesTab;
+			sourceTree = "<group>";
+		};
+		29BCA077150B60CFFC417E02 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E2AD2A05D96C45F04D1E96EC /* HistoryScreen.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		2FF78CEAC81C21E0CB6B6A3F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE2A665DC7C89A75CF3F236F /* CookieManager.swift */,
+				93CCF47CE3B4DE3998F0C418 /* NetworkHelper.swift */,
+				5DBBD28536A07B4F23150774 /* RateLimiter.swift */,
+				F8001A2FCA469D99EEF1FDE1 /* UserAgentProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		30914DD7B0131A43E2221870 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				B4CFAC9B96B569D12199B752 /* CloudflareWebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		3282399BEF0FAF7DCE5C6B55 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A3437D592AC3FD7B6E234971 /* Interactor */,
+				E6F89F1151B8B5649BF5BB0E /* JSPlugin */,
+				2FF78CEAC81C21E0CB6B6A3F /* Network */,
+				F8CB4561B315FDE99B1742A3 /* Scraping */,
+				A318F9ED4B0168D2C1AE0458 /* ExtensionManager.swift */,
+				C3CB8FA498677C1CDF067627 /* ExtensionRepoService.swift */,
+				7255B8D787BFD5D7AD4B7199 /* SourceManager.swift */,
+				BAEEF390A39213E9F35194C8 /* StubCatalogueSource.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		393406540ADA4D131FFEAC04 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9A55FB156B4EE4F45E5E855E /* AmoledDarkModifier.swift */,
+				C8B835CE7E4CF61184923021 /* SettingsAdvancedScreen.swift */,
+				FD02ED7BBA90ABB8EB45D601 /* SettingsAppearanceScreen.swift */,
+				55E04C113689E9260CC70E10 /* SettingsBackupScreen.swift */,
+				582B12EAD79BB12F0D22809A /* SettingsBrowseScreen.swift */,
+				5019EDDD141E29B1959AF6E7 /* SettingsDownloadsScreen.swift */,
+				22CE2B581A0E4220C4F5D945 /* SettingsGeneralScreen.swift */,
+				D66C0F716F160906766AC381 /* SettingsKeys.swift */,
+				706D500B801DDF1240104AF9 /* SettingsLibraryScreen.swift */,
+				1046003D8668C70DE22A9197 /* SettingsReaderScreen.swift */,
+				188973B33E73F19B0F7AD406 /* SettingsScreen.swift */,
+				3970DA94FB39A97B42D190FC /* SettingsSecurityScreen.swift */,
+				C5AF3EE9BADD6DCAE9475BFD /* SettingsTrackingScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3BB1034FAF82D0A442760CE9 = {
+			isa = PBXGroup;
+			children = (
+				98E69595EDA544A7E10BDF39 /* Packages */,
+				4E1BC834D5E4B4313FFEB329 /* ShinsouApp */,
+				16B3698B3AA039963CDD20A5 /* ShinsouWidgetExtension */,
+				4D72EB461D360C0793002171 /* Frameworks */,
+				E297EAD32A7C5B8E3D8C6789 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4697990703FBA9DBBB693269 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				A028419CE7423A250683847E /* AniList */,
+				B7761415E8A353B551FCA321 /* Bangumi */,
+				0F52C1C298801F7C705E3801 /* Kavita */,
+				5AF1AC55CD5434B8D6F137E3 /* Kitsu */,
+				48FDCD3112B496AD00BFAB8B /* Komga */,
+				E417A62D92941628451BA655 /* MAL */,
+				8E4867D597D3781DF9A77BFB /* MangaUpdates */,
+				A56A51482E5E474D927D468C /* MyAnimeList */,
+				EE00BDE942B95AD4D3F2FAA4 /* Shikimori */,
+				F693648CE4D41B245FED66AB /* Suwayomi */,
+				A3D1E75255F4DACECB0E42F7 /* Tracker.swift */,
+				721D0B25CF95D3D770EA0293 /* TrackerManager.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		48FDCD3112B496AD00BFAB8B /* Komga */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Komga;
+			sourceTree = "<group>";
+		};
+		49119FF5FE4C35AC49E2ADF4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E07BFBB1275A7FD63528E477 /* ReaderSettingsSheet.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		4A37D2ED16DE258094BBFB90 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				FE449EC5352822F3A44912C9 /* NotificationManager.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		4D72EB461D360C0793002171 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F2E542B20F66C62D4B7A29D /* AuthenticationServices.framework */,
+				84B7CBF7C02CC12C95D2CAC1 /* AVFoundation.framework */,
+				F54E5E99CD863E190B4BFFA5 /* CloudKit.framework */,
+				E55D4E27E26F96248AE798CD /* CryptoKit.framework */,
+				62D536A7A313819EA86CC647 /* LocalAuthentication.framework */,
+				B61D17BD75F01118326282C4 /* MediaPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E1BC834D5E4B4313FFEB329 /* ShinsouApp */ = {
+			isa = PBXGroup;
+			children = (
+				0A714001DE347717B45CA1AC /* App */,
+				CE6E948004CF4B57F0F02E4D /* Backup */,
+				6F86B5886670E0465196DC84 /* Cache */,
+				E879253171283FC010D64D4A /* Download */,
+				559AC04A6F6CEBA03F42EEB3 /* Navigation */,
+				AC7A085332B1908F744904EB /* Network */,
+				4A37D2ED16DE258094BBFB90 /* Notification */,
+				F7F49E317BA237C6CCDAD260 /* Resources */,
+				F10B04E41FB4CA6DAE4AE5F6 /* Security */,
+				3282399BEF0FAF7DCE5C6B55 /* Source */,
+				B0D3EA5BE321672D92A86F57 /* Sync */,
+				4697990703FBA9DBBB693269 /* Track */,
+				99744F6A34529C7ABA5115A4 /* UI */,
+				13725CC7F8083AB26DC8DD98 /* Widget */,
+				45FE1E2341E44A80A93B94FA /* ShinsouApp.entitlements */,
+			);
+			path = ShinsouApp;
+			sourceTree = "<group>";
+		};
+		559AC04A6F6CEBA03F42EEB3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A887D10D2F3A378F5BCDF84D /* DeepLinkHandler.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		5626DB620F00D17918F3B99F /* About */ = {
+			isa = PBXGroup;
+			children = (
+				78EA82A18349C918A97BDDB2 /* AboutScreen.swift */,
+				65CABB516B7A864CF074B5AE /* PrivacyPolicyScreen.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		5AF1AC55CD5434B8D6F137E3 /* Kitsu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Kitsu;
+			sourceTree = "<group>";
+		};
+		60851B5D3C2AEB3443CC48ED /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				976A0B0B4E72F1ED19A725BB /* ColorFilter.swift */,
+				62078C683C1AB7B4D595865D /* ImageSplitter.swift */,
+				38A9DDCDBCF51918D2B8F4B6 /* LargeImageView.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		6865312A92797AFAF2F14E06 /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				6B6BF37C5D595699FD29F5AB /* UpcomingScreen.swift */,
+				0AC6CE39F0AB0DB11650AB44 /* UpdatesScreen.swift */,
+			);
+			path = Updates;
+			sourceTree = "<group>";
+		};
+		6CACCCDF2B56B85BA078B6CF /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
+		6D0528FD5FF4192532CCD77C /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				FCB016F2112E6E7E38D210A2 /* BackupScreen.swift */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
+		6F86B5886670E0465196DC84 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		806F14C017F33A60F280FC8B /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				60851B5D3C2AEB3443CC48ED /* Image */,
+				995154EBAECEEB3A6BA9D293 /* Navigation */,
+				EEA01DCBB28E7734A6061617 /* PageLoader */,
+				49119FF5FE4C35AC49E2ADF4 /* Settings */,
+				93F44BA41324E7E69C42DF7A /* Viewer */,
+				C8A59A5BFEDAA01C465858CD /* ReaderContainerView.swift */,
+				9337700D98C1F0CBDD246104 /* ReaderViewModel.swift */,
+				C5D18B7458E7559E89F54521 /* VolumeButtonHandler.swift */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		83E662B5FBBE2B70221C408D /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				B580EC2407F7786324181E3B /* CloudKitChangeTracker.swift */,
+				2F7A6B8239E39B1183876B8C /* CloudKitConflictResolver.swift */,
+				4D19C377D6093988FFF5DA52 /* CloudKitRecordMapper.swift */,
+				53F80528664D292FE75F24D9 /* CloudKitSyncEngine.swift */,
+				223CDB9956AFF923FA46942E /* CloudKitZoneManager.swift */,
+				9CBABF72D6B1DF0017D934EA /* SyncTransactionObserver.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		84C617E97FC870D04E4DDBDC /* MigrationTab */ = {
+			isa = PBXGroup;
+			children = (
+				923246017CC1074106171140 /* MigrationMangaListScreen.swift */,
+				40B48F9260D0FA8FAB4FE3D7 /* MigrationSearchScreen.swift */,
+				C6548F7BD5726A64008FCB44 /* MigrationSourcesScreen.swift */,
+				035951FC28999CC19B8EDA93 /* MigrationViewModel.swift */,
+				496E0975A3BB422E2376B40C /* SmartSearchEngine.swift */,
+			);
+			path = MigrationTab;
+			sourceTree = "<group>";
+		};
+		8E4867D597D3781DF9A77BFB /* MangaUpdates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MangaUpdates;
+			sourceTree = "<group>";
+		};
+		93F44BA41324E7E69C42DF7A /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				15FC6559D3533B0DEC526620 /* Pager */,
+				FC55B83DC1DA09A7B2FAE70D /* Webtoon */,
+				FA5C3F01A14B5EC58D9AE69A /* ChapterTransitionView.swift */,
+			);
+			path = Viewer;
+			sourceTree = "<group>";
+		};
+		98E69595EDA544A7E10BDF39 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				15E9CF62611BDD2D7B917D83 /* ShinsouCore */,
+				EC7855BF81C6A8D57F72AE84 /* ShinsouData */,
+				4098E113D3B4AA4DECBEFFC1 /* ShinsouDomain */,
+				8F4C6AFDAF665B5746C366FA /* ShinsouI18n */,
+				D692A5BF28C36F48C4BA41AB /* ShinsouSourceAPI */,
+				342AC9E28C19C130AC6F649F /* ShinsouSourceLocal */,
+				CD29512D20E26D087C6419F3 /* ShinsouUI */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		995154EBAECEEB3A6BA9D293 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EB94370374FED3363447EAF4 /* ViewerNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		99744F6A34529C7ABA5115A4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6D0528FD5FF4192532CCD77C /* Backup */,
+				005331D04D38EAC050B934D5 /* Browse */,
+				29BCA077150B60CFFC417E02 /* History */,
+				D2E1A70DE992A2C7DFEBBAC3 /* Library */,
+				B518A0BFD080C7348FE4C289 /* Main */,
+				1C0120FC915A8B156F013B4A /* MangaDetail */,
+				FE7E581ABAF5658D9611C038 /* More */,
+				B3258C12C6A3164F84E7FFB1 /* Onboarding */,
+				806F14C017F33A60F280FC8B /* Reader */,
+				393406540ADA4D131FFEAC04 /* Settings */,
+				173AFFB3346D79879F27A5AE /* Track */,
+				6865312A92797AFAF2F14E06 /* Updates */,
+				30914DD7B0131A43E2221870 /* WebView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9BA2764D3E4A42A0240D239F /* GlobalSearch */ = {
+			isa = PBXGroup;
+			children = (
+				8A0115D93C60B0EC9F799333 /* GlobalSearchScreen.swift */,
+			);
+			path = GlobalSearch;
+			sourceTree = "<group>";
+		};
+		9CF513C2D9CEE0585D6C6A34 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				D5F0EA8ADE5A945FB4FC7A5A /* StatisticsScreen.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		A028419CE7423A250683847E /* AniList */ = {
+			isa = PBXGroup;
+			children = (
+				E1EB7F44F3DAF9A0C0E39DBC /* ALOAuth.swift */,
+				0BBD4842EB8ADB435935D0C1 /* AniListApi.swift */,
+				117FE6E0AAB25EBE26016688 /* AniListTracker.swift */,
+			);
+			path = AniList;
+			sourceTree = "<group>";
+		};
+		A3437D592AC3FD7B6E234971 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				BC2315F522ECFC56FB23AEC3 /* CreateExtensionRepo.swift */,
+				6BE2F0A2ADB8E15F302FFCAA /* DeleteExtensionRepo.swift */,
+				306402352B3798607B534D0D /* GetExtensionRepos.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A56A51482E5E474D927D468C /* MyAnimeList */ = {
+			isa = PBXGroup;
+			children = (
+				15C0915951EC854CE832FB75 /* MALOAuth.swift */,
+				3FDA15927B183A0D414F489B /* MyAnimeListApi.swift */,
+				F7D49FC34D33EA866086B002 /* MyAnimeListTracker.swift */,
+			);
+			path = MyAnimeList;
+			sourceTree = "<group>";
+		};
+		AC7A085332B1908F744904EB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6CACCCDF2B56B85BA078B6CF /* Middleware */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AFDAC6C3364DB52BB232EA95 /* {BackupModels} */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "{BackupModels}";
+			sourceTree = "<group>";
+		};
+		B0D3EA5BE321672D92A86F57 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				83E662B5FBBE2B70221C408D /* CloudKit */,
+				0519DEBB28BC87D8803C7838 /* UI */,
+				9868BA81AC4D019B76494A81 /* ICloudDriveBackupSync.swift */,
+				F92C8CD7C7672B06A9365AA7 /* ICloudDriveMonitor.swift */,
+				8F52693EB7AE9BC5D8EFAD16 /* SyncManager.swift */,
+				A56D0A5D183970E188D7220A /* SyncSettingsKeys.swift */,
+				EFC3C92F39156F27B339976D /* SyncStatus.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		B3258C12C6A3164F84E7FFB1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				75B902B380175093CD0F5BB7 /* OnboardingScreen.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B518A0BFD080C7348FE4C289 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7DEB9AB6A1D780BDD19E3ED8 /* MainView.swift */,
+				72EB26B93A2985711D2015DE /* MainView+iPad.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B7761415E8A353B551FCA321 /* Bangumi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bangumi;
+			sourceTree = "<group>";
+		};
+		C535EF0EBBD6EACBED6C8FDE /* Downloads */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Downloads;
+			sourceTree = "<group>";
+		};
+		CE6E948004CF4B57F0F02E4D /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				AFDAC6C3364DB52BB232EA95 /* {BackupModels} */,
+				6BBAC08C320F05AC267E0E74 /* AutoBackupManager.swift */,
+				D63E4C58AE2F2223D7819832 /* BackupCreator.swift */,
+				C4CB18DACDD1C555183FC135 /* BackupModels.swift */,
+				77C7B3D969C66A0587232D6C /* BackupRestorer.swift */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
+		D2E1A70DE992A2C7DFEBBAC3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9BA31731A84683A36D011369 /* CategoryManagementSheet.swift */,
+				9B8667A808B2BEBFF76594BE /* CategoryPickerSheet.swift */,
+				FE22D8BD455A6226C7CB370D /* LibraryGridView.swift */,
+				589856489D3D0489850B6F4F /* LibraryGridView+iPad.swift */,
+				ACFF48721E426E1EC32E1680 /* LibraryListView.swift */,
+				C6030F69FA756CF2C63DDBC9 /* LibraryScreen.swift */,
+				FB283540313BBDC03C9FD311 /* LibrarySettingsSheet.swift */,
+				4A34F3D5D8440F2658E4AE57 /* LibraryViewModel.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E297EAD32A7C5B8E3D8C6789 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				918846E0BAFCBDB86FDEC350 /* ShinsouApp.app */,
+				3833CCBF064B97833D4C356A /* ShinsouWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E417A62D92941628451BA655 /* MAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MAL;
+			sourceTree = "<group>";
+		};
+		E6F89F1151B8B5649BF5BB0E /* JSPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				9444CD15F76A865E8B19F581 /* JSBridge.swift */,
+				77A04012954FE1EBBB0E4B5D /* JSDomLib.swift */,
+				A80C43EABF4819871EB87E69 /* JSSourceProxy.swift */,
+				0572FAACBC090FC01F3546A9 /* PluginLoader.swift */,
+				7D8E9872BB926EC7B7ABF41B /* PluginVerifier.swift */,
+			);
+			path = JSPlugin;
+			sourceTree = "<group>";
+		};
+		E879253171283FC010D64D4A /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				8D950C86B7AC8D0B3D49A57A /* DownloadCache.swift */,
+				F04B0FC7A591AED6C2C60C60 /* DownloadManager.swift */,
+				C788CBD6D118EE4193DCF14A /* DownloadQueueScreen.swift */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		EE00BDE942B95AD4D3F2FAA4 /* Shikimori */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shikimori;
+			sourceTree = "<group>";
+		};
+		EEA01DCBB28E7734A6061617 /* PageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E5241C75880EF2B4AEC35339 /* ArchivePageLoader.swift */,
+				FCA3505B5D3D1C863EEA6EE0 /* DirectoryPageLoader.swift */,
+				032083C7796698ED5E259022 /* DownloadPageLoader.swift */,
+				A3555DF6CEED645F7FFD99F3 /* HttpPageLoader.swift */,
+				A1D9EC7BA474C1D1DB7C1FEC /* PageLoader.swift */,
+			);
+			path = PageLoader;
+			sourceTree = "<group>";
+		};
+		F10B04E41FB4CA6DAE4AE5F6 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				4FE02A55B6D78E45B3AA90F9 /* AppLockManager.swift */,
+				2356EF585993042C6E26558A /* AppLockView.swift */,
+				5F3EDFF8E2CE7055A5BA7499 /* IncognitoManager.swift */,
+				7B8DEF223EA6E083D0EE7AD3 /* SecureScreenModifier.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		F693648CE4D41B245FED66AB /* Suwayomi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Suwayomi;
+			sourceTree = "<group>";
+		};
+		F7F49E317BA237C6CCDAD260 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B66BF4537881CF449C7F143 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8CB4561B315FDE99B1742A3 /* Scraping */ = {
+			isa = PBXGroup;
+			children = (
+				75570A104F76689A7CE47A58 /* DebugLogger.swift */,
+				4DF34D7C1FBA49345BD12B05 /* LZString.swift */,
+				1A5837C5D86BAE1E1116F6DC /* ParsedHttpSource.swift */,
+			);
+			path = Scraping;
+			sourceTree = "<group>";
+		};
+		FC55B83DC1DA09A7B2FAE70D /* Webtoon */ = {
+			isa = PBXGroup;
+			children = (
+				199628B09AB81A2CF13FE3B2 /* WebtoonReaderView.swift */,
+			);
+			path = Webtoon;
+			sourceTree = "<group>";
+		};
+		FE7E581ABAF5658D9611C038 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				5626DB620F00D17918F3B99F /* About */,
+				C535EF0EBBD6EACBED6C8FDE /* Downloads */,
+				9CF513C2D9CEE0585D6C6A34 /* Statistics */,
+				6BD501EC83317F648A82E50B /* MoreScreen.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF24BA5CE9633530FFFA11AF /* ShinsouApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CD409E6ED28747E23D78318 /* Build configuration list for PBXNativeTarget "ShinsouApp" */;
+			buildPhases = (
+				ADEB035B5611745549292BFC /* Sources */,
+				FB5E78BAC892A2BC8417D86D /* Resources */,
+				5AEE77226E7885CAD9E8A550 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShinsouApp;
+			packageProductDependencies = (
+				2E4B99F00BA7A1E4F2641822 /* ShinsouDomain */,
+				575122FBD33073B3509425EA /* ShinsouData */,
+				94D568F2A71E0FCAA1BC0372 /* ShinsouCore */,
+				E9FC29539751957FFA64233F /* ShinsouSourceAPI */,
+				823951AF7D9694A578EE736E /* ShinsouSourceLocal */,
+				E5CA80688B16B5BFC50EF0CB /* ShinsouUI */,
+				935EA43D822CA244393AFC20 /* ShinsouI18n */,
+				B37D8FD1C3A793A1186B42C9 /* SwiftSoup */,
+			);
+			productName = ShinsouApp;
+			productReference = 918846E0BAFCBDB86FDEC350 /* ShinsouApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1C302A6E2877372AB1EA18F /* ShinsouWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 627636F810AA3E547ABB8720 /* Build configuration list for PBXNativeTarget "ShinsouWidgetExtension" */;
+			buildPhases = (
+				87A5D53115C334C77C680B52 /* Sources */,
+				D97728632E4385737AEE4EDC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShinsouWidgetExtension;
+			packageProductDependencies = (
+				8632A4E32FB3A9477C1BA1E9 /* ShinsouDomain */,
+			);
+			productName = ShinsouWidgetExtension;
+			productReference = 3833CCBF064B97833D4C356A /* ShinsouWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D81E80E81D6D2D3062E3EAF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					BF24BA5CE9633530FFFA11AF = {
+						DevelopmentTeam = 5UKY38ZLK6;
+						ProvisioningStyle = Automatic;
+					};
+					C1C302A6E2877372AB1EA18F = {
+						DevelopmentTeam = 5UKY38ZLK6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6CE975FE69DD747F0CD2A4DC /* Build configuration list for PBXProject "ShinsouIOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3BB1034FAF82D0A442760CE9;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				42031424BCED6712CF713165 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				E7B64390B549C5381459CF86 /* XCLocalSwiftPackageReference "Packages/ShinsouCore" */,
+				E28B3948625F784A2A1062C1 /* XCLocalSwiftPackageReference "Packages/ShinsouData" */,
+				992BEC6B70113C906751F3B6 /* XCLocalSwiftPackageReference "Packages/ShinsouDomain" */,
+				B347C4056AF2C5C08B836F68 /* XCLocalSwiftPackageReference "Packages/ShinsouI18n" */,
+				90FC89BF1D0B577E18A653C6 /* XCLocalSwiftPackageReference "Packages/ShinsouSourceAPI" */,
+				6C17F2E59F7B4F3271BE3984 /* XCLocalSwiftPackageReference "Packages/ShinsouSourceLocal" */,
+				0626A3F49B098F44534A76C4 /* XCLocalSwiftPackageReference "Packages/ShinsouUI" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E297EAD32A7C5B8E3D8C6789 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF24BA5CE9633530FFFA11AF /* ShinsouApp */,
+				C1C302A6E2877372AB1EA18F /* ShinsouWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB5E78BAC892A2BC8417D86D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68413D566D890BF7AF70305 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87A5D53115C334C77C680B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF91685EEB82F9E9F6A9A7D /* LibraryWidget.swift in Sources */,
+				309F488265FC6354301E0524 /* RecentUpdatesWidget.swift in Sources */,
+				CFDF4FDBA707684C65CD23F6 /* ShinsouWidgetBundle.swift in Sources */,
+				6516B22FE6CDFEADD52BE4D8 /* TimelineProviders.swift in Sources */,
+				02CD07E7B3CBCF8A5CC80EC1 /* WidgetModels.swift in Sources */,
+				7C305E3BBF2937D045F51A6F /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEB035B5611745549292BFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A160D15EC6DCFE35353B226 /* ALOAuth.swift in Sources */,
+				B99BFE47330374B035215629 /* AboutScreen.swift in Sources */,
+				4649403394A67F711F1088DA /* AmoledDarkModifier.swift in Sources */,
+				FA88155CFAC10DC4B4CDBCC9 /* AniListApi.swift in Sources */,
+				327F8911AF87489CDE48BD6B /* AniListTracker.swift in Sources */,
+				FC562AABF3BB0AE937122E4B /* AppDelegate.swift in Sources */,
+				8D0BD8074DC00A3C5DA23492 /* AppLockManager.swift in Sources */,
+				5B530E16DC2C2A236251A235 /* AppLockView.swift in Sources */,
+				7B5EF64797282AC34D749B1E /* ArchivePageLoader.swift in Sources */,
+				220B17F85EE1F649C2CE283E /* AutoBackupManager.swift in Sources */,
+				0813195A41D1CCC4A6E6503B /* BackupCreator.swift in Sources */,
+				20C0DD2B0B50B4939E83658B /* BackupModels.swift in Sources */,
+				196C1CEFE110A881198AE399 /* BackupRestorer.swift in Sources */,
+				435FE6DA5B832F0DA8707BFB /* BackupScreen.swift in Sources */,
+				D7DECBEE40D4C79B94659A8D /* BrowseScreen.swift in Sources */,
+				09540BAB53F0E3A88DF2DC9D /* BrowseSourceScreen.swift in Sources */,
+				EA522A93C44C17E3283BC45F /* CategoryManagementSheet.swift in Sources */,
+				24E32F9F7DB5CBCC6285B947 /* CategoryPickerSheet.swift in Sources */,
+				E9962A50CCB56758E0EE9123 /* ChapterFilterSheet.swift in Sources */,
+				B3FC80E0291989A9C98A868E /* ChapterRow.swift in Sources */,
+				3159473DC558FC8EFAC07875 /* ChapterTransitionView.swift in Sources */,
+				8CE2CB652269A7BD67E4649B /* CloudKitChangeTracker.swift in Sources */,
+				1A2C8F1B13B9529AC17313EC /* CloudKitConflictResolver.swift in Sources */,
+				52FA882C368DD626FC9A2BDB /* CloudKitRecordMapper.swift in Sources */,
+				DAC8249144094A1B8D393EBD /* CloudKitSyncEngine.swift in Sources */,
+				7F01518ECE03B6DBD848FD6B /* CloudKitZoneManager.swift in Sources */,
+				576AE9EDEE521B61190C7CA1 /* CloudflareWebView.swift in Sources */,
+				19B8003AC392627E05CCACAC /* ColorFilter.swift in Sources */,
+				049845ECB0EF109F4FAC1FD0 /* CookieManager.swift in Sources */,
+				7FCFD5B703F0F4FDBDBE0AEE /* CreateExtensionRepo.swift in Sources */,
+				78FD000B81BDF83CA3F9EA75 /* DIContainer.swift in Sources */,
+				061A23252DC5994C46AE0311 /* DebugLogger.swift in Sources */,
+				2954A4F9DBA3D5A053F85778 /* DeepLinkHandler.swift in Sources */,
+				7969DD90722FFCBA8CFAEBD5 /* DeleteExtensionRepo.swift in Sources */,
+				5E4FA83C79AF031670E7E0F4 /* DirectoryPageLoader.swift in Sources */,
+				DD9C01487F24EC3AC98D4871 /* DownloadCache.swift in Sources */,
+				2C4B3B2BFB55B589B31BBEB2 /* DownloadManager.swift in Sources */,
+				6524F8F491CCC91CDC9E559B /* DownloadPageLoader.swift in Sources */,
+				8529BCA7D502657F17A98A8C /* DownloadQueueScreen.swift in Sources */,
+				A055EFDF51A803835A44685F /* DualPageReaderView.swift in Sources */,
+				BAA225F1C93BC083B54BE481 /* ExtensionDetailScreen.swift in Sources */,
+				3CB732326A128C3ADDD7D2B0 /* ExtensionListScreen.swift in Sources */,
+				14028A4F74386D5A49A1B6D9 /* ExtensionManager.swift in Sources */,
+				008652140BA60A9BB37F2604 /* ExtensionRepoService.swift in Sources */,
+				665FE261DC3793B2DC10BCDF /* GetExtensionRepos.swift in Sources */,
+				04310F27AF4914850CEA85C8 /* GlobalSearchScreen.swift in Sources */,
+				9B45FF0603ED8A5C254814C8 /* HistoryScreen.swift in Sources */,
+				CC4F0E2D4E9EEF6EF8C389BB /* HttpPageLoader.swift in Sources */,
+				77C204500FC40383B3B4FBEA /* ICloudDriveBackupSync.swift in Sources */,
+				D6195F76A7E3F59C934DC9F3 /* ICloudDriveMonitor.swift in Sources */,
+				F1740ECB69E1BAE25F76FC2F /* ImageSplitter.swift in Sources */,
+				82DC89AB3DF49C4CDA639120 /* IncognitoManager.swift in Sources */,
+				52F0FD22FD486C373CD5D229 /* JSBridge.swift in Sources */,
+				29D25B07943E7A2ABFE6A9AF /* JSDomLib.swift in Sources */,
+				FCCDB23F72D3E5227E4D841B /* JSSourceProxy.swift in Sources */,
+				429562B4E14C4C98D565CE5F /* LZString.swift in Sources */,
+				F27F791D1750FF0D89F468E2 /* LargeImageView.swift in Sources */,
+				634C4F389A9AEB735A341D2A /* LibraryGridView+iPad.swift in Sources */,
+				CEE08747CB98DB33AC69758C /* LibraryGridView.swift in Sources */,
+				3EB3EC0DC0B9F5C1242994F5 /* LibraryListView.swift in Sources */,
+				B486A1147D95BF4B9DE50907 /* LibraryScreen.swift in Sources */,
+				C2A9162E710876E2C866A43B /* LibrarySettingsSheet.swift in Sources */,
+				9A6D40F000C4EDCDAB54ACF8 /* LibraryViewModel.swift in Sources */,
+				010EBFCEC79A59655F6E41FA /* MALOAuth.swift in Sources */,
+				5CB8F4E173321274959D2DF7 /* MainView+iPad.swift in Sources */,
+				C22FFE259C482A273C1CD3CC /* MainView.swift in Sources */,
+				671578DAA8A089202B76F647 /* MangaDescriptionSection.swift in Sources */,
+				6207CD05F1A56B40D8B046AA /* MangaDetailIPadLayout.swift in Sources */,
+				5D6754A8083EB3F171C06769 /* MangaDetailScreen.swift in Sources */,
+				D7D6F090E3E05BCF28067F71 /* MangaDetailViewModel.swift in Sources */,
+				5364D07A6D9BC0D633C22B13 /* MangaGenresSection.swift in Sources */,
+				6E7230773509C3578E5BA68C /* MangaInfoHeader.swift in Sources */,
+				F4D6A6E348CFE65E64C45065 /* MangaNotesSheet.swift in Sources */,
+				8073E4FB2E20CE4D7AFD0912 /* MigrationMangaListScreen.swift in Sources */,
+				EC98163CF707156FD76ED487 /* MigrationSearchScreen.swift in Sources */,
+				1A0167D40CD3C9C917AEC00B /* MigrationSourcesScreen.swift in Sources */,
+				F125E134D263DD9E9987E7DF /* MigrationViewModel.swift in Sources */,
+				E694726060A8AE470E28910F /* MoreScreen.swift in Sources */,
+				2AF2E7D4A611B54B70AEC0CC /* MyAnimeListApi.swift in Sources */,
+				B56246E88C02D30FE653D3D6 /* MyAnimeListTracker.swift in Sources */,
+				2356046A52240685CEA5AB0D /* NetworkHelper.swift in Sources */,
+				1460CBC45AA6FFA735A08423 /* NotificationManager.swift in Sources */,
+				11D1C65063C2942CCDDA1BB3 /* OnboardingScreen.swift in Sources */,
+				C9D0E6904F11F1A421D0475D /* PageLoader.swift in Sources */,
+				5BAFB84C9B125D1733A583E1 /* PagerReaderView.swift in Sources */,
+				DF8606A7DD5682832B618846 /* ParsedHttpSource.swift in Sources */,
+				5C33A80997893A72F9624589 /* PluginLoader.swift in Sources */,
+				2B3E40160BAE0F742DD3BD71 /* PluginVerifier.swift in Sources */,
+				F78F4A4767ED1FCFCBB5B5A6 /* PrivacyPolicyScreen.swift in Sources */,
+				8DBDFC833228C1BB9BFC3255 /* RateLimiter.swift in Sources */,
+				CDA87477E0C52D2F7B887DAF /* ReaderContainerView.swift in Sources */,
+				2851E5FAA92AA2F168CC317E /* ReaderPageViewController.swift in Sources */,
+				BF8891CD2704DF5913EBD622 /* ReaderSettingsSheet.swift in Sources */,
+				C1363452B687660215AA0DF1 /* ReaderViewModel.swift in Sources */,
+				33E35209255B19681325E7C6 /* ScanlatorFilterSheet.swift in Sources */,
+				3191931611DEDC42FD37813C /* SecureScreenModifier.swift in Sources */,
+				1632BCDF5A21874C5F8F6B01 /* SettingsAdvancedScreen.swift in Sources */,
+				630CDBBD5235664BABFEE49A /* SettingsAppearanceScreen.swift in Sources */,
+				1DCD3BB2A23DD0B16BB6304D /* SettingsBackupScreen.swift in Sources */,
+				7E595153ABEA884B282F77E4 /* SettingsBrowseScreen.swift in Sources */,
+				F11212CF521A45F2707D63E4 /* SettingsDownloadsScreen.swift in Sources */,
+				88D9E0C35E5D5DFC74D71158 /* SettingsGeneralScreen.swift in Sources */,
+				1D05BB4FE74B88C776B16EF5 /* SettingsKeys.swift in Sources */,
+				7A9F6C2CBF99D013A090A15E /* SettingsLibraryScreen.swift in Sources */,
+				BA0BD19711F0D5C2648A65F4 /* SettingsReaderScreen.swift in Sources */,
+				4991BFF03085CBC13C73C7C1 /* SettingsScreen.swift in Sources */,
+				5B86826EEDB1B779EFCE6403 /* SettingsSecurityScreen.swift in Sources */,
+				4A4C84D9FB3F4A7D9AA231CE /* SettingsTrackingScreen.swift in Sources */,
+				CEFFEDAC2CED340D32292D14 /* ShinsouApp.swift in Sources */,
+				1D8BFD0F55600F32012FF863 /* SmartSearchEngine.swift in Sources */,
+				7BC3B948AAAF78BC3CC9BE93 /* SourceFilterSheet.swift in Sources */,
+				3C25D358AE1BEB1F4E4F1041 /* SourceManager.swift in Sources */,
+				A82ECF42AA0664E2AB6C13D5 /* SourcePreferencesScreen.swift in Sources */,
+				B085AF30478B30B095A762DC /* SourcesListScreen.swift in Sources */,
+				81A2B2191CBDDE6DD81FBA97 /* StatisticsScreen.swift in Sources */,
+				95C398FA63B263E9F6939C36 /* StubCatalogueSource.swift in Sources */,
+				DEE8561A51FA47BBB308D157 /* SyncManager.swift in Sources */,
+				F17059477A4B51FDE03EE43A /* SyncSettingsKeys.swift in Sources */,
+				C04DFB6209EE7BAB2E416DA5 /* SyncSettingsScreen.swift in Sources */,
+				A0D4DBB74E8F3A7A5C3D2476 /* SyncStatus.swift in Sources */,
+				52E2815067D2DD8D6DED475B /* SyncTransactionObserver.swift in Sources */,
+				CA412A58FC55D67C6FBA3E85 /* TrackSearchSheet.swift in Sources */,
+				CA851CEFC5D88337BF83E1C1 /* TrackSheet.swift in Sources */,
+				6D42D03FFA2ADA25B2C4B3A1 /* TrackSheetViewModel.swift in Sources */,
+				67C06A06EC50C5EE7ED39FD7 /* Tracker.swift in Sources */,
+				D4D629670E2DF13A4C429D7A /* TrackerLoginSheet.swift in Sources */,
+				FE2B89F4F8D338252B0B83AF /* TrackerManager.swift in Sources */,
+				1A45D3A9D13A7A591EF49466 /* UpcomingScreen.swift in Sources */,
+				A9AA636A68318D9879D7D1B4 /* UpdatesScreen.swift in Sources */,
+				77F482F6BAE342C71DBE63EF /* UserAgentProvider.swift in Sources */,
+				7D41BAD4157C11FA6AFB9B38 /* ViewerNavigation.swift in Sources */,
+				F4F8AF70531C1A5C3AA189BA /* VolumeButtonHandler.swift in Sources */,
+				8E5C377E03C7505F962ABF69 /* WebtoonReaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		30F3C3DE5E3689A14C12A8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
+				PRODUCT_NAME = ShinsouWidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		346CB301EE557F3D809E6B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
+				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shinsou with Face ID";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save manga covers to your photo library";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
+				PRODUCT_NAME = Shinsou;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		39A39D78BDAFE09A2C6322FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
+				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shinsou with Face ID";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save manga covers to your photo library";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
+				PRODUCT_NAME = Shinsou;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F01F44BAD5200D600C24058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5UKY38ZLK6;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		E9AFD71937C54CFEB598CC1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
+				PRODUCT_NAME = ShinsouWidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EC931C6E209AF5889B1CFFFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5UKY38ZLK6;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		627636F810AA3E547ABB8720 /* Build configuration list for PBXNativeTarget "ShinsouWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F3C3DE5E3689A14C12A8CB /* Debug */,
+				E9AFD71937C54CFEB598CC1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6CE975FE69DD747F0CD2A4DC /* Build configuration list for PBXProject "ShinsouIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F01F44BAD5200D600C24058 /* Debug */,
+				EC931C6E209AF5889B1CFFFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7CD409E6ED28747E23D78318 /* Build configuration list for PBXNativeTarget "ShinsouApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39A39D78BDAFE09A2C6322FA /* Debug */,
+				346CB301EE557F3D809E6B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0626A3F49B098F44534A76C4 /* XCLocalSwiftPackageReference "Packages/ShinsouUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouUI;
+		};
+		6C17F2E59F7B4F3271BE3984 /* XCLocalSwiftPackageReference "Packages/ShinsouSourceLocal" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouSourceLocal;
+		};
+		90FC89BF1D0B577E18A653C6 /* XCLocalSwiftPackageReference "Packages/ShinsouSourceAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouSourceAPI;
+		};
+		992BEC6B70113C906751F3B6 /* XCLocalSwiftPackageReference "Packages/ShinsouDomain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouDomain;
+		};
+		B347C4056AF2C5C08B836F68 /* XCLocalSwiftPackageReference "Packages/ShinsouI18n" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouI18n;
+		};
+		E28B3948625F784A2A1062C1 /* XCLocalSwiftPackageReference "Packages/ShinsouData" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouData;
+		};
+		E7B64390B549C5381459CF86 /* XCLocalSwiftPackageReference "Packages/ShinsouCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ShinsouCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42031424BCED6712CF713165 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E4B99F00BA7A1E4F2641822 /* ShinsouDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouDomain;
+		};
+		575122FBD33073B3509425EA /* ShinsouData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouData;
+		};
+		823951AF7D9694A578EE736E /* ShinsouSourceLocal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouSourceLocal;
+		};
+		8632A4E32FB3A9477C1BA1E9 /* ShinsouDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouDomain;
+		};
+		935EA43D822CA244393AFC20 /* ShinsouI18n */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouI18n;
+		};
+		94D568F2A71E0FCAA1BC0372 /* ShinsouCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouCore;
+		};
+		B37D8FD1C3A793A1186B42C9 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42031424BCED6712CF713165 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		E5CA80688B16B5BFC50EF0CB /* ShinsouUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouUI;
+		};
+		E9FC29539751957FFA64233F /* ShinsouSourceAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ShinsouSourceAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D81E80E81D6D2D3062E3EAF3 /* Project object */;
+}

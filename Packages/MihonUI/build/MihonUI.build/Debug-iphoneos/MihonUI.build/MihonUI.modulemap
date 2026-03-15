@@ -1,4 +1,0 @@
-module MihonUI {
-header "MihonUI-Swift.h"
-export *
-}

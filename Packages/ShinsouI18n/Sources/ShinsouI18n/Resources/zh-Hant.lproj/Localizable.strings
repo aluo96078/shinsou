@@ -1,0 +1,582 @@
+/* Tabs */
+"tab_library" = "書庫";
+"tab_updates" = "更新";
+"tab_history" = "歷史";
+"tab_browse" = "瀏覽";
+"tab_more" = "更多";
+
+/* Common Actions */
+"action_ok" = "OK";
+"action_cancel" = "取消";
+"action_delete" = "刪除";
+"action_edit" = "編輯";
+"action_search" = "搜尋";
+"action_filter" = "篩選";
+"action_sort" = "排序";
+"action_download" = "下載";
+"action_share" = "分享";
+
+/* Library */
+"library_empty" = "書庫是空的";
+
+/* Reader Modes */
+"reader_mode_pager_ltr" = "從左到右";
+"reader_mode_pager_rtl" = "從右到左";
+"reader_mode_pager_vertical" = "垂直";
+"reader_mode_webtoon" = "Webtoon";
+"reader_mode_continuous_vertical" = "連續垂直";
+
+/* Settings */
+"settings_appearance" = "外觀";
+"settings_library" = "書庫";
+"settings_reader" = "閱讀器";
+"settings_downloads" = "下載";
+"settings_browse" = "瀏覽";
+"settings_tracking" = "追蹤";
+"settings_security" = "安全";
+"settings_data" = "資料與儲存";
+"settings_advanced" = "進階";
+"settings_about" = "關於";
+"settings_general" = "一般";
+"settings_backup" = "備份與還原";
+"settings_title" = "設定";
+
+/* More */
+"more_title" = "更多";
+"more_incognito_mode" = "無痕模式";
+"more_incognito_desc" = "暫停記錄閱讀歷史";
+"more_incognito_active" = "無痕模式已啟用";
+"more_download_only" = "僅下載模式";
+"more_download_only_desc" = "在閱讀器中僅顯示已下載的章節";
+"more_download_only_active" = "僅下載模式已啟用";
+"more_download_queue" = "下載佇列";
+"more_statistics" = "統計";
+"more_section_content" = "內容";
+"more_section_app" = "應用程式";
+
+/* General Settings */
+"general_language" = "語言";
+"general_display" = "顯示";
+"general_date_format" = "日期格式";
+"general_navigation" = "導覽";
+"general_default_screen" = "預設頁面";
+"general_behaviour" = "行為";
+"general_confirm_close" = "關閉前確認";
+"general_confirm_close_desc" = "退出應用程式前顯示確認對話框。";
+
+/* Library Screen */
+"library_settings" = "書庫設定";
+"library_filter" = "篩選";
+"library_sort" = "排序";
+"library_display" = "顯示";
+"library_downloaded" = "已下載";
+"library_unread" = "未讀";
+"library_started" = "已開始";
+"library_bookmarked" = "已收藏";
+"library_completed" = "已完結";
+"library_tracking" = "追蹤";
+"library_reshuffle" = "重新隨機";
+"library_display_mode" = "顯示模式";
+"library_compact_grid" = "緊湊網格";
+"library_comfortable_grid" = "舒適網格";
+"library_cover_only_grid" = "純封面網格";
+"library_list" = "列表";
+"library_badges" = "徽章";
+"library_unread_count" = "未讀數";
+"library_download_count" = "下載數";
+"library_local_source" = "本地來源";
+"library_category_tabs" = "分類標籤";
+"library_show_category_tabs" = "顯示分類標籤";
+"library_show_manga_count" = "顯示漫畫數量";
+"library_manage_categories" = "管理分類";
+"library_category_name" = "分類名稱";
+"library_new_category" = "新增分類";
+"library_enter_category_name" = "請輸入新分類的名稱。";
+"library_rename_category" = "重新命名分類";
+"library_new_name" = "新名稱";
+"library_no_categories" = "尚無分類";
+"library_no_categories_desc" = "點擊 + 建立第一個分類。";
+"library_resume_reading" = "繼續閱讀";
+"library_read_from_start" = "從頭開始讀";
+"library_move_to_category" = "移至分類";
+"library_remove_from_library" = "從書庫中移除";
+"library_mark_all_read" = "全部標為已讀";
+"library_mark_all_unread" = "全部標為未讀";
+
+/* History Screen */
+"history_title" = "歷史";
+"history_no_history" = "尚無閱讀記錄";
+"history_search" = "搜尋歷史";
+"history_clear_all" = "清除所有歷史";
+"history_remove" = "移除";
+
+/* Browse & Extensions */
+"browse_sources" = "來源";
+"browse_extensions" = "擴充套件";
+"browse_migration" = "遷移";
+"browse_global_search" = "全域搜尋";
+"browse_popular" = "熱門";
+"browse_latest" = "最新";
+"browse_no_results" = "找不到結果";
+"browse_search_all" = "搜尋所有來源";
+"browse_search_across" = "跨所有來源搜尋";
+"browse_preferences" = "偏好設定";
+"browse_enable_all" = "全部啟用";
+"browse_show_all_reset" = "顯示全部（重置）";
+"browse_filter_languages" = "按語言篩選";
+"browse_languages" = "語言";
+"browse_installed" = "已安裝";
+"browse_available" = "可用";
+"browse_no_extensions" = "目前無可用擴充套件";
+"browse_repositories" = "儲存庫";
+"browse_add_repository" = "新增儲存庫";
+"browse_repository_url" = "儲存庫 URL";
+"browse_uninstall" = "解除安裝";
+"browse_clear_cookies" = "清除 Cookie";
+"browse_clear" = "清除";
+"browse_uninstall_confirm" = "這將移除此擴充套件提供的所有來源。書庫中的項目不會被刪除。";
+"browse_cookies_confirm" = "此來源儲存的所有 Cookie 將被刪除。";
+"browse_uninstall_failed" = "解除安裝失敗";
+"browse_unknown_error" = "發生未知錯誤。";
+"browse_check_updates" = "檢查擴充套件更新";
+"browse_check_updates_desc" = "啟動時自動檢查可用的擴充套件更新。";
+"browse_show_nsfw" = "顯示 NSFW 來源";
+"browse_show_nsfw_desc" = "在擴充套件目錄中包含成人內容來源。";
+"browse_nsfw_warning" = "啟用此選項將顯示可能包含不適合未成年人內容的來源。";
+"browse_no_custom_repos" = "尚未新增自訂儲存庫。";
+"browse_repo_footer" = "自訂儲存庫可讓您安裝不在官方目錄中的擴充套件。請只新增您信任的來源儲存庫。";
+"browse_invalid_url" = "請輸入以 http:// 或 https:// 開頭的有效 URL";
+"browse_repo_exists" = "此儲存庫已新增。";
+"browse_has_update" = "可更新";
+"browse_install_action" = "安裝";
+"browse_update_action" = "更新";
+"browse_update_all" = "全部更新";
+
+/* Manga Detail */
+"manga_in_library" = "已在書庫";
+"manga_add_to_library" = "新增至書庫";
+"manga_tracking" = "追蹤";
+"manga_webview" = "WebView";
+"manga_notes" = "筆記";
+"manga_edit_notes" = "編輯筆記";
+"manga_mark_duplicates_read" = "將所有重複章節標為已讀";
+"manga_read" = "已讀";
+"manga_unread" = "未讀";
+"manga_bookmark" = "書籤";
+"manga_save_to_photos" = "儲存至照片";
+"manga_set_custom_cover" = "設為自訂封面";
+"manga_cover_image" = "封面圖片";
+"manga_cover_not_loaded" = "封面圖片尚未載入。";
+"manga_cover_saved" = "封面已儲存至照片。";
+"manga_photos_denied" = "照片存取被拒絕。請在設定中啟用。";
+"manga_custom_cover_saved" = "自訂封面已儲存。";
+"manga_encode_failed" = "圖片編碼失敗。";
+"manga_status_ongoing" = "連載中";
+"manga_status_completed" = "已完結";
+"manga_status_licensed" = "已授權";
+"manga_status_publishing_finished" = "出版完結";
+"manga_status_cancelled" = "已取消";
+"manga_status_on_hiatus" = "休刊中";
+"manga_status_unknown" = "未知";
+"manga_filter_scanlator" = "按漢化組篩選";
+"manga_show_all_scanlators" = "顯示所有漢化組";
+"manga_skip_read" = "跳過已讀章節";
+"manga_skip_filtered" = "跳過已篩選章節";
+"manga_skip_duplicate" = "跳過重複章節";
+"manga_sort_descending" = "降序（最新在前）";
+"manga_sort_ascending" = "升序（最早在前）";
+"manga_reader_skip" = "閱讀器跳過設定";
+"manga_reader_skip_footer" = "這些設定適用於在閱讀器中導覽章節時。";
+"manga_duplicate_hint" = "另一漢化組提供了重複章節";
+
+/* Migration */
+"migration_searching" = "正在搜尋來源…";
+"migration_no_results" = "找不到結果。";
+"migration_complete" = "遷移完成";
+"migration_complete_msg" = "漫畫已成功遷移至新來源。";
+"migration_failed" = "遷移失敗";
+"migration_confirm" = "遷移至此漫畫？";
+"migration_migrate" = "遷移";
+
+/* Tracking */
+"track_title" = "追蹤";
+"track_add" = "新增追蹤";
+"track_status" = "狀態";
+"track_score" = "評分";
+"track_chapter" = "章節";
+"track_started" = "開始日期";
+"track_finished" = "結束日期";
+"track_searching" = "搜尋中…";
+"track_no_results" = "無結果";
+"track_try_different" = "請嘗試不同的搜尋詞。";
+"track_login" = "登入";
+"track_login_button" = "登入";
+"track_logout_button" = "登出";
+"track_authenticating" = "正在驗證…";
+"track_services" = "服務";
+"track_services_footer" = "登入追蹤服務以自動同步您的閱讀進度。";
+"track_connected" = "已連線";
+"track_not_connected" = "未連線";
+"track_sync_behaviour" = "同步行為";
+"track_auto_sync" = "讀完章節後自動同步";
+"track_auto_sync_desc" = "完成一章後立即將進度推送至所有已連線的追蹤器。";
+"track_update_progress" = "閱讀後更新進度";
+"track_update_progress_desc" = "完成一章後在追蹤器上遞增章節數。";
+
+/* Reader */
+"reader_title" = "閱讀器設定";
+"reader_reading_mode" = "閱讀模式";
+"reader_mode" = "模式";
+"reader_display" = "顯示";
+"reader_show_page_number" = "顯示頁碼";
+"reader_keep_screen_on" = "保持螢幕常亮";
+"reader_fullscreen" = "全螢幕";
+"reader_controls" = "控制";
+"reader_volume_keys" = "音量鍵翻頁";
+"reader_volume_keys_desc" = "使用音量鍵在閱讀器中翻頁";
+"reader_color_filter" = "色彩濾鏡";
+"reader_brightness" = "亮度";
+"reader_split_tall" = "分割長圖";
+"reader_split_tall_desc" = "自動將 Webtoon 風格的長圖分割為頁面大小的片段。";
+"reader_image_processing" = "圖像處理";
+"reader_side_padding" = "側邊距";
+"reader_webtoon" = "Webtoon";
+"reader_webtoon_footer" = "為 Webtoon / 連續垂直模式下的圖像新增水平邊距。";
+"reader_retry" = "重試";
+
+/* Downloads */
+"downloads_title" = "下載";
+"downloads_no_downloads" = "尚無下載";
+"downloads_pause_all" = "全部暫停";
+"downloads_resume_all" = "全部繼續";
+"downloads_clear_completed" = "清除已完成";
+"downloads_cancel_all" = "全部取消";
+"downloads_queued" = "排隊中";
+"downloads_downloaded" = "已下載";
+"downloads_location" = "下載位置";
+"downloads_location_footer" = "預設情況下，下載內容儲存在應用程式的 Documents 資料夾中。";
+"downloads_storage" = "儲存空間";
+"downloads_auto_download" = "自動下載新章節";
+"downloads_auto_download_desc" = "全域更新時自動下載找到的新章節。";
+"downloads_delete_after_read" = "閱讀後刪除章節";
+"downloads_delete_after_read_desc" = "讀完一章後刪除已下載的檔案。";
+"downloads_remove_after_marked" = "標為已讀後移除";
+"downloads_remove_after_marked_desc" = "手動標為已讀時也刪除已下載的章節。";
+"downloads_automation" = "自動化";
+"downloads_wifi_only" = "僅在 Wi-Fi 下下載";
+"downloads_wifi_only_desc" = "裝置切換到行動數據時暫停下載。";
+"downloads_network" = "網路";
+"downloads_parallel" = "並行下載數";
+"downloads_performance" = "效能";
+"downloads_performance_footer" = "較高的值可加快多章節下載速度，但會增加記憶體和電池消耗。";
+
+/* Security */
+"security_title" = "安全";
+"security_require_auth" = "需要身份驗證";
+"security_app_lock" = "應用程式鎖定";
+"security_app_lock_footer" = "啟用後，從背景返回時應用程式將要求身份驗證。";
+"security_secure_screen" = "安全螢幕";
+"security_secure_screen_desc" = "在應用程式切換器中模糊或隱藏應用程式預覽，並防止截圖。";
+"security_incognito" = "無痕模式";
+"security_incognito_desc" = "暫停閱讀歷史記錄。不影響已下載的章節。";
+"security_privacy" = "隱私";
+"security_auth_unavailable" = "身份驗證不可用";
+"security_auth_unavailable_msg" = "此裝置未設定 Face ID / Touch ID。請在啟用應用程式鎖定之前在設定中設定生物辨識或密碼。";
+"security_lock_immediately" = "立即";
+"security_lock_10s" = "10 秒後";
+"security_lock_30s" = "30 秒後";
+"security_lock_1m" = "1 分鐘後";
+"security_lock_5m" = "5 分鐘後";
+"security_lock_10m" = "10 分鐘後";
+
+/* Advanced */
+"advanced_title" = "進階";
+"advanced_storage" = "儲存空間";
+"advanced_clear_image_cache" = "清除圖片快取";
+"advanced_clear_image_cache_footer" = "刪除快取的封面圖片和閱讀器頁面圖片。磁碟空間將立即釋放。";
+"advanced_clear_database" = "清除資料庫";
+"advanced_clear_database_footer" = "從本地資料庫中刪除所有快取的來源資料（章節、頁面清單）。您的書庫項目和閱讀歷史將保留。";
+"advanced_reset_settings" = "重置所有設定";
+"advanced_reset_settings_footer" = "將所有偏好設定恢復為原廠預設值。不影響您的書庫、閱讀歷史或下載內容。";
+"advanced_network" = "網路";
+"advanced_doh" = "DNS over HTTPS";
+"advanced_doh_desc" = "加密 DNS 查詢以提高隱私性並繞過基於 DNS 的封鎖。";
+"advanced_doh_footer" = "在具有自訂 DNS 設定的網路上啟用此功能可能會影響效能。";
+"advanced_diagnostics" = "診斷";
+"advanced_crash_logs" = "匯出崩潰記錄";
+"advanced_crash_logs_footer" = "將崩潰記錄匯出到「檔案」應用程式以與開發者共享。";
+"advanced_about" = "關於";
+"advanced_app_version" = "應用程式版本";
+"advanced_copy_version" = "複製版本";
+"advanced_clear_cache_confirm" = "清除圖片快取？";
+"advanced_clear_cache_msg" = "這將釋放磁碟空間。圖片將在需要時重新下載。";
+"advanced_clear_cache_button" = "清除快取";
+"advanced_clear_db_confirm" = "清除資料庫？";
+"advanced_clear_db_msg" = "快取的章節和頁面資料將被刪除。您的書庫和歷史記錄保持完整。";
+
+/* About */
+"about_title" = "關於";
+"about_connect" = "聯繫";
+"about_website" = "網站";
+"about_github" = "GitHub";
+"about_github_desc" = "查看原始碼";
+"about_discord" = "Discord";
+"about_discord_desc" = "加入社群";
+"about_help" = "說明";
+"about_docs" = "文件";
+"about_report_issue" = "回報問題";
+"about_github_subtitle" = "查看原始碼";
+"about_contact_dev" = "聯絡開發者";
+"about_legal" = "法律資訊";
+"about_licenses" = "開源授權";
+"about_open_source_license" = "開源憑證";
+"about_privacy_policy" = "隱私權政策";
+"privacy_title" = "Shinsou 隱私權政策";
+"privacy_last_updated" = "最近更新日期：2026年3月14日";
+"privacy_intro" = "感謝你選擇使用 Shinsou（以下簡稱「本軟體」）。我們深知個人隱私對你的重要性，因此本軟體在設計上秉持「隱私優先」與「數據本地化」的原則。";
+"privacy_section1_title" = "1. 數據收集與使用";
+"privacy_section1_body" = "本軟體是一款開源/自由使用的媒體閱讀工具，我們不會主動收集你的任何個人識別資訊。\n\n閱讀記錄與書架：你的所有漫畫清單、閱讀進度、收藏夾等數據，均僅儲存在你的本地裝置中。我們沒有中央伺服器，因此無法訪問、儲存或洩露你的閱讀偏好。\n\n帳戶資訊：本軟體無需註冊帳戶即可使用。若你連結第三方服務（如 Tracking 網站），該資訊僅用於完成同步功能，我們不會取得該服務的登入憑據。";
+"privacy_section2_title" = "2. 外部擴充插件 (Extensions)";
+"privacy_section2_body" = "本軟體本身不提供任何內容。內容是透過你自行安裝的「擴充插件」獲取的。\n\n第三方來源：當你使用插件瀏覽內容時，你的 IP 位址等網絡資訊會直接傳送給該內容來源網站。\n\n風險提示：請注意，各內容來源網站有其自身的隱私權政策，我們無法控制其行為，建議你在使用特定來源時保持警覺。";
+"privacy_section3_title" = "3. 權限說明";
+"privacy_section3_body" = "為了保證軟體正常運作，我們可能會請求以下權限：\n\n儲存空間：用於儲存下載的漫畫內容與備份數據。\n\n網路訪問：用於下載內容、更新插件以及同步數據。";
+"privacy_section4_title" = "4. 數據安全與備份";
+"privacy_section4_body" = "由於數據存放在本地，本軟體不具備雲端恢復功能。若你刪除軟體且未進行手動備份，你的數據將永久消失。我們強烈建議定期使用「導出備份」功能。";
+"privacy_section5_title" = "5. 政策更新";
+"privacy_section5_body" = "我們可能會不時更新此政策。建議你定期查看。繼續使用本軟體即代表你同意本政策。";
+"about_footer" = "Made with ❤️ by the Shinsou community";
+
+/* Backup */
+"backup_title" = "備份與還原";
+"backup_create" = "建立備份";
+"backup_restore" = "還原備份";
+"backup_no_backups" = "尚無備份";
+"backup_no_backups_desc" = "點擊「建立備份」以建立您的第一個備份。";
+
+/* Common */
+"common_done" = "完成";
+"common_cancel" = "取消";
+"common_save" = "儲存";
+"common_add" = "新增";
+"common_remove" = "移除";
+"common_error" = "錯誤";
+"common_ok" = "OK";
+"common_select_all" = "全選";
+"common_deselect_all" = "取消全選";
+"common_change" = "變更";
+"common_retry" = "重試";
+
+/* Onboarding */
+"onboarding_welcome" = "歡迎使用 Shinsou";
+"onboarding_welcome_desc" = "您的終極漫畫閱讀夥伴。從數百個來源中發現、收藏並閱讀漫畫 — 一切盡在一處。";
+"onboarding_sources_title" = "瀏覽並安裝來源";
+"onboarding_sources_desc" = "瀏覽來自世界各地的數百個漫畫來源。安裝擴充套件以新增新來源，並一鍵保持更新。";
+"onboarding_sources_1" = "為任意來源安裝擴充套件";
+"onboarding_sources_2" = "下載章節以供離線閱讀";
+"onboarding_sources_3" = "一次搜尋所有來源";
+"onboarding_library_title" = "整理您的書庫";
+"onboarding_library_desc" = "追蹤您喜愛的所有漫畫。用分類整理，用追蹤器同步閱讀進度，並按狀態篩選。";
+"onboarding_library_1" = "建立分類以保持整潔";
+"onboarding_library_2" = "在 AniList、MAL 等平台追蹤進度";
+"onboarding_library_3" = "按狀態、已讀數和類型篩選";
+"onboarding_ready" = "一切就緒！";
+"onboarding_ready_desc" = "可選擇允許通知，以便 Shinsou 在新章節到來和下載完成時通知您。";
+"onboarding_notifications" = "通知";
+"onboarding_allow" = "允許";
+"onboarding_skip" = "跳過";
+"onboarding_start" = "開始閱讀";
+"onboarding_notif_enabled" = "已啟用 — 新章節到來時您將收到通知";
+"onboarding_notif_denied" = "已拒絕 — 請在設定 > Shinsou 中啟用";
+"onboarding_notif_desc" = "新章節到來時獲得通知";
+
+/* Backup (Extended) */
+"backup_actions" = "操作";
+"backup_actions_desc" = "備份會儲存所有書庫漫畫、章節進度、分類與追蹤記錄。";
+"backup_local" = "本機備份";
+"backup_local_footer" = "最多保留 5 份自動備份，建立新備份時會自動刪除最舊的。";
+"backup_contents" = "備份內容";
+"backup_loading" = "載入備份資訊中…";
+"backup_select_items" = "選擇要還原的項目";
+"backup_select_items_desc" = "取消勾選的項目將不會被還原，現有資料也不受影響。";
+"backup_restore_complete" = "還原完成";
+"backup_error_occurred" = "發生錯誤";
+"backup_restore_options" = "還原選項";
+"backup_manga_data" = "漫畫資料";
+"backup_categories" = "分類";
+"backup_chapter_progress" = "章節進度";
+"backup_tracking_records" = "追蹤記錄";
+"backup_reading_history" = "閱讀歷史";
+"backup_restore_from" = "從此備份還原";
+"backup_share_export" = "分享 / 匯出";
+"backup_start_restore" = "開始還原";
+"backup_created_at" = "備份建立於 %@（格式版本 %@）";
+
+/* Library (Extended) */
+"library_continue_reading" = "繼續閱讀";
+"library_search_prompt" = "搜尋書庫";
+"library_select" = "選擇";
+"library_default" = "預設";
+"library_always_ask" = "每次詢問";
+"library_categories_section" = "分類";
+"library_default_category_desc" = "新加入書庫的漫畫將被放入預設分類。";
+"library_wifi_only" = "僅 Wi-Fi";
+"library_wifi_only_desc" = "僅在連接 Wi-Fi 時執行全域更新。";
+"library_charging_only" = "僅充電時";
+"library_charging_only_desc" = "僅在裝置充電時執行全域更新。";
+"library_update_restrictions" = "全域更新限制";
+"library_restrictions_desc" = "如果不滿足限制條件，將跳過全域更新。";
+"library_auto_refresh" = "自動更新中繼資料";
+"library_auto_refresh_desc" = "全域更新時自動更新漫畫封面、描述和類型。";
+"library_metadata" = "中繼資料";
+"library_selected_count" = "已選 %d 項";
+
+/* Manga (Extended) */
+"manga_genres" = "類型";
+"manga_no_chapters" = "暫無章節";
+"manga_source_id" = "來源 %lld";
+"manga_chapters_count" = "%d 章";
+"manga_duplicates_count" = "%d 重複";
+
+/* Chapter */
+"chapter_page" = "第 %d 頁";
+"chapter_scanlators" = "漢化組";
+"chapter_hidden_count" = "已隱藏 %d 個";
+
+/* About (Extended) */
+"about_version" = "版本 %@（%@）";
+"about_version_build" = "版本 %@（build %@）";
+
+/* Upcoming */
+"upcoming_no_updates" = "無預期更新";
+"upcoming_every_days" = "約每 %d 天";
+
+/* Cloudflare WebView */
+"cloudflare_verification" = "Cloudflare 驗證";
+"cloudflare_invalid_url" = "無效 URL：%@";
+
+/* Category Picker */
+"category_create_hint" = "請先在書庫設定中建立分類。";
+"category_set" = "設定分類";
+
+/* Track (Extended) */
+"track_login_desc" = "登入 %@ 以追蹤您的漫畫閱讀進度並在裝置間同步。";
+"track_logout_desc" = "此裝置上的追蹤資料將被清除。您在 %@ 上的帳號和歷史記錄不受影響。";
+"track_chapters_short" = "%d 章";
+
+/* Browse (Extended) */
+"browse_open_webview" = "開啟網頁驗證";
+
+/* Extension */
+"extension_force_refresh" = "強制刷新套件";
+"extension_actions" = "操作";
+"extension_force_refresh_desc" = "從倉庫重新下載並載入插件腳本，不檢查版號。";
+"extension_danger_zone" = "危險區域";
+"extension_refresh_failed" = "刷新失敗";
+"extension_no_sources" = "此擴充套件未載入任何來源。";
+"extension_sources_footer" = "已停用的來源不會出現在瀏覽頁籤中。";
+
+/* Sources */
+"sources_pinned" = "已釘選";
+"sources_not_found" = "找不到來源。";
+
+/* Migration (Extended) */
+"migration_no_sources" = "找不到含有書庫漫畫的來源。";
+"migration_select_source" = "選擇來源";
+"migration_no_manga" = "此來源在您的書庫中沒有漫畫。";
+"migration_migrating" = "遷移中…";
+"migration_migrate_title" = "遷移：%@";
+"migration_results_count" = "%d 個結果";
+
+/* Global Search */
+"global_search_results" = "%d 個結果";
+
+/* Downloads (Extended) */
+"downloads_custom_folder_note" = "自訂資料夾選擇需要檔案應用程式整合（尚未實作）。";
+"downloads_default_location" = "預設位置";
+
+/* Reader (Extended) */
+"reader_default_mode" = "預設模式";
+"reader_double_tap_zoom" = "雙擊縮放";
+"reader_double_tap_zoom_desc" = "在頁面上雙擊以放大或重設縮放。";
+"reader_show_page_desc" = "在螢幕底部顯示當前頁碼。";
+"reader_keep_screen_desc" = "閱讀時防止螢幕變暗。";
+"reader_skip_filtered" = "跳過已篩選章節";
+"reader_skip_filtered_desc" = "自動跳過被篩選器隱藏的章節。";
+"reader_chapters_section" = "章節";
+"reader_brightness_offset" = "亮度偏移";
+"reader_color_filter_defaults" = "色彩濾鏡預設值";
+"reader_color_filter_defaults_desc" = "初次開啟章節時套用這些預設值。可在閱讀器設定中按次覆蓋。";
+"reader_finished" = "已完成";
+"reader_next_chapter" = "下一章";
+"reader_no_next_chapter" = "無下一章";
+"reader_previous_chapter" = "上一章";
+"reader_no_previous_chapter" = "無上一章";
+"reader_chapter_list" = "章節列表";
+"reader_load_failed" = "載入失敗";
+
+/* Appearance */
+"appearance_oled_desc" = "純黑背景可節省 OLED 螢幕電量。";
+"appearance_theme" = "主題";
+"appearance_tint_color" = "應用程式色彩";
+"appearance_tint_desc" = "選擇的顏色用於整個應用程式中的互動元素。";
+"appearance_relative_timestamps" = "相對時間戳記";
+"appearance_timestamps" = "時間戳記";
+
+/* Statistics */
+"stats_manga_by_status" = "按狀態分類的漫畫";
+"stats_no_manga" = "書庫中無漫畫";
+"stats_reading_activity" = "閱讀活動";
+
+/* Advanced (Proxy) */
+"advanced_proxy_title" = "Cloudflare Workers 代理";
+"advanced_proxy_desc" = "透過 Cloudflare 無伺服器轉發請求，避免 IP 封鎖";
+"advanced_proxy_worker_url" = "Worker URL";
+"advanced_proxy_url_placeholder" = "https://shinsou-proxy.your-name.workers.dev";
+"advanced_proxy_api_key" = "API Key（可選）";
+"advanced_proxy_key_placeholder" = "留空表示不需要驗證";
+"advanced_proxy_test" = "測試連線";
+"advanced_proxy_section" = "代理轉發";
+"advanced_proxy_footer" = "部署 Worker：專案目錄 cloudflare-worker/ → npx wrangler deploy\n免費額度：每日 100,000 次請求";
+
+/* Main iPad */
+"main_select_tab" = "選擇一個標籤";
+
+/* iCloud 同步 */
+"sync_title" = "iCloud 同步";
+"sync_icloud_status" = "iCloud 狀態";
+"sync_account_available" = "可用";
+"sync_account_no_account" = "未登入";
+"sync_account_restricted" = "受限";
+"sync_account_unknown" = "未知";
+"sync_last_sync" = "上次同步";
+"sync_never" = "從未";
+
+"sync_icloud_drive_section" = "iCloud Drive 備份同步";
+"sync_auto_backup" = "自動上傳備份";
+"sync_auto_backup_desc" = "備份完成後自動上傳到 iCloud Drive";
+"sync_backup_now" = "立即備份並上傳";
+"sync_cloud_backups" = "雲端備份";
+"sync_no_cloud_backups" = "沒有雲端備份";
+"sync_restore_from" = "還原";
+"sync_restore_confirm" = "還原備份";
+"sync_restore_confirm_msg" = "這將把雲端備份合併到本機書庫。是否繼續？";
+
+"sync_cloudkit_section" = "即時同步";
+"sync_cloudkit_enabled" = "啟用即時同步";
+"sync_cloudkit_enabled_desc" = "透過 CloudKit 跨裝置同步閱讀進度、收藏與分類";
+"sync_sync_now" = "立即同步";
+"sync_reset_cloud" = "重設雲端資料";
+"sync_reset_cloud_confirm" = "重設雲端資料";
+"sync_reset_cloud_confirm_msg" = "這將刪除 iCloud 中所有已同步的資料，本機資料不受影響。是否繼續？";
+"sync_status_idle" = "閒置";
+"sync_status_syncing" = "同步中⋯";
+"sync_status_success" = "已同步";
+"sync_status_error" = "錯誤";
+
+"sync_cloudkit_unavailable_title" = "CloudKit 不可用";
+"sync_cloudkit_unavailable_msg" = "CloudKit 目前無法使用，請確認已登入 iCloud 帳號，且 App 已設定 iCloud 權限。";
+
+"sync_new_device_title" = "發現雲端備份";
+"sync_new_device_msg" = "在你的 iCloud 中發現備份，是否要還原？";
+"sync_restore" = "還原";
+"settings_sync" = "iCloud 同步";

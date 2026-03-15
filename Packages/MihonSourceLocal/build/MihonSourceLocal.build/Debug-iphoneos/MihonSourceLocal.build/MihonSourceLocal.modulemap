@@ -1,4 +1,0 @@
-module MihonSourceLocal {
-header "MihonSourceLocal-Swift.h"
-export *
-}
