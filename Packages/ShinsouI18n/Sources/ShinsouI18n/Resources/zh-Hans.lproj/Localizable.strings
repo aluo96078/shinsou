@@ -228,8 +228,8 @@
 "reader_keep_screen_on" = "保持屏幕常亮";
 "reader_fullscreen" = "全屏";
 "reader_controls" = "控制";
-"reader_volume_keys" = "音量键翻页";
-"reader_volume_keys_desc" = "使用音量键在阅读器中翻页";
+"reader_volume_keys" = "【实验性】辅助阅读";
+"reader_volume_keys_desc" = "在阅读器中启用辅助翻页功能";
 "reader_color_filter" = "颜色滤镜";
 "reader_brightness" = "亮度";
 "reader_split_tall" = "分割长图";

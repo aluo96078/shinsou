@@ -36,9 +36,23 @@ import ShinsouSourceAPI
     // Logging
     func log(_ message: String)
 
-    // Preferences (per-source)
+    // Preferences (per-source, persisted to UserDefaults)
     func getPreference(_ key: String) -> String?
     func setPreference(_ key: String, _ value: String)
+
+    // Credentials (per-source login, persisted to UserDefaults)
+    func getCredentialUsername() -> String?
+    func getCredentialPassword() -> String?
+    func setCredential(_ username: String, _ password: String)
+    func clearCredential()
+    func hasCredential() -> Bool
+
+    // Cookies (per-source, persisted)
+    func getCookie(_ name: String, _ url: String) -> String?
+    func getCookies(_ url: String) -> JSValue
+    func setCookie(_ name: String, _ value: String, _ domain: String, _ path: String, _ expirySeconds: Int) -> Bool
+    func deleteCookie(_ name: String, _ domain: String)
+    func clearCookies()
 
     // Legacy compatibility
     func parseHtml(_ html: String, _ selector: String) -> JSValue
@@ -47,7 +61,9 @@ import ShinsouSourceAPI
 /// Bridge object that provides native capabilities to JS plugins
 @objc class JSBridge: NSObject, JSBridgeExports {
     weak var context: JSContext?
-    private var preferences: [String: String] = [:]
+
+    /// Source ID for per-source network overrides and credential storage.
+    var sourceId: Int64 = 0
 
     /// Handle store — maps integer IDs to SwiftSoup nodes
     private var handleCounter: Int = 0
@@ -112,8 +128,8 @@ import ShinsouSourceAPI
 
         print("[JSBridge] GET \(url)")
 
-        // Delegate to NetworkHelper — rate limiting, UA rotation, cookies all handled
-        let (result, error) = networkHelper.syncGet(url: url, headers: mergedHeaders)
+        // Delegate to NetworkHelper — rate limiting, UA rotation, cookies, per-source DoH/proxy
+        let (result, error) = networkHelper.syncGet(url: url, headers: mergedHeaders, sourceId: sourceId)
 
         if let str = result {
             return JSValue(object: str, in: context)
@@ -138,8 +154,8 @@ import ShinsouSourceAPI
             }
         }
 
-        // Delegate to NetworkHelper
-        let (result, _) = networkHelper.syncPost(url: url, body: body, headers: mergedHeaders)
+        // Delegate to NetworkHelper — per-source DoH/proxy
+        let (result, _) = networkHelper.syncPost(url: url, body: body, headers: mergedHeaders, sourceId: sourceId)
 
         if let str = result {
             return JSValue(object: str, in: context)
@@ -337,13 +353,91 @@ import ShinsouSourceAPI
         pluginLogs.append(message)
     }
 
-    // MARK: - Preferences
+    // MARK: - Preferences (persisted to UserDefaults under source.<id>.<key>)
 
     func getPreference(_ key: String) -> String? {
-        preferences[key]
+        let udKey = "source.\(sourceId).\(key)"
+        return UserDefaults.standard.string(forKey: udKey)
     }
 
     func setPreference(_ key: String, _ value: String) {
-        preferences[key] = value
+        let udKey = "source.\(sourceId).\(key)"
+        UserDefaults.standard.set(value, forKey: udKey)
+    }
+
+    // MARK: - Credentials (persisted per-source)
+
+    private var credentialUsernameKey: String { "source.\(sourceId).credential.username" }
+    private var credentialPasswordKey: String { "source.\(sourceId).credential.password" }
+
+    func getCredentialUsername() -> String? {
+        UserDefaults.standard.string(forKey: credentialUsernameKey)
+    }
+
+    func getCredentialPassword() -> String? {
+        UserDefaults.standard.string(forKey: credentialPasswordKey)
+    }
+
+    func setCredential(_ username: String, _ password: String) {
+        UserDefaults.standard.set(username, forKey: credentialUsernameKey)
+        UserDefaults.standard.set(password, forKey: credentialPasswordKey)
+    }
+
+    func clearCredential() {
+        UserDefaults.standard.removeObject(forKey: credentialUsernameKey)
+        UserDefaults.standard.removeObject(forKey: credentialPasswordKey)
+    }
+
+    func hasCredential() -> Bool {
+        let username = UserDefaults.standard.string(forKey: credentialUsernameKey)
+        return username != nil && !username!.isEmpty
+    }
+
+    // MARK: - Cookies (per-source, persisted)
+
+    private let cookieManager = CookieManager.shared
+
+    /// Get a specific cookie value by name for a URL.
+    func getCookie(_ name: String, _ url: String) -> String? {
+        guard let parsed = URL(string: url) else { return nil }
+        return cookieManager.getSourceCookie(sourceId: sourceId, name: name, url: parsed)?.value
+    }
+
+    /// Get all cookies for a URL as a JS object { name: value, ... }.
+    func getCookies(_ url: String) -> JSValue {
+        guard let context else { return JSValue(undefinedIn: nil) }
+        guard let parsed = URL(string: url) else { return JSValue(object: [String: String](), in: context) }
+        let cookies = cookieManager.getSourceCookies(sourceId: sourceId, for: parsed)
+        var dict: [String: String] = [:]
+        for cookie in cookies {
+            dict[cookie.name] = cookie.value
+        }
+        return JSValue(object: dict, in: context)
+    }
+
+    /// Set a cookie in the per-source jar. expirySeconds=0 means session cookie.
+    func setCookie(_ name: String, _ value: String, _ domain: String, _ path: String, _ expirySeconds: Int) -> Bool {
+        var props: [HTTPCookiePropertyKey: Any] = [
+            .name: name,
+            .value: value,
+            .domain: domain,
+            .path: path.isEmpty ? "/" : path
+        ]
+        if expirySeconds > 0 {
+            props[.expires] = Date().addingTimeInterval(TimeInterval(expirySeconds))
+        }
+        guard let cookie = HTTPCookie(properties: props) else { return false }
+        cookieManager.setSourceCookie(sourceId: sourceId, cookie: cookie)
+        return true
+    }
+
+    /// Delete a specific cookie by name and domain from the per-source jar.
+    func deleteCookie(_ name: String, _ domain: String) {
+        cookieManager.deleteSourceCookie(sourceId: sourceId, name: name, domain: domain)
+    }
+
+    /// Clear all cookies for this source.
+    func clearCookies() {
+        cookieManager.clearSourceCookies(sourceId: sourceId)
     }
 }

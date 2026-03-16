@@ -431,11 +431,62 @@ JS 插件腳本 (開發者編寫)
 
 #### HTTP 請求
 
+所有 HTTP 請求會自動攜帶此來源的 per-source cookies，回應的 `Set-Cookie` 也會自動儲存至 per-source cookie jar。
+
 | 方法 | 說明 |
 |------|------|
 | `bridge.httpGet(url)` | GET 請求，回傳回應內容 |
 | `bridge.httpGetWithHeaders(url, headers)` | GET 請求（含自訂 Header）|
 | `bridge.httpPost(url, body, headers)` | POST 請求 |
+
+#### Cookie 管理
+
+每個來源有獨立的 cookie jar，cookies 持久化至 UserDefaults，App 重啟後仍有效。使用者也可在 App「來源設定」畫面手動新增、匯入或刪除 cookies。
+
+| 方法 | 說明 |
+|------|------|
+| `bridge.getCookie(name, url)` | 取得指定 cookie 的值 |
+| `bridge.getCookies(url)` | 取得該 URL 所有 cookies（回傳 `{name: value}` 物件）|
+| `bridge.setCookie(name, value, domain, path, expirySeconds)` | 設定 cookie。`expirySeconds=0` 為 session cookie |
+| `bridge.deleteCookie(name, domain)` | 刪除指定 cookie |
+| `bridge.clearCookies()` | 清除此來源所有 cookies |
+
+#### 帳號密碼（Credentials）
+
+使用者可在 App「來源設定」畫面儲存帳號密碼。插件可透過以下 API 讀取，無論是否宣告 `supportsLogin`。
+
+| 方法 | 說明 |
+|------|------|
+| `bridge.getCredentialUsername()` | 取得已儲存帳號 |
+| `bridge.getCredentialPassword()` | 取得已儲存密碼 |
+| `bridge.setCredential(username, password)` | 儲存帳密 |
+| `bridge.clearCredential()` | 清除帳密 |
+| `bridge.hasCredential()` | 是否已儲存帳密 |
+
+#### 登入支援
+
+插件可宣告 `supportsLogin: true`，App 設定畫面會顯示登入按鈕：
+
+```javascript
+var source = {
+    supportsLogin: true,
+
+    // App 呼叫此方法，回傳 true 表示登入成功
+    login: function(username, password) {
+        var result = bridge.httpPost(this.baseUrl + "/login",
+            "user=" + encodeURIComponent(username) + "&pass=" + encodeURIComponent(password),
+            { "Content-Type": "application/x-www-form-urlencoded" }
+        );
+        // 回應的 Set-Cookie 會自動儲存至 per-source cookie jar
+        return JSON.parse(result).success === true;
+    },
+
+    // App 呼叫此方法（選用）
+    logout: function() {
+        bridge.clearCookies();
+    }
+};
+```
 
 #### DOM 解析（Handle-based API，基於 SwiftSoup）
 

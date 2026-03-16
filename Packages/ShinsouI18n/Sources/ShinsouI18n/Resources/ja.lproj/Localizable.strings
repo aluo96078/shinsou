@@ -228,8 +228,8 @@
 "reader_keep_screen_on" = "画面をオンにしたまま";
 "reader_fullscreen" = "フルスクリーン";
 "reader_controls" = "コントロール";
-"reader_volume_keys" = "音量キーでページ送り";
-"reader_volume_keys_desc" = "Use volume buttons to turn pages in the reader";
+"reader_volume_keys" = "【実験的】補助リーディング";
+"reader_volume_keys_desc" = "リーダーで補助ページ送り機能を有効にします";
 "reader_color_filter" = "カラーフィルター";
 "reader_brightness" = "明るさ";
 "reader_split_tall" = "縦長画像を分割";

@@ -232,8 +232,8 @@
 "reader_keep_screen_on" = "Keep screen on";
 "reader_fullscreen" = "Fullscreen";
 "reader_controls" = "Controls";
-"reader_volume_keys" = "Volume keys page turn";
-"reader_volume_keys_desc" = "Use volume buttons to turn pages in the reader";
+"reader_volume_keys" = "[Experimental] Assistive reading";
+"reader_volume_keys_desc" = "Enable assistive page turning in the reader";
 "reader_color_filter" = "Color Filter";
 "reader_brightness" = "Brightness";
 "reader_split_tall" = "Split tall images";
@@ -537,6 +537,39 @@
 "advanced_proxy_test" = "Test Connection";
 "advanced_proxy_section" = "Proxy Forwarding";
 "advanced_proxy_footer" = "Deploy Worker: project directory cloudflare-worker/ → npx wrangler deploy\nFree quota: 100,000 requests per day";
+
+/* Source Settings (per-source) */
+"source_settings_title" = "Source Settings";
+"source_settings_network" = "Network";
+"source_settings_doh" = "DNS over HTTPS";
+"source_settings_proxy" = "Cloudflare Workers Proxy";
+"source_settings_follow_global" = "Follow Global";
+"source_settings_force_on" = "Force On";
+"source_settings_force_off" = "Force Off";
+"source_settings_network_footer" = "Override global network settings for this source only.";
+"source_settings_login" = "Login";
+"source_settings_username" = "Username";
+"source_settings_password" = "Password";
+"source_settings_login_button" = "Login";
+"source_settings_logout" = "Logout";
+"source_settings_logged_in" = "Logged in";
+"source_settings_login_failed" = "Login failed. Please check your credentials.";
+"source_settings_preferences" = "Preferences";
+"source_settings_credentials" = "Credentials";
+"source_settings_credentials_footer" = "Store credentials for this plugin. If the plugin supports login, it will call the plugin's login method.";
+"source_settings_save_credential" = "Save";
+"source_settings_credential_saved" = "Saved";
+"source_settings_cookies" = "Cookies";
+"source_settings_cookies_empty" = "No cookies";
+"source_settings_cookies_footer" = "Manage cookies for this source. HTTP requests will automatically carry these cookies.";
+"source_settings_add_cookie" = "Add Cookie";
+"source_settings_cookie_name" = "Name";
+"source_settings_cookie_value" = "Value";
+"source_settings_cookie_domain" = "Domain";
+"source_settings_clear_all_cookies" = "Clear All Cookies";
+"source_settings_import_cookies" = "Import Cookie File";
+"source_settings_import_cookies_success" = "Imported %d cookies";
+"source_settings_import_cookies_failed" = "Import failed: unrecognized format";
 
 /* Main iPad */
 "main_select_tab" = "Select a tab";

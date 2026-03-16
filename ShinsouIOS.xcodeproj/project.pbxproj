@@ -107,6 +107,7 @@
 		95C398FA63B263E9F6939C36 /* StubCatalogueSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEF390A39213E9F35194C8 /* StubCatalogueSource.swift */; };
 		9A6D40F000C4EDCDAB54ACF8 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A34F3D5D8440F2658E4AE57 /* LibraryViewModel.swift */; };
 		9B45FF0603ED8A5C254814C8 /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD2A05D96C45F04D1E96EC /* HistoryScreen.swift */; };
+		9BB7705D05A19C6A5074CD3B /* SourceSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D409B547C5C9FA4B206640 /* SourceSettingsScreen.swift */; };
 		9CEB7B19382525CBE8D8CE55 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B37D8FD1C3A793A1186B42C9 /* SwiftSoup */; };
 		A055EFDF51A803835A44685F /* DualPageReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463840C75554E5023AA3CF9 /* DualPageReaderView.swift */; };
 		A0D4DBB74E8F3A7A5C3D2476 /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3C92F39156F27B339976D /* SyncStatus.swift */; };
@@ -294,6 +295,7 @@
 		CD29512D20E26D087C6419F3 /* ShinsouUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ShinsouUI; path = Packages/ShinsouUI; sourceTree = SOURCE_ROOT; };
 		CE2A665DC7C89A75CF3F236F /* CookieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieManager.swift; sourceTree = "<group>"; };
 		D2CA756989BC546B2EAA6AD1 /* MangaDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDescriptionSection.swift; sourceTree = "<group>"; };
+		D2D409B547C5C9FA4B206640 /* SourceSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSettingsScreen.swift; sourceTree = "<group>"; };
 		D5F0EA8ADE5A945FB4FC7A5A /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
 		D63E4C58AE2F2223D7819832 /* BackupCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCreator.swift; sourceTree = "<group>"; };
 		D6694A80355AB93A57DEF858 /* ShinsouWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinsouWidgetBundle.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				34DE889E488A34EE34DB32A9 /* BrowseSourceScreen.swift */,
 				3DC1B0C53075770F6BE8375C /* SourceFilterSheet.swift */,
 				BECA20515EB744D7BD271443 /* SourcePreferencesScreen.swift */,
+				D2D409B547C5C9FA4B206640 /* SourceSettingsScreen.swift */,
 				756ED1F409208F3B17EC42B7 /* SourcesListScreen.swift */,
 			);
 			path = SourcesTab;
@@ -1272,6 +1275,7 @@
 				7BC3B948AAAF78BC3CC9BE93 /* SourceFilterSheet.swift in Sources */,
 				3C25D358AE1BEB1F4E4F1041 /* SourceManager.swift in Sources */,
 				A82ECF42AA0664E2AB6C13D5 /* SourcePreferencesScreen.swift in Sources */,
+				9BB7705D05A19C6A5074CD3B /* SourceSettingsScreen.swift in Sources */,
 				B085AF30478B30B095A762DC /* SourcesListScreen.swift in Sources */,
 				81A2B2191CBDDE6DD81FBA97 /* StatisticsScreen.swift in Sources */,
 				95C398FA63B263E9F6939C36 /* StubCatalogueSource.swift in Sources */,
@@ -1302,7 +1306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
@@ -1311,7 +1315,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
 				PRODUCT_NAME = ShinsouWidgetExtension;
 				SDKROOT = iphoneos;
@@ -1326,7 +1330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
@@ -1341,7 +1345,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
 				PRODUCT_NAME = Shinsou;
 				SDKROOT = iphoneos;
@@ -1356,7 +1360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
@@ -1371,7 +1375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
 				PRODUCT_NAME = Shinsou;
 				SDKROOT = iphoneos;
@@ -1449,7 +1453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
@@ -1458,7 +1462,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
 				PRODUCT_NAME = ShinsouWidgetExtension;
 				SDKROOT = iphoneos;

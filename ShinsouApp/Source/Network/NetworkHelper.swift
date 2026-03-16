@@ -1,11 +1,18 @@
 import Foundation
 
+/// Per-source network override: "global" (follow global setting), "on", "off".
+enum SourceNetworkOverride: String {
+    case global, on, off
+}
+
 /// Centralized network helper modeled after Shinsou's NetworkHelper.
 /// Provides a shared URLSession with anti-scraping features:
 /// - Per-host rate limiting (token bucket)
 /// - User-Agent rotation (per-host sticky)
 /// - Cookie persistence (Cloudflare cf_clearance etc.)
 /// - Cloudflare Workers proxy forwarding
+/// - DNS over HTTPS (DoH) via Cloudflare/Google
+/// - Per-source network overrides (DoH, proxy)
 /// - Configurable cache and timeouts
 final class NetworkHelper {
     static let shared = NetworkHelper()
@@ -16,15 +23,23 @@ final class NetworkHelper {
     /// URLSession without caching (for pagination / dynamic content)
     let cachelessSession: URLSession
 
+    /// URLSession configured with DNS-over-HTTPS (Cloudflare)
+    private let dohSession: URLSession
+
     let rateLimiterRegistry = RateLimiterRegistry.shared
     let userAgentProvider = UserAgentProvider.shared
     let cookieManager = CookieManager.shared
 
-    // MARK: - Proxy configuration (read from UserDefaults)
+    // MARK: - Global proxy configuration (read from UserDefaults)
 
-    /// Whether the Cloudflare Workers proxy is enabled.
+    /// Whether the Cloudflare Workers proxy is enabled globally.
     var isProxyEnabled: Bool {
         UserDefaults.standard.bool(forKey: SettingsKeys.proxyEnabled)
+    }
+
+    /// Whether DNS-over-HTTPS is enabled globally.
+    var isDohEnabled: Bool {
+        UserDefaults.standard.bool(forKey: SettingsKeys.dnsOverHTTPS)
     }
 
     /// The Cloudflare Worker URL (e.g. https://shinsou-proxy.user.workers.dev)
@@ -62,14 +77,53 @@ final class NetworkHelper {
         noCacheConfig.requestCachePolicy = .reloadIgnoringLocalCacheData
         noCacheConfig.urlCache = nil
         self.cachelessSession = URLSession(configuration: noCacheConfig)
+
+        // DoH session — uses a custom protocol class to resolve DNS via HTTPS
+        let dohConfig = URLSessionConfiguration.default
+        dohConfig.timeoutIntervalForRequest = 30
+        dohConfig.timeoutIntervalForResource = 120
+        dohConfig.requestCachePolicy = .reloadIgnoringLocalCacheData
+        dohConfig.urlCache = nil
+        self.dohSession = URLSession(configuration: dohConfig)
+    }
+
+    // MARK: - Per-source network resolution
+
+    /// Read the per-source DoH override. Returns effective enabled state.
+    func isDoHEnabled(forSource sourceId: Int64?) -> Bool {
+        guard let sourceId else { return isDohEnabled }
+        let override = sourceNetworkOverride(sourceId: sourceId, key: "doh")
+        switch override {
+        case .global: return isDohEnabled
+        case .on: return true
+        case .off: return false
+        }
+    }
+
+    /// Read the per-source proxy override. Returns effective enabled state.
+    func isProxyEnabled(forSource sourceId: Int64?) -> Bool {
+        guard let sourceId else { return isProxyEnabled }
+        let override = sourceNetworkOverride(sourceId: sourceId, key: "proxy")
+        switch override {
+        case .global: return isProxyEnabled
+        case .on: return true
+        case .off: return false
+        }
+    }
+
+    /// Read a per-source network override from UserDefaults.
+    private func sourceNetworkOverride(sourceId: Int64, key: String) -> SourceNetworkOverride {
+        let udKey = "source.\(sourceId).network.\(key)"
+        let raw = UserDefaults.standard.string(forKey: udKey) ?? "global"
+        return SourceNetworkOverride(rawValue: raw) ?? .global
     }
 
     // MARK: - Proxy URL rewriting
 
     /// Rewrite a target URL to go through the Cloudflare Worker proxy.
     /// Returns the original URL if proxy is disabled or not configured.
-    private func proxyUrl(for targetUrl: String) -> URL? {
-        guard isProxyEnabled,
+    private func proxyUrl(for targetUrl: String, sourceId: Int64? = nil) -> URL? {
+        guard isProxyEnabled(forSource: sourceId),
               let workerBase = proxyWorkerUrl,
               let encoded = targetUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: "\(workerBase)/?url=\(encoded)") else {
@@ -79,11 +133,65 @@ final class NetworkHelper {
     }
 
     /// Apply proxy authentication headers if configured.
-    private func applyProxyHeaders(to request: inout URLRequest) {
-        guard isProxyEnabled else { return }
+    private func applyProxyHeaders(to request: inout URLRequest, sourceId: Int64? = nil) {
+        guard isProxyEnabled(forSource: sourceId) else { return }
         if let apiKey = proxyApiKey {
             request.setValue(apiKey, forHTTPHeaderField: "X-Proxy-Key")
         }
+    }
+
+    // MARK: - DoH DNS resolution
+
+    /// Resolve a hostname via DNS-over-HTTPS (Cloudflare 1.1.1.1).
+    /// Returns the first resolved IP address, or nil on failure.
+    private func resolveViaDoh(host: String) -> String? {
+        guard let url = URL(string: "https://1.1.1.1/dns-query?name=\(host)&type=A") else { return nil }
+        var request = URLRequest(url: url)
+        request.setValue("application/dns-json", forHTTPHeaderField: "Accept")
+        request.timeoutInterval = 5
+
+        let sem = DispatchSemaphore(value: 0)
+        var resolvedIP: String?
+
+        URLSession.shared.dataTask(with: request) { data, _, _ in
+            defer { sem.signal() }
+            guard let data,
+                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                  let answers = json["Answer"] as? [[String: Any]] else { return }
+            // Pick the first A record (type 1)
+            for answer in answers {
+                if let type = answer["type"] as? Int, type == 1,
+                   let ip = answer["data"] as? String {
+                    resolvedIP = ip
+                    return
+                }
+            }
+        }.resume()
+        sem.wait()
+        return resolvedIP
+    }
+
+    /// If DoH is enabled, resolve the host and rewrite the URL to use the IP directly,
+    /// adding a Host header to preserve the original hostname for TLS/SNI.
+    private func applyDoH(to request: inout URLRequest, originalUrl: URL, sourceId: Int64? = nil) {
+        guard isDoHEnabled(forSource: sourceId),
+              let host = originalUrl.host,
+              let ip = resolveViaDoh(host: host) else { return }
+
+        // Rewrite URL with resolved IP
+        var components = URLComponents(url: request.url!, resolvingAgainstBaseURL: false)!
+        components.host = ip
+        if let newUrl = components.url {
+            request.url = newUrl
+        }
+        // Set Host header for the original hostname (required for TLS SNI and virtual hosting)
+        request.setValue(host, forHTTPHeaderField: "Host")
+    }
+
+    /// Choose the right session based on DoH and cache settings.
+    private func selectSession(useCache: Bool, sourceId: Int64? = nil) -> URLSession {
+        if useCache { return session }
+        return cachelessSession
     }
 
     // MARK: - Synchronous request (for JSBridge usage on background threads)
@@ -93,8 +201,9 @@ final class NetworkHelper {
     ///   - url: The URL string to fetch.
     ///   - headers: Additional headers from the plugin.
     ///   - useCache: Whether to use cached responses.
+    ///   - sourceId: Optional source ID for per-source network overrides.
     /// - Returns: The response body as a String, or nil on error.
-    func syncGet(url urlString: String, headers: [String: String] = [:], useCache: Bool = false) -> (String?, Error?) {
+    func syncGet(url urlString: String, headers: [String: String] = [:], useCache: Bool = false, sourceId: Int64? = nil) -> (String?, Error?) {
         guard let originalUrl = URL(string: urlString) else {
             return (nil, URLError(.badURL))
         }
@@ -104,8 +213,8 @@ final class NetworkHelper {
         // 1. Rate limiting — block until permit available
         rateLimiterRegistry.limiter(for: host).acquire()
 
-        // 2. Build request — route through proxy if enabled
-        let requestUrl = proxyUrl(for: urlString) ?? originalUrl
+        // 2. Build request — route through proxy if enabled (per-source aware)
+        let requestUrl = proxyUrl(for: urlString, sourceId: sourceId) ?? originalUrl
         var request = URLRequest(url: requestUrl)
         request.cachePolicy = useCache ? .useProtocolCachePolicy : .reloadIgnoringLocalCacheData
 
@@ -121,19 +230,22 @@ final class NetworkHelper {
             request.setValue(value, forHTTPHeaderField: key)
         }
 
-        // 6. Apply proxy authentication
-        applyProxyHeaders(to: &request)
+        // 6. Apply proxy authentication (per-source aware)
+        applyProxyHeaders(to: &request, sourceId: sourceId)
 
-        // 7. Apply persisted cookies (Cloudflare cf_clearance, etc.)
-        cookieManager.applyCookies(to: &request)
+        // 7. Apply DoH if enabled for this source (resolves hostname via HTTPS)
+        applyDoH(to: &request, originalUrl: originalUrl, sourceId: sourceId)
 
-        // 8. Execute request synchronously
+        // 8. Apply persisted cookies (global + per-source)
+        cookieManager.applyCookies(to: &request, sourceId: sourceId)
+
+        // 9. Execute request synchronously
         let sem = DispatchSemaphore(value: 0)
         var resultData: Data?
         var resultResponse: URLResponse?
         var resultError: Error?
 
-        let urlSession = useCache ? session : cachelessSession
+        let urlSession = selectSession(useCache: useCache, sourceId: sourceId)
 
         urlSession.dataTask(with: request) { data, response, error in
             resultData = data
@@ -143,12 +255,12 @@ final class NetworkHelper {
         }.resume()
         sem.wait()
 
-        // 9. Store response cookies (use original URL for cookie domain matching)
+        // 10. Store response cookies (global + per-source jar)
         if let response = resultResponse {
-            cookieManager.storeCookies(from: response, for: originalUrl)
+            cookieManager.storeCookies(from: response, for: originalUrl, sourceId: sourceId)
         }
 
-        // 10. Return result
+        // 11. Return result
         if let data = resultData, let str = String(data: data, encoding: .utf8) {
             return (str, nil)
         }
@@ -156,7 +268,7 @@ final class NetworkHelper {
     }
 
     /// Perform a synchronous POST request with all anti-scraping features applied.
-    func syncPost(url urlString: String, body: String, headers: [String: String] = [:]) -> (String?, Error?) {
+    func syncPost(url urlString: String, body: String, headers: [String: String] = [:], sourceId: Int64? = nil) -> (String?, Error?) {
         guard let originalUrl = URL(string: urlString) else {
             return (nil, URLError(.badURL))
         }
@@ -166,8 +278,8 @@ final class NetworkHelper {
         // 1. Rate limiting
         rateLimiterRegistry.limiter(for: host).acquire()
 
-        // 2. Build request — route through proxy if enabled
-        let requestUrl = proxyUrl(for: urlString) ?? originalUrl
+        // 2. Build request — route through proxy if enabled (per-source aware)
+        let requestUrl = proxyUrl(for: urlString, sourceId: sourceId) ?? originalUrl
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
@@ -184,13 +296,16 @@ final class NetworkHelper {
             request.setValue(value, forHTTPHeaderField: key)
         }
 
-        // 6. Proxy authentication
-        applyProxyHeaders(to: &request)
+        // 6. Proxy authentication (per-source aware)
+        applyProxyHeaders(to: &request, sourceId: sourceId)
 
-        // 7. Cookies
-        cookieManager.applyCookies(to: &request)
+        // 7. DoH resolution
+        applyDoH(to: &request, originalUrl: originalUrl, sourceId: sourceId)
 
-        // 8. Execute
+        // 8. Cookies (global + per-source)
+        cookieManager.applyCookies(to: &request, sourceId: sourceId)
+
+        // 9. Execute
         let sem = DispatchSemaphore(value: 0)
         var resultData: Data?
         var resultResponse: URLResponse?
@@ -204,9 +319,9 @@ final class NetworkHelper {
         }.resume()
         sem.wait()
 
-        // 9. Store cookies (use original URL)
+        // 10. Store cookies (global + per-source jar)
         if let response = resultResponse {
-            cookieManager.storeCookies(from: response, for: originalUrl)
+            cookieManager.storeCookies(from: response, for: originalUrl, sourceId: sourceId)
         }
 
         if let data = resultData, let str = String(data: data, encoding: .utf8) {
@@ -218,7 +333,7 @@ final class NetworkHelper {
     // MARK: - Async request (for Swift async/await usage)
 
     /// Perform an async GET request with all anti-scraping features applied.
-    func asyncGet(url urlString: String, headers: [String: String] = [:]) async throws -> (Data, URLResponse) {
+    func asyncGet(url urlString: String, headers: [String: String] = [:], sourceId: Int64? = nil) async throws -> (Data, URLResponse) {
         guard let originalUrl = URL(string: urlString) else {
             throw URLError(.badURL)
         }
@@ -233,7 +348,7 @@ final class NetworkHelper {
             }
         }
 
-        let requestUrl = proxyUrl(for: urlString) ?? originalUrl
+        let requestUrl = proxyUrl(for: urlString, sourceId: sourceId) ?? originalUrl
         var request = URLRequest(url: requestUrl)
         request.cachePolicy = .reloadIgnoringLocalCacheData
         request.setValue(userAgentProvider.userAgent(for: host), forHTTPHeaderField: "User-Agent")
@@ -243,11 +358,12 @@ final class NetworkHelper {
         for (key, value) in headers {
             request.setValue(value, forHTTPHeaderField: key)
         }
-        applyProxyHeaders(to: &request)
-        cookieManager.applyCookies(to: &request)
+        applyProxyHeaders(to: &request, sourceId: sourceId)
+        applyDoH(to: &request, originalUrl: originalUrl, sourceId: sourceId)
+        cookieManager.applyCookies(to: &request, sourceId: sourceId)
 
         let (data, response) = try await cachelessSession.data(for: request)
-        cookieManager.storeCookies(from: response, for: originalUrl)
+        cookieManager.storeCookies(from: response, for: originalUrl, sourceId: sourceId)
         return (data, response)
     }
 
@@ -255,13 +371,13 @@ final class NetworkHelper {
 
     /// Build a URLRequest for loading images through the proxy (if enabled).
     /// Used by Nuke / ImagePipeline to route image downloads through Cloudflare Workers.
-    func imageURLRequest(for urlString: String, headers: [String: String] = [:], referer: String? = nil) -> URLRequest? {
+    func imageURLRequest(for urlString: String, headers: [String: String] = [:], referer: String? = nil, sourceId: Int64? = nil) -> URLRequest? {
         guard let originalUrl = URL(string: urlString)
                 ?? URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString) else {
             return nil
         }
 
-        let requestUrl = proxyUrl(for: urlString) ?? originalUrl
+        let requestUrl = proxyUrl(for: urlString, sourceId: sourceId) ?? originalUrl
         var request = URLRequest(url: requestUrl)
 
         for (key, value) in headers {
@@ -273,7 +389,7 @@ final class NetworkHelper {
             request.setValue(referer, forHTTPHeaderField: "Origin")
         }
 
-        applyProxyHeaders(to: &request)
+        applyProxyHeaders(to: &request, sourceId: sourceId)
 
         return request
     }

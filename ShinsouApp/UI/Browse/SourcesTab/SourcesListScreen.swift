@@ -262,9 +262,9 @@ struct SourcesTabContent: View {
         .navigationDestination(for: Int64.self) { sourceId in
             BrowseSourceScreen(sourceId: sourceId)
         }
-        .navigationDestination(for: SourcePreferencesDestination.self) { dest in
-            if let configurable = dest.source {
-                SourcePreferencesScreen(source: configurable)
+        .navigationDestination(for: SourceSettingsDestination.self) { dest in
+            if let source = dest.catalogueSource {
+                SourceSettingsScreen(source: source)
             } else {
                 Text(MR.strings.sourcesNotFound)
                     .foregroundStyle(.secondary)
@@ -299,35 +299,33 @@ struct SourcesTabContent: View {
             Label(MR.strings.browseSources, systemImage: "books.vertical")
         }
 
-        if let configurable = source as? any ConfigurableSource {
-            NavigationLink(value: SourcePreferencesDestination(source: configurable)) {
-                Label(MR.strings.browsePreferences, systemImage: "gearshape")
-            }
+        NavigationLink(value: SourceSettingsDestination(source: source)) {
+            Label(MR.strings.sourceSettingsTitle, systemImage: "gearshape")
         }
     }
 }
 
 // MARK: - Navigation destination wrapper
 
-/// Hashable wrapper used as NavigationStack destination value for source preferences.
-struct SourcePreferencesDestination: Hashable {
+/// Hashable wrapper used as NavigationStack destination value for source settings.
+/// Works for any CatalogueSource, not just ConfigurableSource.
+struct SourceSettingsDestination: Hashable {
     let sourceId: Int64
     let sourceName: String
 
-    // Retain the source only for navigation; it will be fetched from SourceManager.
     private let _source: AnyObject?
 
-    init(source: any ConfigurableSource) {
+    init(source: any CatalogueSource) {
         self.sourceId = source.id
         self.sourceName = source.name
         self._source = source as AnyObject
     }
 
-    var source: (any ConfigurableSource)? {
-        _source as? any ConfigurableSource
+    var catalogueSource: (any CatalogueSource)? {
+        _source as? any CatalogueSource
     }
 
-    static func == (lhs: SourcePreferencesDestination, rhs: SourcePreferencesDestination) -> Bool {
+    static func == (lhs: SourceSettingsDestination, rhs: SourceSettingsDestination) -> Bool {
         lhs.sourceId == rhs.sourceId
     }
 
@@ -335,6 +333,9 @@ struct SourcePreferencesDestination: Hashable {
         hasher.combine(sourceId)
     }
 }
+
+// MARK: - Legacy compatibility alias
+typealias SourcePreferencesDestination = SourceSettingsDestination
 
 // MARK: - Source Icon View
 

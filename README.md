@@ -5,9 +5,13 @@ Shinsou 是一款 iOS 原生漫畫閱讀器，靈感來自 [Mihon](https://githu
 ## 功能特色
 
 - **漫畫庫管理** — 收藏、分類、篩選、排序，支援多種顯示模式（網格/列表/舒適網格）
-- **多模式閱讀器** — Webtoon 長條式、翻頁式、雙頁模式，支援色彩濾鏡、大圖分割、音量鍵翻頁
+- **多模式閱讀器** — Webtoon 長條式、翻頁式、雙頁模式，支援色彩濾鏡、大圖分割
 - **JavaScript 插件系統** — 透過 JavaScriptCore 執行 JS 插件，動態擴充漫畫來源
 - **來源系統** — 本地來源、HTTP 來源、社群 JS 插件來源
+- **Per-source 來源設定** — 每個來源獨立設定 DoH / Cloudflare Workers Proxy、帳號密碼、Cookie 管理
+- **插件登入系統** — 插件可宣告登入支援，App 提供帳密 UI 並呼叫插件 login() 方法
+- **Per-source Cookie 隔離** — 每個來源獨立的 Cookie jar，HTTP 請求自動攜帶，支援手動新增與匯入瀏覽器 Cookie 檔案
+- **反爬蟲網路層** — Per-host 速率限制、User-Agent 輪換、DNS over HTTPS、Cloudflare Workers 代理
 - **追蹤整合** — AniList、MyAnimeList、Kitsu、Bangumi、MangaUpdates、Shikimori、Komga、Kavita、Suwayomi
 - **iCloud 同步** — iCloud Drive 備份同步 + CloudKit 即時增量同步
 - **下載管理** — 佇列管理、進度追蹤、並發控制
@@ -116,7 +120,27 @@ shinsou/
 
 ## 插件系統
 
-Shinsou 使用 JavaScriptCore 引擎執行 JS 插件來擴充漫畫來源。插件透過 `JSBridge` 與原生層溝通，提供標準化的 DOM 解析、HTTP 請求與偏好設定 API。
+Shinsou 使用 JavaScriptCore 引擎執行 JS 插件來擴充漫畫來源。插件透過 `JSBridge` 與原生層溝通，提供標準化的 DOM 解析、HTTP 請求、Cookie 管理、帳號密碼與偏好設定 API。
+
+### 核心能力
+
+- **HTTP 請求** — GET / POST，支援自訂 Header，自動攜帶 per-source cookies
+- **DOM 解析** — Jsoup 風格的 HTML 解析 API（基於 SwiftSoup）
+- **Cookie 管理** — 每個來源獨立的 cookie jar，自動持久化，支援手動設定與匯入
+- **帳號密碼** — 插件可宣告 `supportsLogin`，App 提供登入 UI 並呼叫 `login()` 方法
+- **偏好設定** — 讀寫 per-source 設定值，搭配 `ConfigurableSource` 可在 App 中顯示設定 UI
+- **Per-source 網路覆蓋** — 每個來源可獨立切換 DoH / Cloudflare Workers Proxy
+
+### 來源設定畫面
+
+長按任一來源 → 「來源設定」可存取：
+
+| 區塊 | 說明 |
+|------|------|
+| **網路** | DoH / Cloudflare Workers Proxy（跟隨全域 / 強制開 / 強制關） |
+| **帳號密碼** | 儲存帳密或呼叫插件登入方法 |
+| **Cookies** | 檢視 / 新增 / 匯入 / 刪除 cookies（支援 Netscape cookies.txt 和 JSON） |
+| **偏好設定** | 插件自訂的 toggle / text / select / multi-select 控制項 |
 
 詳細文件請參考 [docs/shinsou-extension-system.md](docs/shinsou-extension-system.md)。
 

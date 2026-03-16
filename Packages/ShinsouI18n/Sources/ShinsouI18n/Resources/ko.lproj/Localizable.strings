@@ -228,8 +228,8 @@
 "reader_keep_screen_on" = "화면 켜진 상태 유지";
 "reader_fullscreen" = "전체 화면";
 "reader_controls" = "컨트롤";
-"reader_volume_keys" = "볼륨 키로 페이지 넘기기";
-"reader_volume_keys_desc" = "Use volume buttons to turn pages in the reader";
+"reader_volume_keys" = "[실험적] 보조 읽기";
+"reader_volume_keys_desc" = "리더에서 보조 페이지 넘기기 기능을 활성화합니다";
 "reader_color_filter" = "색상 필터";
 "reader_brightness" = "밝기";
 "reader_split_tall" = "긴 이미지 분할";

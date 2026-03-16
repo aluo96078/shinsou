@@ -593,6 +593,39 @@ public enum MR {
         public static var advancedProxySection: String { L("advanced_proxy_section") }
         public static var advancedProxyFooter: String { L("advanced_proxy_footer") }
 
+        // MARK: - Source Settings (per-source)
+        public static var sourceSettingsTitle: String { L("source_settings_title") }
+        public static var sourceSettingsNetwork: String { L("source_settings_network") }
+        public static var sourceSettingsDoh: String { L("source_settings_doh") }
+        public static var sourceSettingsProxy: String { L("source_settings_proxy") }
+        public static var sourceSettingsFollowGlobal: String { L("source_settings_follow_global") }
+        public static var sourceSettingsForceOn: String { L("source_settings_force_on") }
+        public static var sourceSettingsForceOff: String { L("source_settings_force_off") }
+        public static var sourceSettingsNetworkFooter: String { L("source_settings_network_footer") }
+        public static var sourceSettingsLogin: String { L("source_settings_login") }
+        public static var sourceSettingsUsername: String { L("source_settings_username") }
+        public static var sourceSettingsPassword: String { L("source_settings_password") }
+        public static var sourceSettingsLoginButton: String { L("source_settings_login_button") }
+        public static var sourceSettingsLogout: String { L("source_settings_logout") }
+        public static var sourceSettingsLoggedIn: String { L("source_settings_logged_in") }
+        public static var sourceSettingsLoginFailed: String { L("source_settings_login_failed") }
+        public static var sourceSettingsPreferences: String { L("source_settings_preferences") }
+        public static var sourceSettingsCredentials: String { L("source_settings_credentials") }
+        public static var sourceSettingsCredentialsFooter: String { L("source_settings_credentials_footer") }
+        public static var sourceSettingsSaveCredential: String { L("source_settings_save_credential") }
+        public static var sourceSettingsCredentialSaved: String { L("source_settings_credential_saved") }
+        public static var sourceSettingsCookies: String { L("source_settings_cookies") }
+        public static var sourceSettingsCookiesEmpty: String { L("source_settings_cookies_empty") }
+        public static var sourceSettingsCookiesFooter: String { L("source_settings_cookies_footer") }
+        public static var sourceSettingsAddCookie: String { L("source_settings_add_cookie") }
+        public static var sourceSettingsCookieName: String { L("source_settings_cookie_name") }
+        public static var sourceSettingsCookieValue: String { L("source_settings_cookie_value") }
+        public static var sourceSettingsCookieDomain: String { L("source_settings_cookie_domain") }
+        public static var sourceSettingsClearAllCookies: String { L("source_settings_clear_all_cookies") }
+        public static var sourceSettingsImportCookies: String { L("source_settings_import_cookies") }
+        public static var sourceSettingsImportCookiesSuccess: String { L("source_settings_import_cookies_success") }
+        public static var sourceSettingsImportCookiesFailed: String { L("source_settings_import_cookies_failed") }
+
         // MARK: - Main iPad
         public static var mainSelectTab: String { L("main_select_tab") }
 

@@ -16,6 +16,9 @@ final class JSSourceProxy: CatalogueSource {
     let supportsLatest: Bool
     let baseUrl: String
 
+    /// Whether this source's JS plugin declares login support (`source.supportsLogin = true`).
+    let supportsLogin: Bool
+
     /// HTTP headers this source requires (User-Agent, Cookie, Referer, etc.)
     var sourceHeaders: [String: String] { bridge.defaultHeaders }
 
@@ -79,6 +82,10 @@ final class JSSourceProxy: CatalogueSource {
         self.name = manifest.name
         self.lang = manifest.lang
         self.supportsLatest = sourceObj.objectForKeyedSubscript("supportsLatest")?.toBool() ?? false
+        self.supportsLogin = sourceObj.objectForKeyedSubscript("supportsLogin")?.toBool() ?? false
+
+        // Set sourceId on bridge for per-source network overrides and credential storage
+        bridge.sourceId = self.id
 
         // Apply custom headers if defined by the plugin
         if let headersObj = sourceObj.objectForKeyedSubscript("headers"),
@@ -92,6 +99,51 @@ final class JSSourceProxy: CatalogueSource {
         // Set Referer to baseUrl by default if not already set
         if bridge.defaultHeaders["Referer"] == nil && !resolvedBaseUrl.isEmpty {
             bridge.defaultHeaders["Referer"] = resolvedBaseUrl
+        }
+    }
+
+    // MARK: - Login support
+
+    /// Call the JS `source.login(username, password)` function if the plugin supports login.
+    /// Returns true on success, false on failure.
+    func login(username: String, password: String) async throws -> Bool {
+        try await withCheckedThrowingContinuation { continuation in
+            DispatchQueue.global().async { [weak self] in
+                guard let self else {
+                    continuation.resume(throwing: JSPluginError.contextDeallocated)
+                    return
+                }
+
+                guard let sourceObj = self.context.objectForKeyedSubscript("source"),
+                      !sourceObj.isUndefined else {
+                    continuation.resume(returning: false)
+                    return
+                }
+
+                let result = sourceObj.invokeMethod("login", withArguments: [username, password])
+                let success = result?.toBool() ?? false
+
+                if success {
+                    // Persist credentials on successful login
+                    self.bridge.setCredential(username, password)
+                }
+
+                continuation.resume(returning: success)
+            }
+        }
+    }
+
+    /// Check if the source is currently logged in (has stored credentials).
+    var isLoggedIn: Bool {
+        bridge.hasCredential()
+    }
+
+    /// Logout: clear stored credentials and call JS source.logout() if available.
+    func logout() {
+        bridge.clearCredential()
+        if let sourceObj = context.objectForKeyedSubscript("source"),
+           !sourceObj.isUndefined {
+            sourceObj.invokeMethod("logout", withArguments: [])
         }
     }
 
