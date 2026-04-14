@@ -335,6 +335,20 @@ final class LibraryViewModel: ObservableObject {
     func refresh() async {
         // TODO: trigger library update from sources
     }
+
+    func removeMangaFromLibrary(_ mangaId: Int64) {
+        Task {
+            do {
+                try await mangaRepository.updatePartial(
+                    id: mangaId,
+                    updates: MangaUpdate(favorite: false, dateAdded: 0)
+                )
+                try await categoryRepository.setMangaCategories(mangaId: mangaId, categoryIds: [])
+            } catch {
+                print("Error removing from library: \(error)")
+            }
+        }
+    }
 }
 
 // MARK: - SeededRNG (LCG — Knuth multiplicative hashing)

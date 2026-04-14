@@ -1306,7 +1306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
@@ -1315,7 +1315,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
 				PRODUCT_NAME = ShinsouWidgetExtension;
 				SDKROOT = iphoneos;
@@ -1330,7 +1330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
@@ -1345,7 +1345,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
 				PRODUCT_NAME = Shinsou;
 				SDKROOT = iphoneos;
@@ -1360,7 +1360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = Shinsou;
@@ -1375,7 +1375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios;
 				PRODUCT_NAME = Shinsou;
 				SDKROOT = iphoneos;
@@ -1453,7 +1453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShinsouWidgetExtension/ShinsouWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedByXcode;
 				INFOPLIST_KEY_CFBundleDisplayName = "Shinsou Widget";
@@ -1462,7 +1462,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.shinsou.ios.widget;
 				PRODUCT_NAME = ShinsouWidgetExtension;
 				SDKROOT = iphoneos;

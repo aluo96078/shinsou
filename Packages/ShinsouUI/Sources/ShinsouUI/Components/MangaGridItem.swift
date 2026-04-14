@@ -28,7 +28,6 @@ public struct MangaGridItem: View {
                     .aspectRatio(2/3, contentMode: .fit)
                     .overlay {
                         coverImage
-                            .scaledToFit()
                     }
                     .clipped()
                     .cornerRadius(8)
@@ -46,13 +45,7 @@ public struct MangaGridItem: View {
     @ViewBuilder
     private var coverImage: some View {
         if let url = coverUrl, let imageUrl = URL(string: url) {
-            LazyImage(url: imageUrl) { state in
-                if let image = state.image {
-                    image.resizable()
-                } else {
-                    placeholderView
-                }
-            }
+            CoverImageView(url: imageUrl)
         } else {
             placeholderView
         }

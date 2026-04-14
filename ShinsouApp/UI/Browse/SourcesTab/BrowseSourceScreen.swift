@@ -166,19 +166,7 @@ struct BrowseSourceScreen: View {
                 ZStack(alignment: .bottomLeading) {
                     // Cover image
                     if let url = manga.thumbnailUrl, let imageUrl = URL(string: url) {
-                        LazyImage(request: viewModel.imageRequest(for: imageUrl)) { state in
-                            if let image = state.image {
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                            } else if state.isLoading {
-                                Rectangle().fill(Color.gray.opacity(0.2))
-                                    .overlay { ProgressView() }
-                            } else {
-                                Rectangle().fill(Color.gray.opacity(0.2))
-                                    .overlay { Image(systemName: "book.closed").foregroundStyle(.secondary) }
-                            }
-                        }
+                        CoverImageView(request: viewModel.imageRequest(for: imageUrl))
                     } else {
                         Rectangle().fill(Color.gray.opacity(0.2))
                             .overlay { Image(systemName: "book.closed").foregroundStyle(.secondary) }

@@ -127,7 +127,7 @@ final class NetworkHelper {
               let workerBase = proxyWorkerUrl,
               let encoded = targetUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: "\(workerBase)/?url=\(encoded)") else {
-            return URL(string: targetUrl)
+            return nil
         }
         return url
     }
@@ -372,8 +372,8 @@ final class NetworkHelper {
     /// Build a URLRequest for loading images through the proxy (if enabled).
     /// Used by Nuke / ImagePipeline to route image downloads through Cloudflare Workers.
     func imageURLRequest(for urlString: String, headers: [String: String] = [:], referer: String? = nil, sourceId: Int64? = nil) -> URLRequest? {
-        guard let originalUrl = URL(string: urlString)
-                ?? URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString) else {
+        guard let originalUrl = Self.safeURL(from: urlString)
+                ?? URL(string: urlString) else {
             return nil
         }
 
@@ -392,6 +392,22 @@ final class NetworkHelper {
         applyProxyHeaders(to: &request, sourceId: sourceId)
 
         return request
+    }
+
+    /// Build a URL from a string that may mix encoded and un-encoded characters.
+    /// Fully decodes first, then re-encodes once to avoid double-encoding issues.
+    static func safeURL(from urlString: String) -> URL? {
+        // Fully decode: loop until stable (handles double/triple encoding)
+        var decoded = urlString
+        while let next = decoded.removingPercentEncoding, next != decoded {
+            decoded = next
+        }
+        // Re-encode using URLComponents which handles non-ASCII properly
+        if let components = URLComponents(string: decoded) {
+            return components.url
+        }
+        // Last resort: encode the whole string
+        return URL(string: decoded.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? decoded)
     }
 
     // MARK: - Rate limit configuration

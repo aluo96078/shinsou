@@ -50,6 +50,11 @@ struct LibraryGridView: View {
                             } label: {
                                 Label("Select", systemImage: "checkmark.circle")
                             }
+                            Button(role: .destructive) {
+                                viewModel.removeMangaFromLibrary(item.libraryManga.manga.id)
+                            } label: {
+                                Label("Remove from Library", systemImage: "trash")
+                            }
                         }
                     }
                 }
@@ -144,13 +149,7 @@ private struct CompactGridItem: View {
         Group {
             if let url = item.libraryManga.manga.thumbnailUrl,
                let imageUrl = URL(string: url) {
-                LazyImage(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source)) { state in
-                    if let image = state.image {
-                        image.resizable().scaledToFit()
-                    } else {
-                        placeholderView
-                    }
-                }
+                CoverImageView(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source))
             } else {
                 placeholderView
             }
@@ -235,13 +234,7 @@ private struct ComfortableGridItem: View {
         Group {
             if let url = item.libraryManga.manga.thumbnailUrl,
                let imageUrl = URL(string: url) {
-                LazyImage(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source)) { state in
-                    if let image = state.image {
-                        image.resizable().scaledToFit()
-                    } else {
-                        placeholderView
-                    }
-                }
+                CoverImageView(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source))
             } else {
                 placeholderView
             }
@@ -296,13 +289,7 @@ private struct CoverOnlyGridItem: View {
         Group {
             if let url = item.libraryManga.manga.thumbnailUrl,
                let imageUrl = URL(string: url) {
-                LazyImage(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source)) { state in
-                    if let image = state.image {
-                        image.resizable().scaledToFit()
-                    } else {
-                        placeholderView
-                    }
-                }
+                CoverImageView(request: sourceImageRequest(url: imageUrl, sourceId: item.libraryManga.manga.source))
             } else {
                 placeholderView
             }

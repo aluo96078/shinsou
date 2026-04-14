@@ -262,25 +262,61 @@ class ReaderPageViewController: UIViewController {
 
     /// Extract a human-readable description from Nuke pipeline errors, including the underlying cause.
     private static func detailedErrorDescription(_ error: Error) -> String {
-        // Nuke wraps errors in ImagePipeline.Error — dig into underlying error
-        let nsError = error as NSError
-        var parts: [String] = []
-
-        // Top-level description
-        parts.append(nsError.localizedDescription)
-
-        // Check for underlying errors
-        if let underlying = nsError.userInfo[NSUnderlyingErrorKey] as? Error {
-            let underNS = underlying as NSError
-            parts.append("[\(underNS.domain) \(underNS.code)] \(underNS.localizedDescription)")
-
-            // HTTP status code from URLError
-            if underNS.domain == NSURLErrorDomain {
-                parts.append("NSURLError code: \(underNS.code)")
+        // Nuke wraps errors in ImagePipeline.Error — pattern match to extract the real cause
+        if let pipelineError = error as? ImagePipeline.Error {
+            switch pipelineError {
+            case .dataLoadingFailed(let innerError):
+                return "資料載入失敗\n\(Self.underlyingErrorDescription(innerError))"
+            case .dataIsEmpty:
+                return "伺服器回傳空資料"
+            case .dataMissingInCache:
+                return "快取中無資料"
+            case .decoderNotRegistered:
+                return "無可用的圖片解碼器"
+            case .decodingFailed(_, _, let innerError):
+                return "圖片解碼失敗\n\(Self.underlyingErrorDescription(innerError))"
+            case .processingFailed(_, _, let innerError):
+                return "圖片處理失敗\n\(Self.underlyingErrorDescription(innerError))"
+            case .imageRequestMissing:
+                return "圖片請求遺失（無 URL）"
+            case .pipelineInvalidated:
+                return "圖片管線已失效"
+            @unknown default:
+                return pipelineError.description
             }
         }
+        return Self.underlyingErrorDescription(error)
+    }
 
-        return parts.joined(separator: "\n")
+    /// Format a non-Nuke error (URLError, DataLoader.Error, etc.) into readable text.
+    private static func underlyingErrorDescription(_ error: Error) -> String {
+        if let urlError = error as? URLError {
+            let reason: String
+            switch urlError.code {
+            case .notConnectedToInternet: reason = "無網路連線"
+            case .timedOut:               reason = "連線逾時"
+            case .cannotFindHost:         reason = "找不到伺服器"
+            case .cannotConnectToHost:    reason = "無法連線至伺服器"
+            case .networkConnectionLost:  reason = "網路連線中斷"
+            case .dnsLookupFailed:        reason = "DNS 解析失敗"
+            case .secureConnectionFailed: reason = "SSL 連線失敗"
+            case .badServerResponse:      reason = "伺服器回應異常"
+            case .badURL:                 reason = "無效的 URL"
+            case .cancelled:              reason = "請求已取消"
+            default:                      reason = urlError.localizedDescription
+            }
+            return "[\(urlError.code.rawValue)] \(reason)"
+        }
+        // DataLoader.Error.statusCodeUnacceptable — bridge through description
+        if let dataLoaderError = error as? DataLoader.Error {
+            return dataLoaderError.description
+        }
+        // Fallback: recurse into NSUnderlyingErrorKey if available
+        let nsError = error as NSError
+        if let underlying = nsError.userInfo[NSUnderlyingErrorKey] as? Error {
+            return "[\(nsError.domain) \(nsError.code)] \(Self.underlyingErrorDescription(underlying))"
+        }
+        return nsError.localizedDescription
     }
 
     @objc private func retryLoadImage() {
