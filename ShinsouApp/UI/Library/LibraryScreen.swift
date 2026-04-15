@@ -83,8 +83,9 @@ struct LibraryScreen: View {
             Task {
                 let chapters = try? await DIContainer.shared.chapterRepository
                     .getChaptersByMangaId(mangaId: item.id)
-                // Find the first unread chapter (sorted by sourceOrder ascending = earliest chapter first)
-                let sorted = (chapters ?? []).sorted { $0.sourceOrder < $1.sourceOrder }
+                // Sources return chapters newest-first, so sourceOrder=0 is the latest chapter.
+                // Sort descending by sourceOrder = story order (earliest first).
+                let sorted = (chapters ?? []).sorted { $0.sourceOrder > $1.sourceOrder }
                 if let nextUnread = sorted.first(where: { !$0.read }) ?? sorted.last {
                     readerDestination = ReaderDestination(mangaId: item.id, chapterId: nextUnread.id)
                 } else {

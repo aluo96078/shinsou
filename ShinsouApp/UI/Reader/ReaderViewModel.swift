@@ -82,7 +82,8 @@ final class ReaderViewModel: ObservableObject {
     private let preferences: AppPreferences
     private var startTime: Date?
 
-    /// All chapters for this manga, sorted by sourceOrder ascending.
+    /// All chapters for this manga in story reading order (earliest first → latest last).
+    /// Sources return chapters newest-first, so sourceOrder=0 is the latest chapter; we sort descending here.
     private var allChapters: [Chapter] = []
 
     init(
@@ -155,7 +156,7 @@ final class ReaderViewModel: ObservableObject {
 
             // Load all chapters for navigation
             allChapters = try await chapterRepository.getChaptersByMangaId(mangaId: mangaId)
-            allChapters.sort { $0.sourceOrder < $1.sourceOrder }
+            allChapters.sort { $0.sourceOrder > $1.sourceOrder }
 
             // Load current chapter
             chapter = try await chapterRepository.getChapter(id: currentChapterId)
@@ -328,8 +329,7 @@ final class ReaderViewModel: ObservableObject {
         guard !isTransitioning else { return }
         guard let currentChapter = chapter else { return }
 
-        // Chapters are sorted by sourceOrder ascending.
-        // "Next" chapter = higher sourceOrder (later chapter)
+        // allChapters is sorted in story order (earliest → latest), so "next" = idx+1.
         let currentIdx = allChapters.firstIndex(where: { $0.id == currentChapter.id })
         guard let idx = currentIdx else { return }
 
@@ -425,9 +425,9 @@ final class ReaderViewModel: ObservableObject {
 
     // MARK: - Chapter List
 
-    /// All chapters sorted by sourceOrder ascending, exposed for the chapter list sheet.
+    /// All chapters in display order (newest first), exposed for the chapter list sheet.
     var allChaptersSorted: [Chapter] {
-        allChapters
+        allChapters.reversed()
     }
 
     /// Public wrapper for switching to a chapter by its ID.
