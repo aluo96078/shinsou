@@ -54,6 +54,10 @@ final class ReaderViewModel: ObservableObject {
     /// Extra HTTP headers from the source (Cookie, custom User-Agent, etc.)
     @Published var sourceHeaders: [String: String] = [:]
 
+    /// Source ID of the current manga — used by NetworkHelper to apply per-source overrides
+    /// (Cloudflare Workers proxy, DoH) when fetching images.
+    @Published var sourceId: Int64?
+
     /// Whether a chapter transition is in progress.
     @Published var isTransitioning = false
 
@@ -173,6 +177,7 @@ final class ReaderViewModel: ObservableObject {
                 isLoading = false
                 return
             }
+            sourceId = manga.source
 
             // Build SChapter for the source API call
             let schapter = SChapter(
@@ -276,6 +281,7 @@ final class ReaderViewModel: ObservableObject {
         let pages = self.pages
         let headers = self.sourceHeaders
         let referer = self.refererUrl
+        let sourceId = self.sourceId
         let maxAhead = self.maxPrefetchAhead
 
         prefetchTask = Task { [weak self] in
@@ -306,16 +312,16 @@ final class ReaderViewModel: ObservableObject {
                         self?.resolvedImageUrls[i] = imageUrl
                     }
                     // Prefetch the image via Nuke
-                    self?.prefetchImage(urlString: imageUrl, headers: headers, referer: referer)
+                    self?.prefetchImage(urlString: imageUrl, headers: headers, referer: referer, sourceId: sourceId)
                 }
             }
         }
     }
 
     /// Pre-download an image into Nuke's cache.
-    private nonisolated func prefetchImage(urlString: String, headers: [String: String], referer: String?) {
+    private nonisolated func prefetchImage(urlString: String, headers: [String: String], referer: String?, sourceId: Int64?) {
         guard let urlRequest = NetworkHelper.shared.imageURLRequest(
-            for: urlString, headers: headers, referer: referer
+            for: urlString, headers: headers, referer: referer, sourceId: sourceId
         ) else { return }
         let request = ImageRequest(urlRequest: urlRequest)
         Task { @MainActor [weak self] in

@@ -8,6 +8,7 @@ class ReaderPageViewController: UIViewController {
     var page: Page?
     var refererUrl: String?
     var sourceHeaders: [String: String] = [:]
+    var sourceId: Int64?
 
     /// Tap callbacks — center toggles menu, left/right navigate pages.
     var onTapCenter: (() -> Void)?
@@ -97,7 +98,8 @@ class ReaderPageViewController: UIViewController {
                 if imageUrlString == nil, !page.url.isEmpty {
                     imageUrlString = await Self.resolveImageUrl(
                         from: page.url,
-                        headers: self?.sourceHeaders ?? [:]
+                        headers: self?.sourceHeaders ?? [:],
+                        sourceId: self?.sourceId
                     )
                 }
 
@@ -115,7 +117,8 @@ class ReaderPageViewController: UIViewController {
                 guard var urlRequest = NetworkHelper.shared.imageURLRequest(
                     for: cleanUrlString,
                     headers: mergedHeaders,
-                    referer: self?.refererUrl
+                    referer: self?.refererUrl,
+                    sourceId: self?.sourceId
                 ) else {
                     throw URLError(.badURL)
                 }
@@ -149,9 +152,9 @@ class ReaderPageViewController: UIViewController {
 
     /// Resolve the actual image URL from a viewer/intermediate page.
     /// Fetches the HTML and extracts `<img id="img" src="...">`.
-    static func resolveImageUrl(from viewerUrl: String, headers: [String: String]) async -> String? {
+    static func resolveImageUrl(from viewerUrl: String, headers: [String: String], sourceId: Int64? = nil) async -> String? {
         guard var request = NetworkHelper.shared.imageURLRequest(
-            for: viewerUrl, headers: headers
+            for: viewerUrl, headers: headers, sourceId: sourceId
         ) else { return nil }
         request.setValue("text/html,application/xhtml+xml,*/*;q=0.8", forHTTPHeaderField: "Accept")
 

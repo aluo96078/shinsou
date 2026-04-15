@@ -42,12 +42,14 @@ struct SourceSettingsScreen: View {
             NetworkOverridePicker(
                 title: MR.strings.sourceSettingsDoh,
                 sourceId: source.id,
-                networkKey: "doh"
+                networkKey: "doh",
+                defaultSelection: "global"
             )
             NetworkOverridePicker(
                 title: MR.strings.sourceSettingsProxy,
                 sourceId: source.id,
-                networkKey: "proxy"
+                networkKey: "proxy",
+                defaultSelection: "off"
             )
         } header: {
             Text(MR.strings.sourceSettingsNetwork)
@@ -117,16 +119,18 @@ private struct NetworkOverridePicker: View {
     let title: String
     let sourceId: Int64
     let networkKey: String
+    let defaultSelection: String
 
     @State private var selection: String
 
     private var storageKey: String { "source.\(sourceId).network.\(networkKey)" }
 
-    init(title: String, sourceId: Int64, networkKey: String) {
+    init(title: String, sourceId: Int64, networkKey: String, defaultSelection: String = "global") {
         self.title = title
         self.sourceId = sourceId
         self.networkKey = networkKey
-        let stored = UserDefaults.standard.string(forKey: "source.\(sourceId).network.\(networkKey)") ?? "global"
+        self.defaultSelection = defaultSelection
+        let stored = UserDefaults.standard.string(forKey: "source.\(sourceId).network.\(networkKey)") ?? defaultSelection
         _selection = State(initialValue: stored)
     }
 

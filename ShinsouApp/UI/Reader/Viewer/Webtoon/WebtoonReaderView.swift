@@ -13,12 +13,14 @@ struct WebtoonReaderView: UIViewControllerRepresentable {
         let vc = WebtoonViewController()
         vc.coordinator = context.coordinator
         vc.refererUrl = viewModel.refererUrl
+        vc.sourceId = viewModel.sourceId
         return vc
     }
 
     func updateUIViewController(_ vc: WebtoonViewController, context: Context) {
         vc.refererUrl = viewModel.refererUrl
         vc.sourceHeaders = viewModel.sourceHeaders
+        vc.sourceId = viewModel.sourceId
         vc.updatePages(viewModel.pages)
         vc.updateSidePadding(viewModel.webtoonSidePadding)
     }
@@ -52,6 +54,7 @@ class WebtoonViewController: UIViewController {
     var coordinator: WebtoonReaderView.Coordinator?
     var refererUrl: String?
     var sourceHeaders: [String: String] = [:]
+    var sourceId: Int64?
 
     private var collectionView: UICollectionView!
     private var pages: [Page] = []
@@ -134,6 +137,7 @@ extension WebtoonViewController: UICollectionViewDataSource {
             horizontalInset: inset,
             refererUrl: refererUrl,
             sourceHeaders: sourceHeaders,
+            sourceId: sourceId,
             preResolvedImageUrl: preResolved,
             onPageLoaded: { [weak self] idx, resolvedUrl in
                 self?.coordinator?.onPageImageLoaded(idx, resolvedUrl: resolvedUrl)
@@ -167,7 +171,7 @@ extension WebtoonViewController: UICollectionViewDataSourcePrefetching {
                 mergedHeaders[key] = value
             }
             guard let urlRequest = NetworkHelper.shared.imageURLRequest(
-                for: cleanUrl, headers: mergedHeaders, referer: refererUrl
+                for: cleanUrl, headers: mergedHeaders, referer: refererUrl, sourceId: sourceId
             ) else { return nil }
             return ImageRequest(urlRequest: urlRequest)
         }
@@ -240,6 +244,7 @@ class WebtoonPageCell: UICollectionViewCell {
         horizontalInset: CGFloat,
         refererUrl: String? = nil,
         sourceHeaders: [String: String] = [:],
+        sourceId: Int64? = nil,
         preResolvedImageUrl: String? = nil,
         onPageLoaded: ((Int, String?) -> Void)? = nil
     ) {
@@ -262,7 +267,8 @@ class WebtoonPageCell: UICollectionViewCell {
                 if imageUrlString == nil, !page.url.isEmpty {
                     imageUrlString = await ReaderPageViewController.resolveImageUrl(
                         from: page.url,
-                        headers: sourceHeaders
+                        headers: sourceHeaders,
+                        sourceId: sourceId
                     )
                 }
 
@@ -276,7 +282,8 @@ class WebtoonPageCell: UICollectionViewCell {
                 guard let urlRequest = NetworkHelper.shared.imageURLRequest(
                     for: cleanUrlString,
                     headers: mergedHeaders,
-                    referer: refererUrl
+                    referer: refererUrl,
+                    sourceId: sourceId
                 ) else { return }
                 let request = ImageRequest(urlRequest: urlRequest)
                 let image = try await ImagePipeline.shared.image(for: request)

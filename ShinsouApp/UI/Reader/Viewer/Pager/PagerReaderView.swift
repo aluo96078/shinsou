@@ -105,6 +105,7 @@ struct PagerReaderView: UIViewControllerRepresentable {
         vc.page = page
         vc.refererUrl = viewModel.refererUrl
         vc.sourceHeaders = viewModel.sourceHeaders
+        vc.sourceId = viewModel.sourceId
         vc.preResolvedImageUrl = viewModel.resolvedImageUrl(for: index)
         vc.onTapCenter = { [weak viewModel] in viewModel?.toggleMenu() }
         vc.onPageLoaded = { [weak viewModel] idx, resolvedUrl in

@@ -92,7 +92,7 @@ final class NetworkHelper {
     /// Read the per-source DoH override. Returns effective enabled state.
     func isDoHEnabled(forSource sourceId: Int64?) -> Bool {
         guard let sourceId else { return isDohEnabled }
-        let override = sourceNetworkOverride(sourceId: sourceId, key: "doh")
+        let override = sourceNetworkOverride(sourceId: sourceId, key: "doh", default: .global)
         switch override {
         case .global: return isDohEnabled
         case .on: return true
@@ -101,9 +101,10 @@ final class NetworkHelper {
     }
 
     /// Read the per-source proxy override. Returns effective enabled state.
+    /// Proxy is opt-in per source: unset sources default to `.off` regardless of the global toggle.
     func isProxyEnabled(forSource sourceId: Int64?) -> Bool {
         guard let sourceId else { return isProxyEnabled }
-        let override = sourceNetworkOverride(sourceId: sourceId, key: "proxy")
+        let override = sourceNetworkOverride(sourceId: sourceId, key: "proxy", default: .off)
         switch override {
         case .global: return isProxyEnabled
         case .on: return true
@@ -112,10 +113,10 @@ final class NetworkHelper {
     }
 
     /// Read a per-source network override from UserDefaults.
-    private func sourceNetworkOverride(sourceId: Int64, key: String) -> SourceNetworkOverride {
+    private func sourceNetworkOverride(sourceId: Int64, key: String, default defaultValue: SourceNetworkOverride) -> SourceNetworkOverride {
         let udKey = "source.\(sourceId).network.\(key)"
-        let raw = UserDefaults.standard.string(forKey: udKey) ?? "global"
-        return SourceNetworkOverride(rawValue: raw) ?? .global
+        guard let raw = UserDefaults.standard.string(forKey: udKey) else { return defaultValue }
+        return SourceNetworkOverride(rawValue: raw) ?? defaultValue
     }
 
     // MARK: - Proxy URL rewriting
