@@ -14,6 +14,7 @@ struct MangaInfoHeader: View {
     // Cover image actions state (7.1)
     @State private var loadedCoverImage: UIImage? = nil
     @State private var showShareSheet = false
+    @State private var showCoverPreview = false
     @State private var customCoverSavedMessage: String? = nil
     @State private var showSaveSuccessAlert = false
     @State private var saveAlertMessage = ""
@@ -95,6 +96,12 @@ struct MangaInfoHeader: View {
                 ShareSheet(items: [image])
             }
         }
+        .fullScreenCover(isPresented: $showCoverPreview) {
+            CoverPreviewScreen(
+                request: coverPreviewRequest,
+                fallbackImage: loadedCoverImage
+            )
+        }
         .alert(MR.strings.mangaCoverImage, isPresented: $showSaveSuccessAlert) {
             Button(MR.strings.commonOk) {}
         } message: {
@@ -107,6 +114,11 @@ struct MangaInfoHeader: View {
     @ViewBuilder
     private var coverImageWithActions: some View {
         coverImageContent
+            .contentShape(Rectangle())
+            .onTapGesture {
+                showCoverPreview = true
+            }
+            .accessibilityAddTraits(.isButton)
             .contextMenu {
                 Button {
                     saveCoverToPhotos()
@@ -147,6 +159,13 @@ struct MangaInfoHeader: View {
         } else {
             placeholderCover
         }
+    }
+
+    private var coverPreviewRequest: ImageRequest? {
+        guard let url = manga.thumbnailUrl, let imageUrl = URL(string: url) else {
+            return nil
+        }
+        return Self.sourceImageRequest(url: imageUrl, sourceId: manga.source)
     }
 
     /// Build an ImageRequest with source-specific headers for cover loading.
@@ -258,4 +277,72 @@ private struct ShareSheet: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+private struct CoverPreviewScreen: View {
+    let request: ImageRequest?
+    let fallbackImage: UIImage?
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var scale: CGFloat = 1
+    @State private var lastScale: CGFloat = 1
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Color.black.ignoresSafeArea()
+
+            previewImage
+                .padding(.horizontal, 16)
+                .padding(.vertical, 72)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .scaleEffect(scale)
+                .gesture(
+                    MagnificationGesture()
+                        .onChanged { value in
+                            scale = min(max(lastScale * value, 1), 5)
+                        }
+                        .onEnded { _ in
+                            lastScale = scale
+                        }
+                )
+                .onTapGesture(count: 2) {
+                    scale = scale > 1 ? 1 : 2
+                    lastScale = scale
+                }
+
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(Color.white.opacity(0.14), in: Circle())
+            }
+            .padding()
+            .accessibilityLabel("Close")
+        }
+    }
+
+    @ViewBuilder
+    private var previewImage: some View {
+        if let request = request {
+            LazyImage(request: request) { state in
+                if let image = state.image {
+                    image.resizable().scaledToFit()
+                } else if let fallbackImage = fallbackImage {
+                    Image(uiImage: fallbackImage).resizable().scaledToFit()
+                } else {
+                    ProgressView()
+                        .tint(.white)
+                }
+            }
+        } else if let fallbackImage = fallbackImage {
+            Image(uiImage: fallbackImage).resizable().scaledToFit()
+        } else {
+            Image(systemName: "book.closed")
+                .font(.system(size: 56))
+                .foregroundStyle(.secondary)
+        }
+    }
 }

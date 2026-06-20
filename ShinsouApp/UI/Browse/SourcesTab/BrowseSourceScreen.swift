@@ -124,8 +124,11 @@ struct BrowseSourceScreen: View {
                     ProgressView()
                         .frame(maxWidth: .infinity)
                         .padding()
+                        .id("load-more-\(viewModel.isLoading)-\(viewModel.mangas.count)")
                         .onAppear {
-                            Task { await viewModel.loadMore() }
+                            if !viewModel.isLoading {
+                                Task { await viewModel.loadMore() }
+                            }
                         }
                 }
             }

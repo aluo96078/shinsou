@@ -53,6 +53,7 @@ final class SourceManager: ObservableObject {
 
     func register(source: any Source) {
         sources[source.id] = source
+        catalogueSources.removeAll { $0.id == source.id }
         if let catalogue = source as? any CatalogueSource {
             catalogueSources.append(catalogue)
         }

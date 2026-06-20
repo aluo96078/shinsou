@@ -2,6 +2,7 @@ import UIKit
 import ShinsouI18n
 import Nuke
 import ShinsouSourceAPI
+import CryptoKit
 
 class ReaderPageViewController: UIViewController {
     var pageIndex: Int?
@@ -104,6 +105,7 @@ class ReaderPageViewController: UIViewController {
                 }
 
                 let urlString = imageUrlString ?? page.url
+                let fragmentValues = Self.extractFragmentValues(from: urlString)
 
                 // Extract per-page headers encoded in the URL fragment
                 // Format: "https://...#Header-Name=value&Another=value2"
@@ -129,13 +131,18 @@ class ReaderPageViewController: UIViewController {
                 if ignoreCache {
                     request.options = [.reloadIgnoringCachedData]
                 }
-                let response = try await ImagePipeline.shared.image(for: request)
+                let loadedImage = try await ImagePipeline.shared.image(for: request)
+                let image = JMImageDescrambler.descrambleIfNeeded(
+                    loadedImage,
+                    sourceId: self?.sourceId,
+                    fragmentValues: fragmentValues
+                )
                 guard !Task.isCancelled else { return }
                 let resolvedUrl = imageUrlString
                 let idx = self?.pageIndex
                 await MainActor.run {
                     spinner.removeFromSuperview()
-                    self?.imageView.image = response
+                    self?.imageView.image = image
                     if let idx {
                         self?.onPageLoaded?(idx, resolvedUrl)
                     }
@@ -171,20 +178,29 @@ class ReaderPageViewController: UIViewController {
     /// Plugins can encode headers as: `https://cdn.example.com/img.jpg#X-Token=abc&X-Other=def`
     /// Returns the clean URL (without fragment) and a dictionary of extracted headers.
     static func extractFragmentHeaders(from urlString: String) -> (String, [String: String]) {
+        let (cleanUrl, values) = extractFragmentParts(from: urlString)
+        return (cleanUrl, values.filter { !JMImageDescrambler.isFragmentMetadataKey($0.key) })
+    }
+
+    static func extractFragmentValues(from urlString: String) -> [String: String] {
+        extractFragmentParts(from: urlString).values
+    }
+
+    private static func extractFragmentParts(from urlString: String) -> (cleanUrl: String, values: [String: String]) {
         guard let hashIndex = urlString.firstIndex(of: "#") else {
             return (urlString, [:])
         }
         let cleanUrl = String(urlString[urlString.startIndex..<hashIndex])
         let fragment = String(urlString[urlString.index(after: hashIndex)...])
-        var headers: [String: String] = [:]
+        var values: [String: String] = [:]
         for pair in fragment.split(separator: "&") {
             let parts = pair.split(separator: "=", maxSplits: 1)
             guard parts.count == 2 else { continue }
             let key = String(parts[0]).removingPercentEncoding ?? String(parts[0])
             let value = String(parts[1]).removingPercentEncoding ?? String(parts[1])
-            headers[key] = value
+            values[key] = value
         }
-        return (cleanUrl, headers)
+        return (cleanUrl, values)
     }
 
     /// Fast regex extraction of image src from E-Hentai viewer page HTML.
@@ -327,5 +343,119 @@ class ReaderPageViewController: UIViewController {
         errorContainer = nil
         loadTask?.cancel()
         loadImage(ignoreCache: true)
+    }
+}
+
+enum JMImageDescrambler {
+    private static let jinmanSourceId: Int64 = 1_817_081
+    private static let scramble268850 = 268_850
+    private static let scramble421926 = 421_926
+
+    private static let scrambleKey = "Shinsou-JM-Scramble-Id"
+    private static let photoKey = "Shinsou-JM-Photo-Id"
+    private static let filenameKey = "Shinsou-JM-Filename"
+
+    static func isFragmentMetadataKey(_ key: String) -> Bool {
+        key == scrambleKey || key == photoKey || key == filenameKey
+    }
+
+    static func descrambleIfNeeded(
+        _ image: UIImage,
+        sourceId: Int64?,
+        fragmentValues: [String: String]
+    ) -> UIImage {
+        guard sourceId == jinmanSourceId else { return image }
+        guard let scrambleId = Int(fragmentValues[scrambleKey] ?? ""),
+              let photoId = Int(fragmentValues[photoKey] ?? ""),
+              let filename = fragmentValues[filenameKey],
+              !filename.isEmpty else {
+            return image
+        }
+
+        let segmentCount = segmentationCount(
+            scrambleId: scrambleId,
+            photoId: photoId,
+            filename: filename
+        )
+        guard segmentCount > 1 else { return image }
+        return descramble(image, segmentCount: segmentCount) ?? image
+    }
+
+    private static func segmentationCount(scrambleId: Int, photoId: Int, filename: String) -> Int {
+        if photoId < scrambleId {
+            return 0
+        }
+        if photoId < scramble268850 {
+            return 10
+        }
+
+        let moduloBase = photoId < scramble421926 ? 10 : 8
+        let hash = md5Hex("\(photoId)\(filename)")
+        guard let ascii = hash.unicodeScalars.last?.value else { return 0 }
+        return Int(ascii % UInt32(moduloBase)) * 2 + 2
+    }
+
+    private static func md5Hex(_ string: String) -> String {
+        let digest = Insecure.MD5.hash(data: Data(string.utf8))
+        return digest.map { String(format: "%02x", $0) }.joined()
+    }
+
+    private static func descramble(_ image: UIImage, segmentCount: Int) -> UIImage? {
+        guard let cgImage = image.cgImage else { return nil }
+
+        let width = cgImage.width
+        let height = cgImage.height
+        guard width > 0, height > segmentCount else { return image }
+
+        let baseHeight = height / segmentCount
+        let overflow = height % segmentCount
+        let scale = image.scale
+        let outputSize = CGSize(
+            width: CGFloat(width) / scale,
+            height: CGFloat(height) / scale
+        )
+
+        let format = UIGraphicsImageRendererFormat.default()
+        format.scale = scale
+        format.opaque = imageIsOpaque(cgImage)
+
+        return UIGraphicsImageRenderer(size: outputSize, format: format).image { _ in
+            for index in 0..<segmentCount {
+                var sliceHeight = baseHeight
+                let sourceY = height - (baseHeight * (index + 1)) - overflow
+                var destY = baseHeight * index
+
+                if index == 0 {
+                    sliceHeight += overflow
+                } else {
+                    destY += overflow
+                }
+
+                guard sliceHeight > 0,
+                      let slice = cgImage.cropping(to: CGRect(
+                        x: 0,
+                        y: sourceY,
+                        width: width,
+                        height: sliceHeight
+                      )) else { continue }
+
+                UIImage(cgImage: slice, scale: scale, orientation: .up)
+                    .draw(in: CGRect(
+                        x: 0,
+                        y: CGFloat(destY) / scale,
+                        width: CGFloat(width) / scale,
+                        height: CGFloat(sliceHeight) / scale
+                    ))
+            }
+        }
+    }
+
+    private static func imageIsOpaque(_ image: CGImage) -> Bool {
+        switch image.alphaInfo {
+        case .none, .noneSkipFirst, .noneSkipLast:
+            return true
+        default:
+            return false
+        }
     }
 }

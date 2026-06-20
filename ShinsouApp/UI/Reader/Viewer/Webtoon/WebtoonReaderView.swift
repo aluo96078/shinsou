@@ -273,6 +273,7 @@ class WebtoonPageCell: UICollectionViewCell {
                 }
 
                 let urlString = imageUrlString ?? page.url
+                let fragmentValues = ReaderPageViewController.extractFragmentValues(from: urlString)
                 let (cleanUrlString, fragmentHeaders) = ReaderPageViewController.extractFragmentHeaders(from: urlString)
                 // Build request — route through proxy if enabled
                 var mergedHeaders = sourceHeaders
@@ -286,7 +287,12 @@ class WebtoonPageCell: UICollectionViewCell {
                     sourceId: sourceId
                 ) else { return }
                 let request = ImageRequest(urlRequest: urlRequest)
-                let image = try await ImagePipeline.shared.image(for: request)
+                let loadedImage = try await ImagePipeline.shared.image(for: request)
+                let image = JMImageDescrambler.descrambleIfNeeded(
+                    loadedImage,
+                    sourceId: sourceId,
+                    fragmentValues: fragmentValues
+                )
                 guard !Task.isCancelled else { return }
                 let resolvedUrl = imageUrlString
                 await MainActor.run {

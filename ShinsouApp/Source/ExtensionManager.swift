@@ -142,9 +142,10 @@ final class ExtensionManager: ObservableObject {
 
                     if let manifest = installedManifest {
                         let localCode = manifest.versionCode ?? versionInt(from: manifest.version)
-                        let hasUpdate = entry.versionCode > localCode
+                        let hasUpdate = entry.versionCode > localCode ||
+                            (entry.versionCode == localCode && entry.version != manifest.version)
                         // Always update repo info so force-reinstall works;
-                        // mark as hasUpdate only when remote version is newer.
+                        // also recover installs whose old updater wrote a stale version string.
                         if let idx = result.firstIndex(where: { $0.id == entry.id }) {
                             result[idx] = ExtensionModel(
                                 id: entry.id,
@@ -191,7 +192,8 @@ final class ExtensionManager: ObservableObject {
 
                     if let manifest = installedManifest {
                         let localCode = manifest.versionCode ?? versionInt(from: manifest.version)
-                        let hasUpdate = entry.code > localCode
+                        let hasUpdate = entry.code > localCode ||
+                            (entry.code == localCode && entry.version != manifest.version)
                         if let idx = result.firstIndex(where: { $0.id == entry.pkg }) {
                             result[idx] = ExtensionModel(
                                 id: entry.pkg,
@@ -246,6 +248,8 @@ final class ExtensionManager: ObservableObject {
         setExtensionState(pkg: ext.pkg, state: .installing)
 
         do {
+            let installedVersion = installVersion(for: ext)
+
             if let scriptUrl = ext.scriptUrl, let repoBaseUrl = ext.repoBaseUrl {
                 // Download JS plugin script from repo
                 let scriptData = try await repoService.downloadPluginScript(
@@ -255,6 +259,8 @@ final class ExtensionManager: ObservableObject {
                 guard let script = String(data: scriptData, encoding: .utf8), !script.isEmpty else {
                     throw ExtensionRepoError.networkError("Empty script data")
                 }
+
+                replaceInstalledExtension(pkg: ext.pkg, fallbackSources: ext.sources)
 
                 // Save to plugins directory
                 let pluginsDir = DiskUtil.pluginsDirectory()
@@ -267,7 +273,7 @@ final class ExtensionManager: ObservableObject {
                 let manifest = PluginManifest(
                     id: ext.pkg,
                     name: ext.name,
-                    version: ext.version,
+                    version: installedVersion,
                     versionCode: ext.versionCode,
                     lang: ext.lang,
                     nsfw: ext.nsfw,
@@ -281,7 +287,7 @@ final class ExtensionManager: ObservableObject {
 
                 // Auto-trust the downloaded plugin
                 let hash = PluginVerifier.hash(of: scriptData)
-                let versionCode = versionInt(from: ext.version)
+                let versionCode = versionInt(from: installedVersion)
                 PluginTrustStore.shared.trust(pkg: ext.pkg, versionCode: versionCode, hash: hash)
 
                 // Load and register with SourceManager
@@ -290,13 +296,15 @@ final class ExtensionManager: ObservableObject {
                 }
             } else {
                 // No JS script available — save stub manifest
+                replaceInstalledExtension(pkg: ext.pkg, fallbackSources: ext.sources)
+
                 let pluginsDir = DiskUtil.pluginsDirectory()
                 try FileManager.default.createDirectory(at: pluginsDir, withIntermediateDirectories: true)
 
                 let manifest = PluginManifest(
                     id: ext.pkg,
                     name: ext.name,
-                    version: ext.version,
+                    version: installedVersion,
                     versionCode: ext.versionCode,
                     lang: ext.lang,
                     nsfw: ext.nsfw,
@@ -315,7 +323,7 @@ final class ExtensionManager: ObservableObject {
                 }
             }
 
-            setExtensionState(pkg: ext.pkg, state: .installed)
+            markExtensionInstalled(ext, version: installedVersion)
         } catch {
             setExtensionState(pkg: ext.pkg, state: .available)
             throw error
@@ -325,7 +333,6 @@ final class ExtensionManager: ObservableObject {
     // MARK: - Update extension
 
     func updateExtension(_ ext: ExtensionModel) async throws {
-        removeExtensionFiles(pkg: ext.pkg)
         try await installExtension(ext)
     }
 
@@ -337,15 +344,8 @@ final class ExtensionManager: ObservableObject {
         setExtensionState(pkg: ext.pkg, state: .installing)
 
         do {
-            // Unregister old sources
-            for entry in ext.sources {
-                sourceManager.unregisterSource(id: entry.id)
-            }
-
             // If we have repo info, re-download from remote
             if let scriptUrl = ext.scriptUrl, let repoBaseUrl = ext.repoBaseUrl {
-                removeExtensionFiles(pkg: ext.pkg)
-
                 let scriptData = try await repoService.downloadPluginScript(
                     baseUrl: repoBaseUrl, scriptUrl: scriptUrl
                 )
@@ -353,6 +353,8 @@ final class ExtensionManager: ObservableObject {
                 guard let script = String(data: scriptData, encoding: .utf8), !script.isEmpty else {
                     throw ExtensionRepoError.networkError("Empty script data")
                 }
+
+                replaceInstalledExtension(pkg: ext.pkg, fallbackSources: ext.sources)
 
                 let pluginsDir = DiskUtil.pluginsDirectory()
                 try FileManager.default.createDirectory(at: pluginsDir, withIntermediateDirectories: true)
@@ -389,6 +391,7 @@ final class ExtensionManager: ObservableObject {
                     sourceManager.register(source: source)
                 }
 
+                markExtensionInstalled(ext, version: remoteVersion)
                 NSLog("[ExtensionManager] Force reinstalled %@ from repo", ext.pkg)
             } else {
                 // No repo info — just reload from local disk
@@ -399,10 +402,9 @@ final class ExtensionManager: ObservableObject {
                         sourceManager.register(source: source)
                     }
                 }
+                setExtensionState(pkg: ext.pkg, state: .installed)
                 NSLog("[ExtensionManager] Force reloaded %@ from local disk", ext.pkg)
             }
-
-            setExtensionState(pkg: ext.pkg, state: .installed)
         } catch {
             setExtensionState(pkg: ext.pkg, state: .installed)
             throw error
@@ -413,7 +415,7 @@ final class ExtensionManager: ObservableObject {
 
     func uninstallExtension(_ ext: ExtensionModel) {
         // Unregister sources from SourceManager
-        for entry in ext.sources {
+        for entry in installedSources(pkg: ext.pkg, fallbackSources: ext.sources) {
             sourceManager.unregisterSource(id: entry.id)
         }
 
@@ -443,6 +445,47 @@ final class ExtensionManager: ObservableObject {
     }
 
     // MARK: - Helpers
+
+    private func installVersion(for ext: ExtensionModel) -> String {
+        if case .hasUpdate(let newVersion) = ext.state {
+            return newVersion
+        }
+        return ext.version
+    }
+
+    private func replaceInstalledExtension(pkg: String, fallbackSources: [SourceIndexEntry]) {
+        for entry in installedSources(pkg: pkg, fallbackSources: fallbackSources) {
+            sourceManager.unregisterSource(id: entry.id)
+        }
+        removeExtensionFiles(pkg: pkg)
+    }
+
+    private func installedSources(pkg: String, fallbackSources: [SourceIndexEntry]) -> [SourceIndexEntry] {
+        if let manifest = loadInstalledManifests().first(where: { $0.id == pkg }),
+           let sources = manifest.sources,
+           !sources.isEmpty {
+            return sources
+        }
+        return fallbackSources
+    }
+
+    private func markExtensionInstalled(_ ext: ExtensionModel, version: String) {
+        guard let idx = extensions.firstIndex(where: { $0.id == ext.pkg }) else { return }
+        extensions[idx] = ExtensionModel(
+            id: ext.id,
+            name: ext.name,
+            pkg: ext.pkg,
+            version: version,
+            versionCode: ext.versionCode,
+            lang: ext.lang,
+            nsfw: ext.nsfw,
+            sources: ext.sources,
+            repoBaseUrl: ext.repoBaseUrl,
+            scriptUrl: ext.scriptUrl,
+            iconUrl: ext.iconUrl,
+            state: .installed
+        )
+    }
 
     private func removeExtensionFiles(pkg: String) {
         let pluginsDir = DiskUtil.pluginsDirectory()
