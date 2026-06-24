@@ -90,6 +90,19 @@ final class ReaderViewModel: ObservableObject {
     /// Sources return chapters newest-first, so sourceOrder=0 is the latest chapter; we sort descending here.
     private var allChapters: [Chapter] = []
 
+    /// Sort chapters to story order (earliest → latest) using the same rule everywhere.
+    private func sortedChaptersForStoryOrder(_ chapters: [Chapter]) -> [Chapter] {
+        chapters.sorted {
+            if $0.sourceOrder != $1.sourceOrder {
+                return $0.sourceOrder > $1.sourceOrder
+            }
+            if $0.chapterNumber != $1.chapterNumber {
+                return $0.chapterNumber < $1.chapterNumber
+            }
+            return $0.id < $1.id
+        }
+    }
+
     init(
         mangaId: Int64,
         chapterId: Int64,
@@ -159,8 +172,9 @@ final class ReaderViewModel: ObservableObject {
             manga = try await mangaRepository.getManga(id: mangaId)
 
             // Load all chapters for navigation
-            allChapters = try await chapterRepository.getChaptersByMangaId(mangaId: mangaId)
-            allChapters.sort { $0.sourceOrder > $1.sourceOrder }
+            allChapters = sortedChaptersForStoryOrder(
+                try await chapterRepository.getChaptersByMangaId(mangaId: mangaId)
+            )
 
             // Load current chapter
             chapter = try await chapterRepository.getChapter(id: currentChapterId)
@@ -335,12 +349,13 @@ final class ReaderViewModel: ObservableObject {
         guard !isTransitioning else { return }
         guard let currentChapter = chapter else { return }
 
-        // allChapters is sorted in story order (earliest → latest), so "next" = idx+1.
-        let currentIdx = allChapters.firstIndex(where: { $0.id == currentChapter.id })
+        // `allChapters` is sorted in story order (earliest → latest), so "next" = idx+1.
+        let storyOrderedChapters = sortedChaptersForStoryOrder(allChapters)
+        let currentIdx = storyOrderedChapters.firstIndex(where: { $0.id == currentChapter.id })
         guard let idx = currentIdx else { return }
 
         // Find next chapter that isn't already read (respecting skip settings)
-        let candidates = allChapters.suffix(from: allChapters.index(after: idx))
+        let candidates = storyOrderedChapters.suffix(from: storyOrderedChapters.index(after: idx))
         guard let nextChapter = candidates.first(where: { shouldNavigateTo($0) }) ?? candidates.first else {
             return // No next chapter
         }
@@ -352,11 +367,12 @@ final class ReaderViewModel: ObservableObject {
         guard !isTransitioning else { return }
         guard let currentChapter = chapter else { return }
 
-        let currentIdx = allChapters.firstIndex(where: { $0.id == currentChapter.id })
+        let storyOrderedChapters = sortedChaptersForStoryOrder(allChapters)
+        let currentIdx = storyOrderedChapters.firstIndex(where: { $0.id == currentChapter.id })
         guard let idx = currentIdx, idx > 0 else { return }
 
         // Find previous chapter
-        let candidates = allChapters.prefix(upTo: idx).reversed()
+        let candidates = storyOrderedChapters.prefix(upTo: idx).reversed()
         guard let prevChapter = candidates.first(where: { shouldNavigateTo($0) }) ?? candidates.first else {
             return
         }
@@ -394,11 +410,12 @@ final class ReaderViewModel: ObservableObject {
     /// Update the previous/next chapter names for the transition screens.
     private func updateChapterNeighbours() {
         guard let currentChapter = chapter else { return }
-        let idx = allChapters.firstIndex(where: { $0.id == currentChapter.id })
+        let storyOrderedChapters = sortedChaptersForStoryOrder(allChapters)
+        let idx = storyOrderedChapters.firstIndex(where: { $0.id == currentChapter.id })
         guard let idx else { return }
 
-        previousChapterName = idx > 0 ? allChapters[idx - 1].name : nil
-        nextChapterName = idx < allChapters.count - 1 ? allChapters[idx + 1].name : nil
+        previousChapterName = idx > 0 ? storyOrderedChapters[idx - 1].name : nil
+        nextChapterName = idx < storyOrderedChapters.count - 1 ? storyOrderedChapters[idx + 1].name : nil
     }
 
     // MARK: - Reading Mode
@@ -433,7 +450,7 @@ final class ReaderViewModel: ObservableObject {
 
     /// All chapters in display order (newest first), exposed for the chapter list sheet.
     var allChaptersSorted: [Chapter] {
-        allChapters.reversed()
+        Array(sortedChaptersForStoryOrder(allChapters).reversed())
     }
 
     /// Public wrapper for switching to a chapter by its ID.

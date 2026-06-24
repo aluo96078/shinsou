@@ -129,7 +129,7 @@ final class MangaDetailViewModel: ObservableObject {
     /// If all chapters are read, returns the latest chapter.
     /// If the user was mid-chapter (lastPageRead > 0), that chapter takes priority.
     var continueReadingChapter: Chapter? {
-        let sorted = allChapters.sorted { $0.sourceOrder > $1.sourceOrder }
+        let sorted = sortedStoryOrder(allChapters)
         // Priority: chapter with reading progress (lastPageRead > 0 and not fully read)
         if let inProgress = sorted.first(where: { !$0.read && $0.lastPageRead > 0 }) {
             return inProgress
@@ -144,7 +144,7 @@ final class MangaDetailViewModel: ObservableObject {
 
     /// Label for the continue reading button.
     var continueReadingLabel: String {
-        let sorted = allChapters.sorted { $0.sourceOrder > $1.sourceOrder }
+        let sorted = sortedStoryOrder(allChapters)
         if sorted.contains(where: { !$0.read && $0.lastPageRead > 0 }) {
             return "繼續閱讀"
         }
@@ -201,6 +201,25 @@ final class MangaDetailViewModel: ObservableObject {
                 self.chapters = self.filterAndSortChapters(chs)
             }
         }
+    }
+
+    /// Sort chapters in story reading order (earliest → latest).
+    private func sortedStoryOrder(_ chapters: [Chapter]) -> [Chapter] {
+        chapters.sorted {
+            if $0.sourceOrder != $1.sourceOrder {
+                return $0.sourceOrder > $1.sourceOrder
+            }
+            if $0.chapterNumber != $1.chapterNumber {
+                return $0.chapterNumber < $1.chapterNumber
+            }
+            return $0.id < $1.id
+        }
+    }
+
+    /// Sort chapters for list rendering according to user preference.
+    private func sortedForDisplay(_ chapters: [Chapter], sortAscending: Bool) -> [Chapter] {
+        let storyOrder = sortedStoryOrder(chapters)
+        return sortAscending ? storyOrder : Array(storyOrder.reversed())
     }
 
     // MARK: - Source Fetching
@@ -327,13 +346,7 @@ final class MangaDetailViewModel: ObservableObject {
             }
         }
 
-        // sourceOrder=0 is the latest chapter (sources return newest-first).
-        // Ascending (earliest first) → sort sourceOrder DESC; Descending (latest first) → sort ASC.
-        if sortAscending {
-            filtered.sort { $0.sourceOrder > $1.sourceOrder }
-        } else {
-            filtered.sort { $0.sourceOrder < $1.sourceOrder }
-        }
+        filtered = sortedForDisplay(filtered, sortAscending: sortAscending)
 
         return filtered
     }
@@ -343,7 +356,7 @@ final class MangaDetailViewModel: ObservableObject {
     /// Returns the next chapter ID to open, respecting skip settings.
     /// Sources return chapters newest-first; sort DESC by sourceOrder = story order (earliest first).
     func nextChapterId(after chapterId: Int64) -> Int64? {
-        let sorted = allChapters.sorted { $0.sourceOrder > $1.sourceOrder }
+        let sorted = sortedStoryOrder(allChapters)
         guard let idx = sorted.firstIndex(where: { $0.id == chapterId }) else { return nil }
         let candidates = sorted.dropFirst(idx + 1)
         return candidates.first(where: { shouldNavigateTo($0) })?.id
@@ -352,7 +365,7 @@ final class MangaDetailViewModel: ObservableObject {
     /// Returns the previous chapter ID to open, respecting skip settings.
     /// Sort ASC by sourceOrder = reverse story order (latest first), so dropFirst yields earlier chapters.
     func previousChapterId(before chapterId: Int64) -> Int64? {
-        let sorted = allChapters.sorted { $0.sourceOrder < $1.sourceOrder }
+        let sorted = Array(sortedStoryOrder(allChapters).reversed())
         guard let idx = sorted.firstIndex(where: { $0.id == chapterId }) else { return nil }
         let candidates = sorted.dropFirst(idx + 1)
         return candidates.first(where: { shouldNavigateTo($0) })?.id
