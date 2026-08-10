@@ -28,10 +28,12 @@ struct LibraryScreen: View {
                 ZStack(alignment: .bottom) {
                     if viewModel.isLoading {
                         LoadingView()
-                    } else if viewModel.totalMangaCount == 0 && !viewModel.currentFilter.hasActiveFilters {
-                        EmptyStateView(
-                            icon: "books.vertical",
-                            message: "Add manga from Browse to get started"
+                } else if viewModel.totalMangaCount == 0,
+                          viewModel.categories.count <= 1,
+                          !viewModel.currentFilter.hasActiveFilters {
+                    EmptyStateView(
+                        icon: "books.vertical",
+                        message: "Add manga from Browse to get started"
                         )
                     } else {
                         libraryContent
