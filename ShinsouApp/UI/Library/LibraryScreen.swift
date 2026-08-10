@@ -215,7 +215,6 @@ struct LibraryScreen: View {
             // Category tabs - only show when there are multiple categories
             if viewModel.categories.count > 1 {
                 categoryTabs
-                    .id(viewModel.categories.map(\.id))
                 Divider()
             }
 
@@ -232,43 +231,43 @@ struct LibraryScreen: View {
     }
 
     private var categoryTabs: some View {
-        ScrollViewReader { proxy in
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
-                    ForEach(Array(viewModel.categories.enumerated()), id: \.element.id) { index, category in
-                        Button {
-                            withAnimation { viewModel.selectedCategoryIndex = index }
-                        } label: {
-                            VStack(spacing: 4) {
-                                HStack(spacing: 4) {
-                                    Text(category.name)
-                                        .font(.subheadline)
-                                    let count = viewModel.libraryItems[category.id]?.count ?? 0
-                                    if count > 0 {
-                                        Text("\(count)")
-                                            .font(.caption2)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(.quaternary, in: Capsule())
-                                    }
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 10)
-
-                                Rectangle()
-                                    .fill(index == viewModel.selectedCategoryIndex ? Color.accentColor : .clear)
-                                    .frame(height: 2)
+        HStack(spacing: 0) {
+            ForEach(Array(viewModel.categories.enumerated()), id: \.element.id) { index, category in
+                Button {
+                    withAnimation { viewModel.selectedCategoryIndex = index }
+                } label: {
+                    VStack(spacing: 4) {
+                        HStack(spacing: 4) {
+                            Text(category.name)
+                                .font(.subheadline)
+                                .foregroundColor(
+                                    index == viewModel.selectedCategoryIndex
+                                        ? Color.accentColor
+                                        : Color.secondary
+                                )
+                            let count = viewModel.libraryItems[category.id]?.count ?? 0
+                            if count > 0 {
+                                Text("\(count)")
+                                    .font(.caption2)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(.quaternary, in: Capsule())
+                                    .foregroundColor(Color.secondary)
                             }
-                            .foregroundStyle(index == viewModel.selectedCategoryIndex ? Color.accentColor : .secondary)
                         }
-                        .id(index)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+
+                        Rectangle()
+                            .fill(index == viewModel.selectedCategoryIndex ? Color.accentColor : .clear)
+                            .frame(height: 2)
                     }
+                    .frame(maxWidth: .infinity, minHeight: 44)
                 }
-            }
-            .onChange(of: viewModel.selectedCategoryIndex) { newIndex in
-                withAnimation { proxy.scrollTo(newIndex, anchor: .center) }
+                .buttonStyle(.plain)
             }
         }
+        .frame(minHeight: 44)
         .background(Color(.systemBackground))
     }
 
