@@ -7,6 +7,7 @@ struct LibraryScreen: View {
     @StateObject private var viewModel: LibraryViewModel
     @State private var showSettings = false
     @State private var showSearch = false
+    @FocusState private var isSearchFieldFocused: Bool
     @State private var showCategoryManagement = false
     @State private var showCategoryPicker = false
     /// When non-nil, triggers navigation to the manga detail screen via the NavigationStack path.
@@ -19,38 +20,53 @@ struct LibraryScreen: View {
 
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .bottom) {
-                if viewModel.isLoading {
-                    LoadingView()
-                } else if viewModel.totalMangaCount == 0 && !viewModel.currentFilter.hasActiveFilters {
-                    EmptyStateView(
-                        icon: "books.vertical",
-                        message: "Add manga from Browse to get started"
-                    )
-                } else {
-                    libraryContent
+            VStack(spacing: 0) {
+                if showSearch {
+                    librarySearchBar
                 }
 
-                // Continue Reading floating button — shown whenever there is a
-                // recently-read manga that still has unread chapters.
-                if let lastRead = viewModel.lastReadItem,
-                   lastRead.unreadCount > 0,
-                   !viewModel.isSelectionMode {
-                    continueReadingBanner(for: lastRead)
-                        .padding(.bottom, 16)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                ZStack(alignment: .bottom) {
+                    if viewModel.isLoading {
+                        LoadingView()
+                    } else if viewModel.totalMangaCount == 0 && !viewModel.currentFilter.hasActiveFilters {
+                        EmptyStateView(
+                            icon: "books.vertical",
+                            message: "Add manga from Browse to get started"
+                        )
+                    } else {
+                        libraryContent
+                    }
+
+                    // Continue Reading floating button — shown whenever there is a
+                    // recently-read manga that still has unread chapters.
+                    if let lastRead = viewModel.lastReadItem,
+                       lastRead.unreadCount > 0,
+                       !viewModel.isSelectionMode {
+                        continueReadingBanner(for: lastRead)
+                            .padding(.bottom, 16)
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                    }
                 }
             }
             .animation(.spring(response: 0.35, dampingFraction: 0.8), value: viewModel.lastReadItem?.id)
             .navigationTitle(MR.strings.tabLibrary)
             .toolbar { toolbarContent }
-            .searchable(text: $viewModel.searchQuery, prompt: MR.strings.librarySearchPrompt)
+            .onChange(of: showSearch) { isPresented in
+                isSearchFieldFocused = isPresented
+            }
             .sheet(isPresented: $showSettings) {
                 LibrarySettingsSheet(viewModel: viewModel)
                     .presentationDetents([.medium, .large])
             }
-            .sheet(isPresented: $showCategoryManagement) {
-                CategoryManagementSheet(categoryRepository: DIContainer.shared.categoryRepository)
+            .sheet(isPresented: $showCategoryManagement, onDismiss: {
+                Task { await viewModel.refreshCategories() }
+            }) {
+                CategoryManagementSheet(
+                    categoryRepository: DIContainer.shared.categoryRepository,
+                    onCategoriesChanged: {
+                        Task { await viewModel.refreshCategories() }
+                    }
+                )
                     .presentationDetents([.medium, .large])
             }
             .sheet(isPresented: $showCategoryPicker) {
@@ -72,6 +88,45 @@ struct LibraryScreen: View {
                 ReaderContainerView(mangaId: dest.mangaId, chapterId: dest.chapterId)
             }
         }
+    }
+
+    // MARK: - Search
+
+    private var librarySearchBar: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(.secondary)
+
+            TextField(MR.strings.librarySearchPrompt, text: $viewModel.searchQuery)
+                .focused($isSearchFieldFocused)
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled()
+
+            if !viewModel.searchQuery.isEmpty {
+                Button {
+                    viewModel.searchQuery = ""
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.secondary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Clear search")
+            }
+
+            Button {
+                showSearch = false
+            } label: {
+                Image(systemName: "xmark")
+                    .foregroundStyle(.secondary)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Close search")
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 9)
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 
     // MARK: - Continue Reading Banner
@@ -258,12 +313,14 @@ struct LibraryScreen: View {
                     Button { showSearch = true } label: {
                         Image(systemName: "magnifyingglass")
                     }
+                    .accessibilityLabel(MR.strings.librarySearchPrompt)
 
                     Button { showSettings = true } label: {
                         Image(systemName: viewModel.currentFilter.hasActiveFilters
                               ? "line.3.horizontal.decrease.circle.fill"
                               : "line.3.horizontal.decrease.circle")
                     }
+                    .accessibilityLabel(MR.strings.libraryFilter)
 
                     Menu {
                         Button {
@@ -274,6 +331,7 @@ struct LibraryScreen: View {
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
+                    .accessibilityLabel(MR.strings.libraryManageCategories)
                 }
             }
         }

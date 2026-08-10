@@ -4,6 +4,7 @@ import ShinsouI18n
 @main
 struct ShinsouApp: App {
     @StateObject private var container = DIContainer.shared
+    @AppStorage(SettingsKeys.appTheme) private var appTheme = AppTheme.system.rawValue
 
     /// Tracks language changes to force a full view refresh.
     @State private var languageRefreshId = UUID()
@@ -26,6 +27,8 @@ struct ShinsouApp: App {
         WindowGroup {
             MainView()
                 .environmentObject(container)
+                .preferredColorScheme(AppTheme(rawValue: appTheme)?.colorScheme)
+                .amoledDarkBackground()
                 .id(languageRefreshId)
                 .onReceive(NotificationCenter.default.publisher(for: LanguageManager.languageDidChangeNotification)) { _ in
                     languageRefreshId = UUID()

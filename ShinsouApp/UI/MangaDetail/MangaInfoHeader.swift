@@ -1,6 +1,8 @@
 import SwiftUI
+import WebKit
 import ShinsouDomain
 import ShinsouI18n
+import ShinsouSourceAPI
 import Nuke
 import NukeUI
 import UIKit
@@ -18,6 +20,7 @@ struct MangaInfoHeader: View {
     @State private var customCoverSavedMessage: String? = nil
     @State private var showSaveSuccessAlert = false
     @State private var saveAlertMessage = ""
+    @State private var webViewDestination: MangaWebViewDestination?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -86,7 +89,8 @@ struct MangaInfoHeader: View {
                     label: MR.strings.mangaWebview,
                     tint: .secondary
                 ) {
-                    // TODO: open webview
+                    guard let url = MangaWebURLResolver.resolve(manga: manga) else { return }
+                    webViewDestination = MangaWebViewDestination(url: url, title: manga.title)
                 }
             }
             .padding(.bottom, 8)
@@ -101,6 +105,9 @@ struct MangaInfoHeader: View {
                 request: coverPreviewRequest,
                 fallbackImage: loadedCoverImage
             )
+        }
+        .sheet(item: $webViewDestination) { destination in
+            MangaWebViewScreen(url: destination.url, title: destination.title)
         }
         .alert(MR.strings.mangaCoverImage, isPresented: $showSaveSuccessAlert) {
             Button(MR.strings.commonOk) {}

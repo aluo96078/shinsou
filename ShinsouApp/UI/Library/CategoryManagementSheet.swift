@@ -20,6 +20,15 @@ struct CategoryManagementSheet: View {
     // MARK: - Dependencies
 
     let categoryRepository: CategoryRepository
+    let onCategoriesChanged: (() -> Void)?
+
+    init(
+        categoryRepository: CategoryRepository,
+        onCategoriesChanged: (() -> Void)? = nil
+    ) {
+        self.categoryRepository = categoryRepository
+        self.onCategoriesChanged = onCategoriesChanged
+    }
 
     // MARK: - Local State
 
@@ -192,6 +201,7 @@ struct CategoryManagementSheet: View {
                 let newCat = Category(id: -1, name: name, sort: nextSort, flags: 0)
                 let newId = try await categoryRepository.insert(category: newCat)
                 categories.append(Category(id: newId, name: name, sort: nextSort, flags: 0))
+                onCategoriesChanged?()
             } catch {
                 errorMessage = "Failed to create category: \(error.localizedDescription)"
             }
@@ -215,6 +225,7 @@ struct CategoryManagementSheet: View {
                 if let idx = categories.firstIndex(where: { $0.id == target.id }) {
                     categories[idx] = updated
                 }
+                onCategoriesChanged?()
             } catch {
                 errorMessage = "Failed to rename category: \(error.localizedDescription)"
             }
@@ -234,6 +245,7 @@ struct CategoryManagementSheet: View {
                     errorMessage = "Failed to delete \"\(cat.name)\": \(error.localizedDescription)"
                 }
             }
+            onCategoriesChanged?()
         }
     }
 
@@ -258,6 +270,7 @@ struct CategoryManagementSheet: View {
                     errorMessage = "Failed to save order: \(error.localizedDescription)"
                 }
             }
+            onCategoriesChanged?()
         }
     }
 }

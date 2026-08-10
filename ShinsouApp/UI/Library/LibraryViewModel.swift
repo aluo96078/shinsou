@@ -63,6 +63,28 @@ final class LibraryViewModel: ObservableObject {
 
     private var hasSetInitialCategory = false
 
+    /// Apply a fresh category snapshot while keeping the currently selected
+    /// category stable when possible.  The explicit reload is useful after
+    /// closing the category management sheet, where the database observation
+    /// may still be delivering its next value.
+    private func applyCategories(_ userCategories: [ShinsouDomain.Category]) {
+        let selectedCategoryID = categories.indices.contains(selectedCategoryIndex)
+            ? categories[selectedCategoryIndex].id
+            : nil
+        let allCategories: [ShinsouDomain.Category] = [
+            ShinsouDomain.Category(id: 0, name: "Default", sort: 0, flags: 0)
+        ] + userCategories.sorted { $0.sort < $1.sort }
+
+        categories = allCategories
+
+        if let selectedCategoryID,
+           let newIndex = allCategories.firstIndex(where: { $0.id == selectedCategoryID }) {
+            selectedCategoryIndex = newIndex
+        } else {
+            selectedCategoryIndex = min(selectedCategoryIndex, max(0, allCategories.count - 1))
+        }
+    }
+
     private func startObserving() {
         // Observe categories
         categoryObservationTask?.cancel()
@@ -71,16 +93,14 @@ final class LibraryViewModel: ObservableObject {
             let stream = self.categoryRepository.observeAll()
             for await cats in stream {
                 guard !Task.isCancelled else { return }
-                let allCategories: [ShinsouDomain.Category] = [ShinsouDomain.Category(id: 0, name: "Default", sort: 0, flags: 0)]
-                    + cats.sorted { $0.sort < $1.sort }
-                self.categories = allCategories
+                self.applyCategories(cats)
 
                 // Jump to the user's default category on first load
                 if !self.hasSetInitialCategory {
                     self.hasSetInitialCategory = true
                     let defaultCatName = UserDefaults.standard.string(forKey: SettingsKeys.defaultCategory) ?? "Default"
                     if defaultCatName != "Default" && defaultCatName != "__ask__" {
-                        if let idx = allCategories.firstIndex(where: { $0.name == defaultCatName }) {
+                        if let idx = self.categories.firstIndex(where: { $0.name == defaultCatName }) {
                             self.selectedCategoryIndex = idx
                         }
                     }
@@ -99,6 +119,18 @@ final class LibraryViewModel: ObservableObject {
                 self.processLibraryData(libraryMangas)
                 self.isLoading = false
             }
+        }
+    }
+
+    /// Reload categories immediately after a category-management action.
+    func refreshCategories() async {
+        do {
+            let userCategories = try await categoryRepository.getAll()
+            applyCategories(userCategories)
+        } catch {
+            // The live observation remains active and will recover on its next
+            // value; there is nothing actionable for the library screen here.
+            print("Error refreshing categories: \(error)")
         }
     }
 

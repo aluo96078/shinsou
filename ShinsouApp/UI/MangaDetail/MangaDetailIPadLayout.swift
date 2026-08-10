@@ -10,6 +10,7 @@ import NukeUI
 struct MangaDetailIPadLayout: View {
     @ObservedObject var viewModel: MangaDetailViewModel
     @State private var showChapterFilterSheet = false
+    @State private var webViewDestination: MangaWebViewDestination?
 
     var body: some View {
         Group {
@@ -28,6 +29,9 @@ struct MangaDetailIPadLayout: View {
         .sheet(isPresented: $showChapterFilterSheet) {
             ChapterFilterSheet(viewModel: viewModel)
                 .presentationDetents([.medium])
+        }
+        .sheet(item: $webViewDestination) { destination in
+            MangaWebViewScreen(url: destination.url, title: destination.title)
         }
     }
 
@@ -219,7 +223,9 @@ struct MangaDetailIPadLayout: View {
                 label: MR.strings.mangaWebview,
                 tint: .secondary
             ) {
-                // TODO: 開啟 WebView
+                if let url = MangaWebURLResolver.resolve(manga: manga) {
+                    webViewDestination = MangaWebViewDestination(url: url, title: manga.title)
+                }
             }
         }
     }
