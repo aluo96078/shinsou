@@ -37,6 +37,7 @@ final class LibraryViewModel: ObservableObject {
 
     private var observationTask: Task<Void, Never>?
     private var categoryObservationTask: Task<Void, Never>?
+    private var categoryChangeObserver: NSObjectProtocol?
 
     // Cache for latest library manga data
     private var latestLibraryMangas: [LibraryManga] = []
@@ -51,12 +52,25 @@ final class LibraryViewModel: ObservableObject {
         self.columnsPortrait = preferences.libraryColumnsPortrait
         self.columnsLandscape = preferences.libraryColumnsLandscape
 
+        categoryChangeObserver = NotificationCenter.default.addObserver(
+            forName: .shinsouCategoryDidChange,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor [weak self] in
+                await self?.refreshCategories()
+            }
+        }
+
         startObserving()
     }
 
     deinit {
         observationTask?.cancel()
         categoryObservationTask?.cancel()
+        if let categoryChangeObserver {
+            NotificationCenter.default.removeObserver(categoryChangeObserver)
+        }
     }
 
     // MARK: - Observation
@@ -90,20 +104,30 @@ final class LibraryViewModel: ObservableObject {
         categoryObservationTask?.cancel()
         categoryObservationTask = Task { [weak self] in
             guard let self else { return }
-            let stream = self.categoryRepository.observeAll()
-            for await cats in stream {
-                guard !Task.isCancelled else { return }
-                self.applyCategories(cats)
+            while !Task.isCancelled {
+                let stream = self.categoryRepository.observeAll()
+                for await cats in stream {
+                    guard !Task.isCancelled else { return }
+                    self.applyCategories(cats)
 
-                // Jump to the user's default category on first load
-                if !self.hasSetInitialCategory {
-                    self.hasSetInitialCategory = true
-                    let defaultCatName = UserDefaults.standard.string(forKey: SettingsKeys.defaultCategory) ?? "Default"
-                    if defaultCatName != "Default" && defaultCatName != "__ask__" {
-                        if let idx = self.categories.firstIndex(where: { $0.name == defaultCatName }) {
-                            self.selectedCategoryIndex = idx
+                    // Jump to the user's default category on first load
+                    if !self.hasSetInitialCategory {
+                        self.hasSetInitialCategory = true
+                        let defaultCatName = UserDefaults.standard.string(forKey: SettingsKeys.defaultCategory) ?? "Default"
+                        if defaultCatName != "Default" && defaultCatName != "__ask__" {
+                            if let idx = self.categories.firstIndex(where: { $0.name == defaultCatName }) {
+                                self.selectedCategoryIndex = idx
+                            }
                         }
                     }
+                }
+
+                // A ValueObservation stream finishes after an observation error.
+                // Recreate it so a transient database error does not leave the
+                // library permanently stale until the next app launch.
+                if !Task.isCancelled {
+                    await self.refreshCategories()
+                    try? await Task.sleep(for: .milliseconds(100))
                 }
             }
         }

@@ -2,6 +2,11 @@ import Foundation
 import GRDB
 import ShinsouDomain
 
+public extension Notification.Name {
+    /// Posted after the category table has been successfully changed.
+    static let shinsouCategoryDidChange = Notification.Name("shinsou.categoryDidChange")
+}
+
 public final class CategoryRepositoryImpl: CategoryRepository {
     private let dbPool: DatabasePool
 
@@ -57,11 +62,13 @@ public final class CategoryRepositoryImpl: CategoryRepository {
     // MARK: - Write
 
     public func insert(category: ShinsouDomain.Category) async throws -> Int64 {
-        try await dbPool.write { db in
-            var record = CategoryRecord.from(domain: category)
+        let id = try await dbPool.write { db in
+            let record = CategoryRecord.from(domain: category)
             try record.insert(db)
             return db.lastInsertedRowID
         }
+        NotificationCenter.default.post(name: .shinsouCategoryDidChange, object: nil)
+        return id
     }
 
     public func update(category: ShinsouDomain.Category) async throws {
@@ -69,12 +76,14 @@ public final class CategoryRepositoryImpl: CategoryRepository {
             let record = CategoryRecord.from(domain: category)
             try record.update(db)
         }
+        NotificationCenter.default.post(name: .shinsouCategoryDidChange, object: nil)
     }
 
     public func delete(categoryId: Int64) async throws {
         try await dbPool.write { db in
             _ = try CategoryRecord.deleteOne(db, key: categoryId)
         }
+        NotificationCenter.default.post(name: .shinsouCategoryDidChange, object: nil)
     }
 
     public func setMangaCategories(mangaId: Int64, categoryIds: [Int64]) async throws {
