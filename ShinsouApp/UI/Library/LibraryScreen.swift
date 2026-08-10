@@ -53,6 +53,9 @@ struct LibraryScreen: View {
             .animation(.spring(response: 0.35, dampingFraction: 0.8), value: viewModel.lastReadItem?.id)
             .navigationTitle(MR.strings.tabLibrary)
             .toolbar { toolbarContent }
+            .task {
+                await viewModel.refreshCategories()
+            }
             .onChange(of: showSearch) { isPresented in
                 isSearchFieldFocused = isPresented
             }
@@ -212,6 +215,7 @@ struct LibraryScreen: View {
             // Category tabs - only show when there are multiple categories
             if viewModel.categories.count > 1 {
                 categoryTabs
+                    .id(viewModel.categories.map(\.id))
                 Divider()
             }
 
