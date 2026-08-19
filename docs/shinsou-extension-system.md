@@ -1,4 +1,7 @@
-# Shinsou 插件系統完整文件
+# Shinsou 舊版插件系統文件（已停止開發）
+
+> [!WARNING]
+> 本文件描述的是已停止開發的 Swift／JavaScriptCore 舊版架構，僅供歷史參考。專案已全面轉向 **[Shinsou X](https://github.com/aluo96078/shinsoux)**；擴充套件的目前行為、相容性與安全邊界請以新版文件為準。
 
 > 此文件描述 Shinsou iOS 漫畫閱讀器的 JavaScript 插件系統架構與開發指南。
 

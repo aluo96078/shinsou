@@ -1,4 +1,9 @@
-# Shinsou
+# Shinsou（已停止開發）
+
+> [!IMPORTANT]
+> **開發狀態：已停止開發**
+>
+> 此 Swift／SwiftUI 版本已停止開發與維護。專案後續開發已全面轉向跨平台新版 **[Shinsou X](https://github.com/aluo96078/shinsoux)**；新功能、問題修復與最新文件均以 Shinsou X 為準。本倉庫僅保留作為歷史參考。
 
 Shinsou 是一款 iOS 原生漫畫閱讀器，靈感來自 [Mihon](https://github.com/mihonapp/mihon)（原 Tachiyomi）Android 漫畫閱讀器，使用 Swift 與 SwiftUI 從零打造，提供完整的漫畫瀏覽、閱讀與管理體驗。
 

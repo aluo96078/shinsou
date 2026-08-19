@@ -1,4 +1,7 @@
-# Shinsou iOS 完整功能清單
+# Shinsou iOS 舊版功能清單（已停止開發）
+
+> [!WARNING]
+> 本文件屬於已停止開發的舊版 Shinsou（Swift／SwiftUI），內容僅供歷史參考，可能與目前實作不一致。專案已全面轉向 **[Shinsou X](https://github.com/aluo96078/shinsoux)**，請以新版文件為準。
 
 > 此文件記錄 Shinsou iOS 漫畫閱讀器的完整功能實作狀態。
 
