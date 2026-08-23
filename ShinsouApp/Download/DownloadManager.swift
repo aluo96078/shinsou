@@ -138,6 +138,8 @@ final class DownloadManager: ObservableObject {
             // Get page list
             let sChapter = SChapter(url: item.chapter.url)
             let pages = try await source.getPageList(chapter: sChapter)
+            let sourceHeaders = (source as? JSSourceProxy)?.sourceHeaders ?? [:]
+            let sourceId = source.id
 
             guard let idx = queue.firstIndex(where: { $0.id == item.id }) else { return }
             queue[idx].totalPages = pages.count
@@ -168,9 +170,18 @@ final class DownloadManager: ObservableObject {
                     group.addTask {
                         do {
                             let urlString = page.imageUrl ?? page.url
-                            guard let url = URL(string: urlString) else { return (pageIndex, false) }
+                            let (cleanUrlString, fragmentHeaders) = ReaderPageViewController.extractFragmentHeaders(from: urlString)
+                            var headers = sourceHeaders
+                            for (key, value) in fragmentHeaders {
+                                headers[key] = value
+                            }
+                            guard let request = NetworkHelper.shared.imageURLRequest(
+                                for: cleanUrlString,
+                                headers: headers,
+                                sourceId: sourceId
+                            ) else { return (pageIndex, false) }
 
-                            let (data, _) = try await URLSession.shared.data(from: url)
+                            let (data, _) = try await URLSession.shared.data(for: request)
                             let filePath = downloadDir.appendingPathComponent(String(format: "%03d.jpg", pageIndex))
                             try data.write(to: filePath)
                             return (pageIndex, true)

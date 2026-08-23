@@ -334,8 +334,13 @@ final class ReaderViewModel: ObservableObject {
 
     /// Pre-download an image into Nuke's cache.
     private nonisolated func prefetchImage(urlString: String, headers: [String: String], referer: String?, sourceId: Int64?) {
+        let (cleanUrlString, fragmentHeaders) = ReaderPageViewController.extractFragmentHeaders(from: urlString)
+        var mergedHeaders = headers
+        for (key, value) in fragmentHeaders {
+            mergedHeaders[key] = value
+        }
         guard let urlRequest = NetworkHelper.shared.imageURLRequest(
-            for: urlString, headers: headers, referer: referer, sourceId: sourceId
+            for: cleanUrlString, headers: mergedHeaders, referer: referer, sourceId: sourceId
         ) else { return }
         let request = ImageRequest(urlRequest: urlRequest)
         Task { @MainActor [weak self] in

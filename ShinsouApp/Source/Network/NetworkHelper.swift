@@ -385,8 +385,12 @@ final class NetworkHelper {
             request.setValue(value, forHTTPHeaderField: key)
         }
 
-        if let referer {
+        // A per-request Referer (for example one encoded by a source in a page URL
+        // fragment) is more specific than the reader's source-level fallback.
+        if let referer, request.value(forHTTPHeaderField: "Referer") == nil {
             request.setValue(referer, forHTTPHeaderField: "Referer")
+        }
+        if let referer, request.value(forHTTPHeaderField: "Origin") == nil {
             request.setValue(referer, forHTTPHeaderField: "Origin")
         }
 
